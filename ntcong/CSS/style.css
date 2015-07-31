@@ -1,0 +1,123 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	min-height:100%;
+}
+#container {
+	width:976px;
+	min-height:100%;
+	margin:0px auto;
+	background-color:#000;
+}
+.Banner {
+	width:100%;
+	min-height:100%;
+	float:left;
+	background-color:#0F0;
+}
+.MainContent {
+	width:100%;
+	min-height:100%;
+	float:left;
+	background-color:#00F;
+	border-bottom:1px dashed #CCCCCC;
+}
+.Content {
+	min-height:100%;
+	width:100%;
+	border-top:1px dotted #333333;
+}
+.More {
+	min-height:100%;
+	width:100%;
+	text-align:right;
+	float:left;
+}
+.More a {
+	font-style:italic;
+	text-decoration:none;	
+}
+.Info {
+	width:25%;
+	min-height:100%;
+	float:left;
+	clear:both;
+	background-color:#FF0;
+}
+.Knowledge {
+	background-color:#0FF;
+	float:left;
+}
+.SlidePet {
+	background-color:#F0F;
+	float:right;
+}
+.Knowledge, .SlidePet {
+	width:75%;
+	min-height:100%;
+}
+.DeTailKnowledge, .DeTailNews {
+	width:100%;
+	min-height:100%;
+	background-color:#FFF;
+	float:left;
+}
+.News {
+	width:25%;
+	min-height:100%;
+	float:right;
+	background-color:#900;
+}
+.PicandClip {
+	width:50%;
+	min-height:100%;
+	float:left;
+	background-color:#0F0;
+	text-align:center;
+}
+.Navigator {
+	float:left;
+	width:33.33%;
+	background-color:#FF0;
+	min-height:100%;
+}
+.Footer {
+	width:100%;
+	float:left;
+	background-color:#9FF;
+	min-height:100%;
+	text-align:center;
+}
+.ContentPet {
+	width:100%;
+	float:left;
+	background-color:#99C;
+}
+.ThubmPet {
+	width:25%;
+	float:left;
+	background-color:#CFF;
+}
+.ImagePet {
+	background-color:#C00;
+}
+.DetailPet {
+	background-color:#C0F;
+}
+.ImagePet, .DetailPet {
+	width:100%;
+	float:left;
+	text-align:center;
+	
+}
+h1 {
+	text-align:center;
+	color:#F00;
+	margin:0px;
+}
+li {
+	text-align:left;
+	margin:0px;
+}
+
+
