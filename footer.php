@@ -14,8 +14,14 @@
     <link href="css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-    <script src="js/custom.js"></script>
+    <!--<script src="js/custom.js"></script>-->
     <script src="js/bootstrap.min.js"></script>
+        <!-- Slick slide -->
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="slick/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="slick/slick.min.js"></script>
 </head>
 
 <body>

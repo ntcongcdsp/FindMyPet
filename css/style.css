@@ -1,4 +1,12 @@
-﻿.slide-holder{
+﻿body {
+	background-color: lightgrey;
+	min-height:100%;
+}
+.imgSlide {
+	width:auto;
+	height:120px;
+}
+.slide-holder{
 margin:0 auto;
 }
 

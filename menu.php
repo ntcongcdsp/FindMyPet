@@ -10,12 +10,24 @@
 	<script src="js/jquery-1.11.3.min.js"> </script>
 	<script src="js/jquery.min.js"></script>
 	<script src="./js/ie-emulation-modes-warning.js"></script>
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript"> </script>
+	<!--<script src="js/jquery.min.js"></script>
+	<script src="./js/ie-emulation-modes-warning.js"></script>-->
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
     <script src="js/custom.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/custom.js"></script>-->
+    <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
+   
+    <!-- Slick slide -->
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="slick/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="slick/slick.min.js"></script>
 </head>
 
 <body>
@@ -35,6 +47,8 @@
 					<li class="active"><a href="index.php">Trang chủ</a></li>
 					<li class="active"><a href="indexfind.php">Tin mất thú</a></li>
 					<li class="active"><a href="indexlost.php">Tin tìm chủ</a></li>
+					<li class="active"><a href="indexlost.php">Tin mất thú</a></li>
+					<li class="active"><a href="indexfind.php">Tin tìm chủ</a></li>
 					<li class="active"><a href="knowledge.php">Kiến thức cơ bản</a></li>
 					<li class="active"><a href="news.php">tin tức</a></li>		
 				</ul>

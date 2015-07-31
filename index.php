@@ -6,15 +6,22 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="js/jquery-1.11.3.min.js"> </script>
-	<script src="js/jquery.min.js"></script>
-	<script src="./js/ie-emulation-modes-warning.js"></script>
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript"> </script>
+	<!--<script src="js/jquery.min.js"></script>
+	<script src="./js/ie-emulation-modes-warning.js"></script>-->
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-    <script src="js/custom.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/custom.js"></script>-->
+    <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
+   
+    <!-- Slick slide -->
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="slick/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="slick/slick.min.js"></script>
 </head>
 <body style="background-color: lightgrey;">
 	<?php
@@ -44,7 +51,17 @@
         	</div>
     	</div>
         <div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:637px;">
-            chèn slide hình mất chó
+            <!-- chèn slide ảnh chó bị mất-->
+            <div id="SlideLostPet" align="center" style="margin-top:30px">
+            	<div><a href="img/1.jpg"><img src="img/1.jpg" class="imgSlide"/></a>
+                </div>
+                <div><img src="img/2.jpg" class="imgSlide"/></div>
+                <div><img src="img/3.jpg" class="imgSlide"/></div>
+                <div><img src="img/4.jpg" class="imgSlide"/></div>
+                <div><img src="img/6.jpg" class="imgSlide"/></div>
+                <div><img src="img/2.jpg" class="imgSlide"/></div>
+            </div>
+            <!-- Kết thúc chèn slide -->
         </div>
 	</div>    
     <div class="row">
@@ -67,7 +84,16 @@
 			</div>
 		</div>
 		<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:637px;">
-			chèn slide hình tìm chó
+			<!-- chèn slide ảnh tìm chủ-->
+            <div id="SlideFindOwner" align="center" style="margin-top:30px">
+            	<div><a href="img/15.jpg"><img src="img/15.jpg" class="imgSlide"/></a>
+                </div>
+                <div><img src="img/9.jpg" class="imgSlide"/></div>
+                <div><img src="img/10.jpg" class="imgSlide"/></div>
+                <div><img src="img/11.jpg" class="imgSlide"/></div>
+                <div><img src="img/12.jpg" class="imgSlide"/></div>
+            </div>
+            <!-- Kết thúc chèn slide -->
 		</div>
     </div>
     
@@ -137,6 +163,22 @@
 		include("footer.php");
 	?>
 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+  		$("#SlideLostPet").slick({
+			slidesToShow: 4,
+			slideToScroll : 4,
+			autoplay: true,
+			autoplaySpeed: 2000,
+  		});
+		$("#SlideFindOwner").slick({
+			slidesToShow: 4,
+			slideToScroll : 4,
+			autoplay: true,
+			autoplaySpeed: 2000,
+  		});
+	});
+</script>
 </body>
 
 </html>
