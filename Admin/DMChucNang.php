@@ -30,13 +30,17 @@
             	<img class="thumbnail" src="../img/3.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
             	<br>
             	<h3 style="margin-top:0px;">Quản lý bài viết</h3>
+            	<h3 style="margin-top:0px;">Quản lý Bài viết</h3>
 			</a>
         </div>
         <div class="col-xs-4" align="center">
             <a href="../find.php">
             	<img class="thumbnail" src="../img/3.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
+            <a href="QLThuCung.php">
+            	<img class="thumbnail" src="../img/13.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
             	<br>
             	<h3 style="margin-top:0px;">Chức năng 2</h3>
+            	<h3 style="margin-top:0px;">Quản lý Thú cưng</h3>
 			</a>
         </div>
         <div class="col-xs-4" align="center">
@@ -65,8 +69,11 @@
         <div class="col-xs-4" align="center">
             <a href="../find.php">
             	<img class="thumbnail" src="../img/3.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
+            <a href="QLUser.php">
+            	<img class="thumbnail" src="../img/9.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
             	<br>
             	<h3 style="margin-top:0px;">Chức năng 3</h3>
+            	<h3 style="margin-top:0px;">Quản lý User</h3>
 			</a>
         </div>
     </div>

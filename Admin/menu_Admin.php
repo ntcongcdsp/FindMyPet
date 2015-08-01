@@ -37,6 +37,9 @@
 					<li class="active"><a href="#">Chức năng 1</a></li>
 					<li class="active"><a href="#">Chức năng 1</a></li>
 					<li class="active"><a href="#">Chức năng 1</a></li>		
+					<li class="active"><a href="QLBaiViet.php">Quản lý Bài viết</a></li>
+					<li class="active"><a href="QLThuCung.php">Quản lý Thú cưng</a></li>
+					<li class="active"><a href="QLUser.php">Quản lý User</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
