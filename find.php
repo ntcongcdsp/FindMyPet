@@ -91,21 +91,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-8"  style=" height: 180px;width:637px;">
-		<div class="slide-holder" >
-			<div class="slide-pager" >
-				<div class="slide-control-prev">«</div>
-				<div class="slide-control-next">»</div>
-			</div>
-			<div class="slide-container" style="height:175px">
-				<div class="slide-stage">
-					<div class="slide-image"><img src="img/1.jpg" style="width:98%;height:175px "/></div>
-					<div class="slide-image"><img src="img/2.jpg" style="width:98%; height:175px"/></div>
-					<div class="slide-image"><img src="img/6.jpg" style="width:98%;height:175px "/></div>
-					<div class="slide-image"><img src="img/7.jpg" style="width:98%;height:175px"/></div>
-				</div>
-			</div>
-		</div>
+	
 	<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:637px;">
 		<!-- chèn slide ảnh chó bị mất-->
         <div id="SlideLostPet" align="center" style="margin-top:30px">
@@ -120,11 +106,12 @@
         <!-- Kết thúc chèn slide -->
 	</div>
 </div>    
-</div>
+
     
 <?php
 	include("footer.php");
 ?>
+</div>
 <script type="text/javascript">
 	$(document).ready(function(){
   		$("#SlideLostPet").slick({

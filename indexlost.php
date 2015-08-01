@@ -6,9 +6,6 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="js/jquery-1.11.3.min.js"> </script>
-	<script src="js/jquery.min.js"></script>
-	<script src="./js/ie-emulation-modes-warning.js"></script>
 	<script src="js/jquery-1.11.3.min.js" type="text/javascript"> </script>
 	<!--<script src="js/jquery.min.js"></script>
 	<script src="./js/ie-emulation-modes-warning.js"></script>-->
@@ -16,8 +13,6 @@
     <link href="css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-    <script src="js/custom.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <!--<script src="js/custom.js"></script>-->
     <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
    
@@ -140,21 +135,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-8"  style=" height: 180px;width:637px;">
-		<div class="slide-holder" >
-			<div class="slide-pager" >
-				<div class="slide-control-prev">«</div>
-				<div class="slide-control-next">»</div>
-			</div>
-			<div class="slide-container" style="height:175px">
-				<div class="slide-stage">
-					<div class="slide-image"><img src="img/1.jpg" style="width:98%;height:175px "/></div>
-					<div class="slide-image"><img src="img/2.jpg" style="width:98%; height:175px"/></div>
-					<div class="slide-image"><img src="img/6.jpg" style="width:98%;height:175px "/></div>
-					<div class="slide-image"><img src="img/7.jpg" style="width:98%;height:175px"/></div>
-				</div>
-			</div>
-		</div>
+	
 	<div class="col-xs-8" style="background-color:lightblue; height: 180px;width:637px;">
 		<!-- chèn slide ảnh tìm chủ-->
         <div id="SlideFindOwner" align="center" style="margin-top:30px">

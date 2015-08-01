@@ -13,8 +13,7 @@
     <link href="../css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
-    <script src="../js/custom.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+
 </head>
 <body style="background-color: lightgrey;min-height:100%;">
 	<?php

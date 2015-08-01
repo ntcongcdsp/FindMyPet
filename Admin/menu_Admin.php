@@ -14,8 +14,7 @@
     <link href="../css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
-    <script src="../js/custom.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -32,11 +31,7 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;  ">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="../index.php">Trang chủ</a></li>
-					<li class="active"><a href="#">Chức năng 1</a></li>
-					<li class="active"><a href="#">Chức năng 1</a></li>
-					<li class="active"><a href="#">Chức năng 1</a></li>
-					<li class="active"><a href="#">Chức năng 1</a></li>		
+					<li class="active"><a href="../index.php">Trang chủ</a></li>	
 					<li class="active"><a href="QLBaiViet.php">Quản lý Bài viết</a></li>
 					<li class="active"><a href="QLThuCung.php">Quản lý Thú cưng</a></li>
 					<li class="active"><a href="QLUser.php">Quản lý User</a></li>
