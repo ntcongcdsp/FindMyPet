@@ -1,9 +1,16 @@
 <?php
 class ConnectDB {
+	//Server local dùng để test web, chức năng
 	private static $servername = "localhost";
 	private static $username = "root";
 	private static $password = "";
 	private static $databasename = "FindMyPet";
+
+//Server internet dùng để nhập dữ liệu chung của nhóm
+	/*private static $servername = "sql6.freemysqlhosting.net";
+	private static $username = "sql685411";
+	private static $password = "qK6!zD4%";
+	private static $dbname = "sql685411";*/
 	
 	private static $conn = null;
 	

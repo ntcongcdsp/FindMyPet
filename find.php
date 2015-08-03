@@ -6,9 +6,6 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="js/jquery-1.11.3.min.js"> </script>
-	<script src="js/jquery.min.js"></script>
-	<script src="./js/ie-emulation-modes-warning.js"></script>
 	<script src="js/jquery-1.11.3.min.js" type="text/javascript"> </script>
 	<!--<script src="js/jquery.min.js"></script>
 	<script src="./js/ie-emulation-modes-warning.js"></script>-->
@@ -16,8 +13,6 @@
     <link href="css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-    <script src="js/custom.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <!--<script src="js/custom.js"></script>-->
     <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
    
