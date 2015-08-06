@@ -52,7 +52,7 @@
     	</div>
         <div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:637px;">
             <!-- chèn slide ảnh chó bị mất-->
-            <div id="SlideLostPet" align="center" style="margin-top:30px">
+            <!--<div id="SlideLostPet" align="center" style="margin-top:30px">
             	<div><a href="img/1.jpg"><img src="img/1.jpg" class="imgSlide"/></a>
                 </div>
                 <div><img src="img/2.jpg" class="imgSlide"/></div>
@@ -60,7 +60,10 @@
                 <div><img src="img/4.jpg" class="imgSlide"/></div>
                 <div><img src="img/6.jpg" class="imgSlide"/></div>
                 <div><img src="img/2.jpg" class="imgSlide"/></div>
-            </div>
+            </div>-->
+            <?php
+				include ("slidelost.php");
+			?>
             <!-- Kết thúc chèn slide -->
         </div>
 	</div>    
@@ -85,14 +88,17 @@
 		</div>
 		<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:637px;">
 			<!-- chèn slide ảnh tìm chủ-->
-            <div id="SlideFindOwner" align="center" style="margin-top:30px">
+            <!--<div id="SlideFindOwner" align="center" style="margin-top:30px">
             	<div><a href="img/15.jpg"><img src="img/15.jpg" class="imgSlide"/></a>
                 </div>
                 <div><img src="img/9.jpg" class="imgSlide"/></div>
                 <div><img src="img/10.jpg" class="imgSlide"/></div>
                 <div><img src="img/11.jpg" class="imgSlide"/></div>
                 <div><img src="img/12.jpg" class="imgSlide"/></div>
-            </div>
+            </div>-->
+            <?php
+				include ("slidefind.php");
+			?>
             <!-- Kết thúc chèn slide -->
 		</div>
     </div>
