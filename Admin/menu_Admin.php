@@ -38,7 +38,7 @@
 					<li class="active"><a href="QLTaiKhoan.php">Quản lý Tài khoản</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
+					<li class="active"><a href="../PHP/Logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
 					<!--<li class="active"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng kí</a></li>-->
       			</ul>
 			</div><!--/.nav-collapse -->

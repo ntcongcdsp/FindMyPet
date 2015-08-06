@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,8 +45,35 @@
 					<li class="active"><a href="news.php">tin tức</a></li>		
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="Admin/Login.php"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
-					<li class="active"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng kí</a></li>
+                <?php
+					session_start();
+					$rootURL = 'http://localhost:8084/FindMyPet/';
+					if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MatKhau',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+					{
+						
+						if($_SESSION['MaPhanQuyen'] == 1)
+						{
+							echo "<li class='active'><a href='".$rootURL."PHP/DangBai.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
+							echo "<li class='active'><a href='".$rootURL."Admin/DMChucNang.php'><span class='glyphicon glyphicon-user'></span> Danh mục chức năng</a></li>";
+							echo "<li class='active'><a href='".$rootURL."PHP/Logout.php'><span class='glyphicon glyphicon-user'></span> Đăng xuất</a></li>";
+						}
+						else if($_SESSION['MaPhanQuyen'] == 2)
+						{
+							echo "<li class='active'><a href='".$rootURL."PHP/DangBai.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
+							echo "<li class='active'><a href='".$rootURL."PHP/Logout.php'><span class='glyphicon glyphicon-user'></span> Đăng xuất</a></li>";
+						}
+						else
+						{
+							echo "<li class='active'><a href='".$rootURL."PHP/Login.php'><span class='glyphicon glyphicon-user'></span> Đăng nhập</a></li>";
+							echo "<li class='active'><a href='".$rootURL."Khach/DangKy.php'><span class='glyphicon glyphicon-log-in'></span> Đăng ký</a></li>";
+						}
+					}
+					else
+					{
+						echo "<li class='active'><a href='".$rootURL."PHP/Login.php'><span class='glyphicon glyphicon-user'></span> Đăng nhập</a></li>";
+						echo "<li class='active'><a href='".$rootURL."Khach/DangKy.php'><span class='glyphicon glyphicon-log-in'></span> Đăng ký</a></li>";
+					}
+				?>
       			</ul>
 			</div><!--/.nav-collapse -->
 		</div>

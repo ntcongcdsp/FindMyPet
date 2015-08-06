@@ -1,3 +1,17 @@
+<?php
+	session_start();
+	if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+	{
+		if($_SESSION['MaPhanQuyen'] != 1)
+		{
+			header('Location: ../PHP/Login.php');
+		}
+	}
+	else
+	{
+		header('Location: ../PHP/Login.php');
+	}
+?>
 <html>
 <head>
 	<title>Find My Pet</title>
@@ -25,6 +39,42 @@
     </div>
     <div class="row">
     	<!-- Chèn giao diện để quản lý bài viết -->	
+        <br/>
+        	<a href="DangBaiViet.php"><input type="button" value="Đăng bài viết/bản tin mới"/></a>
+
+    		<table class="table table-condensed">
+    		<tr>
+                <th class="info">ID</th>
+                <th class="info">Tiêu đề</th>
+                <th class="info">Nội dung</th>
+                <th class="info">Hình ảnh</th>
+                <th class="info">Người đăng</th>
+				<th class="info">Kiểm duyệt</th>
+                <th class="info">Ngày đăng</th>
+        	</tr>
+			<?php
+				require_once("../PHP/ConnectDB.php");
+				$conn = ConnectDB::connect();
+			
+				$sql = "SELECT * FROM DanhMuc ORDER BY ID ASC";
+				$result = mysqli_query($conn, $sql);
+				if($result->num_rows > 0)
+				{
+					while($row = $result->fetch_assoc())
+					{
+						echo "<tr>";
+							echo "<td>" . $row['ID'] . "</td>";
+							echo "<td>" . $row['TenDanhMuc'] . "</td>";
+							echo "<td>" . $row['MoTa'] . "</td>";
+							echo "<td> <a href='DanhMuc_Sua.php?id=" . $row['ID'] . "'><input type='button' value='Sửa' class='btn btn-success'/></a>
+								<a href='DanhMuc_Xoa.php?id=" . $row['ID'] . "'> <input type='button' value='Xóa' class='btn btn-danger'/> </a> </td>";
+						echo "</tr>";
+						
+					}
+				}
+				ConnectDB::disconnect();
+        	?>
+    </table>
     </div>
     
 </div>

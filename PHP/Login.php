@@ -8,9 +8,10 @@
 
 	if(isset($_POST['submit']))
 	{
+		$rootURL = 'http://localhost:8084/FindMyPet/';
 		if($_POST['TenDN'] != "" && $_POST['MatKhau'] != "")
 		{
-			require_once("../PHP/ConnectDB.php");
+			require_once("ConnectDB.php");
 			$conn = ConnectDB::connect();
 		
 			$sql = "SELECT * FROM User WHERE TenDN = '".$_POST['TenDN']."' AND MatKhau = '".$_POST['MatKhau']."'";
@@ -24,18 +25,13 @@
 				if($row['MaPhanQuyen'] == 1)
 				{
 					ConnectDB::disconnect();
-					header('Location: DMChucNang.php');
+					header('Location: ../Admin/DMChucNang.php');
 				}
 				else
 				{
 					ConnectDB::disconnect();
 					header('Location: ../Index.php');
 				}
-			}
-			else
-			{
-				header('Location: Login.php');
-				ConnectDB::disconnect();
 			}
 		}
 	}
@@ -63,10 +59,6 @@
         </p>
         <p class="submit"><input type="submit" name="submit" value="Đăng nhập"></p>
       </form>
-    </div>
-
-    <div class="login-help">
-      <p>Bạn có muốn lưu mật khẩu hay không? <a href="index.html">Click để thiết lập</a>.</p>
     </div>
     <div class="login-help">
         <a href="#">Tạo tài khoản mới</a>

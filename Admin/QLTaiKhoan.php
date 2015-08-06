@@ -1,3 +1,17 @@
+<?php
+	session_start();
+	if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+	{
+		if($_SESSION['MaPhanQuyen'] != 1)
+		{
+			header('Location: ../PHP/Login.php');
+		}
+	}
+	else
+	{
+		header('Location: ../PHP/Login.php');
+	}
+?>
 <html>
 <head>
 	<title>Find My Pet</title>
@@ -26,6 +40,40 @@
     </div>
     <div class="row">
     	<!-- Chèn giao diện để quản lý User -->	
+        <br/>
+        <a href="TaiKhoan_Ad_Tao.php"><input type="button" value="Tạo tài khoản mới"/></a> 
+
+        <table class="table table-condensed">
+        <tr>
+            <th class="info">Tên đăng nhập</th>
+            <th class="info">Phân quyền</th>
+            <th class="info">Tác vụ</th>
+        </tr>
+        <?php
+            require_once("../PHP/ConnectDB.php");
+            $conn = ConnectDB::connect();
+        
+            $sql = "SELECT TenDN, MoTa FROM User AS A INNER JOIN PhanQuyen AS B ON A.MaPhanQuyen = B.MaPhanQuyen  ORDER BY TenDN ASC";
+            
+            $result = mysqli_query($conn, $sql);
+            if($result->num_rows > 0)
+            {
+                while($row = $result->fetch_assoc())
+                {
+                    echo "<tr>";
+                        echo "<td>" . $row['TenDN'] . "</td>";
+                        echo "<td>" . $row['MoTa'] . "</td>";
+                        echo "<td> 
+                            <a href='TaiKhoan_Xem.php?TenDN=".$row['TenDN']."'><input type='button' value='Chi tiết' class='btn btn-info'/></a>
+                            <a href='TaiKhoan_Sua.php?TenDN=".$row['TenDN']."'><input type='button' value='Sửa' class='btn btn-success'/></a>
+                            <a href='TaiKhoan_Xoa.php?TenDN=".$row['TenDN']."'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
+                            </td>";
+                    echo "</tr>";
+                }
+            }
+            ConnectDB::disconnect();
+        ?>
+		</table>
     </div>
     
 </div>
