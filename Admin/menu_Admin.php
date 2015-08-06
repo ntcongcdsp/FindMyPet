@@ -31,10 +31,11 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;  ">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="../index.php">Trang chủ</a></li>	
-					<li class="active"><a href="QLBaiViet.php">Quản lý Bài viết</a></li>
+					
+                    <li class="active"><a href="DMChucNang.php">Danh mục chức năng </a></li>
+					<li class="active"><a href="QLBaiViet.php">Quản lý Bài viết/Bình luận</a></li>
 					<li class="active"><a href="QLThuCung.php">Quản lý Thú cưng</a></li>
-					<li class="active"><a href="QLUser.php">Quản lý User</a></li>
+					<li class="active"><a href="QLTaiKhoan.php">Quản lý Tài khoản</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>

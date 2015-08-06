@@ -6,15 +6,15 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="js/jquery-1.11.3.min.js"> </script>
-	<script src="js/jquery.min.js"></script>
-	<script src="./js/ie-emulation-modes-warning.js"></script>
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript"> </script>
+	<!--<script src="js/jquery.min.js"></script>
+	<script src="./js/ie-emulation-modes-warning.js"></script>-->
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-    <script src="js/custom.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/custom.js"></script>-->
+    <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
 </head>
 <body style="background-color: lightgrey;">
 	<?php
@@ -55,10 +55,13 @@
 				</div>
 			</div>
             <hr>
-			<div class="row">
-            	<div style="margin-left: 15px;">
-                	<p style="font-size:16px;">phần bình luận</p>
+			<div class="row" style="border: 2px solid green; border-radius:5px;margin-top:15px;">
+            	<div style="text-align:left;font-size: 14px;margin-top:5px;margin-left:15px;">
+                    	Bình luận
 				</div>
+			</div>
+            <div class="row" style="border:1px solid blueviolet;border-radius:4px;margin-top:15px;"> 
+				<a href="#"> <h4 style="margin-left:30px;"> >>> Bài viết có liên quan <<< </h4> </a>
 			</div>
 		</div>
         <div class="col-xs-3" style="width:240px;margin-top:5px;">

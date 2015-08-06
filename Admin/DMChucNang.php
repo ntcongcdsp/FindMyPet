@@ -26,7 +26,7 @@
             <a href="QLBaiViet.php">
             	<img class="thumbnail" src="../img/3.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
             	<br>
-            	<h3 style="margin-top:0px;">Quản lý Bài viết</h3>
+            	<h3 style="margin-top:0px;">Quản lý Bài viết/Bình luận</h3>
 			</a>
         </div>
         <div class="col-xs-4" align="center">
@@ -37,13 +37,14 @@
 			</a>
         </div>
         <div class="col-xs-4" align="center">
-            <a href="QLUser.php">
+            <a href="QLTaiKhoan.php">
             	<img class="thumbnail" src="../img/9.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
             	<br>
-            	<h3 style="margin-top:0px;">Quản lý User</h3>
+            	<h3 style="margin-top:0px;">Quản lý Tài khoản</h3>
 			</a>
         </div>
     </div>
+    
 </div>
 </body>
 </html>
