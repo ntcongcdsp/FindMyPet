@@ -48,6 +48,7 @@
                 <?php
 					session_start();
 					$rootURL = 'http://localhost:8084/FindMyPet/';
+					//include('../PHP/define.php');
 					if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MatKhau',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
 					{
 						
