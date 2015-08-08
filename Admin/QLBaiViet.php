@@ -11,14 +11,7 @@
 	{
 		header('Location: ../PHP/Login.php');
 	}
-?><style type="text/css">
-<!--
-	.timkiem form select{
-	   height: 26px;
-       width: 100px; 
-	}
--->
-</style>
+?>
 <html>
 <head>
 	<title>Find My Pet</title>
@@ -47,17 +40,8 @@
     <div class="row">
     	<!-- Chèn giao diện để quản lý bài viết -->	
         <br/>
-			<div class="timkiem">
-                <a href="DangBaiViet.php"><input type="button" value="Đăng bài viết/bản tin mới"/></a>
-				<form action="index.php" method="get">
-					<input type="text" size="50" name="search" id="search" class="timkiem" autocomplete="off" value=""/>
-						<select name="title"><option value="title">Tìm kiếm</option>
-							<?php
-								?>
-						</select>
-					<input type="submit" value="Tìm" class="bt-search"/>
-				</form>
-			</div>
+        	<a href="DangBaiViet.php"><input type="button" value="Đăng bài viết/bản tin mới"/></a>
+
     		<table class="table table-condensed">
     		<tr>
                 <th class="info">ID</th>

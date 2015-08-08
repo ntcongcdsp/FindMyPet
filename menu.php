@@ -42,7 +42,7 @@
 					<li class="active"><a href="indexlost.php">Tin mất thú</a></li>
 					<li class="active"><a href="indexfind.php">Tin tìm chủ</a></li>
 					<li class="active"><a href="knowledge.php">Kiến thức cơ bản</a></li>
-					<li class="active"><a href="news.php">Tin tức</a></li>		
+					<li class="active"><a href="news.php">tin tức</a></li>		
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
                 <?php
