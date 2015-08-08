@@ -38,19 +38,19 @@
     <div class="row">
     	<div class="col-xs-4" align="center">
             <a href="QLBaiViet.php">
-                <img class="thumbnail" src="../button/button1.gif.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
+                <img class="thumbnail" src="../button/button1.gif.jpg" style="height:180px;width:72px;margin-top:5px;margin-bottom:0px;">
 
             </a>
         </div>
         <div class="col-xs-4" align="center">
             <a href="QLBaiViet.php">
-                <img class="thumbnail" src="../button/button2.gif.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
+                <img class="thumbnail" src="../button/button2.gif.jpg" style="height:180px;width:72px;margin-top:5px;margin-bottom:0px;">
 
             </a>
         </div>
         <div class="col-xs-4" align="center">
             <a href="QLBaiViet.php">
-                <img class="thumbnail" src="../button/button3.gif.jpg" style="height:180px;width:250px;margin-top:5px;margin-bottom:0px;">
+                <img class="thumbnail" src="../button/button3.gif.jpg" style="height:180px;width:72px;margin-top:5px;margin-bottom:0px;">
 
             </a>
         </div>
