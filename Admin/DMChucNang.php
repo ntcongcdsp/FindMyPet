@@ -43,13 +43,13 @@
             </a>
         </div>
         <div class="col-xs-4" align="center">
-            <a href="QLBaiViet.php">
+            <a href="QLThuCung.php">
                 <img class="thumbnail" src="../button/button2.gif" style="height:72px;width:180px;margin-top:5px;margin-bottom:0px;">
 
             </a>
         </div>
         <div class="col-xs-4" align="center">
-            <a href="QLBaiViet.php">
+            <a href="QLTaiKhoan.php">
                 <img class="thumbnail" src="../button/button3.gif" style="height:72px;width:180px;margin-top:5px;margin-bottom:0px;">
 
             </a>
