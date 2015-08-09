@@ -51,7 +51,7 @@
     ?>
     <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 		<div class="bg-danger">
-        	<h1> Xóa tài khoản</h1>
+        	<h1>Xóa tài khoản - "<?php echo $_GET['TenDN'];?>"</h1>
         	<h3>Bạn có chắc chắn muốn xóa?</h3>
         </div>
         <div class="control_group">
