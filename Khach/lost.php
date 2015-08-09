@@ -6,29 +6,29 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="js/jquery-1.11.3.min.js"> </script>
+	<script src="../js/jquery-1.11.3.min.js"> </script>
 	<!--<script src="js/jquery.min.js"></script>
 	<script src="./js/ie-emulation-modes-warning.js"></script>-->
-    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/menu.css" rel="stylesheet">
+    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/menu.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
     <!--<script src="js/custom.js"></script>-->
     <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
    
     <!-- Slick slide -->
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="slick/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="slick/slick.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+	<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../slick/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="../slick/slick.min.js"></script>
 </head>
 <body style="background-color: lightgrey;">
 	<?php
-        include("menu.php");
+        include("menu_Khach.php");
     ?>
 <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;padding-bottom: 20px;">
-	<img class="img-thumbnail" src="img/chobannerlost.jpg" alt="banner" style="width:950px; height: 270px;margin-top: 10px;margin-bottom:5px;">  
+	<img class="img-thumbnail" src="../img/chobannerlost.jpg" alt="banner" style="width:950px; height: 270px;margin-top: 10px;margin-bottom:5px;">  
 	<br>
     <div class="row" style="margin-bottom: 10px;">
         <div class="col-xs-12" style="padding-top: 5px;">
@@ -37,7 +37,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-7">
-                    <img class="thumbnail" src="img/Dog3.jpeg" style="width:500px;height:350px;margin-top: 15px; margin-left: 30px;">
+                    <img class="thumbnail" src="../img/Dog3.jpeg" style="width:500px;height:350px;margin-top: 15px; margin-left: 30px;">
                 </div>
                 <div class="col-xs-5">
                     <div style="border: 2px solid blueviolet; border-radius:5px;width:380px;height: 350px; margin-top:15px;">

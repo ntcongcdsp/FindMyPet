@@ -8,20 +8,20 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="js/jquery-1.11.3.min.js"> </script>
-	<link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/menu.css" rel="stylesheet">
+	<script src="../js/jquery-1.11.3.min.js"> </script>
+	<link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/menu.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
     <!--<script src="js/custom.js"></script>-->
     <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
    
     <!-- Slick slide -->
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="slick/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="slick/slick.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+	<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../slick/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="../slick/slick.min.js"></script>
 </head>
 
 <body>
@@ -34,21 +34,32 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.php">FindMyPet</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;  ">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.php">Trang chủ</a></li>
-					<li class="active"><a href="indexlost.php">Tin mất thú</a></li>
-					<li class="active"><a href="indexfind.php">Tin tìm chủ</a></li>
-					<li class="active"><a href="knowledge.php">Kiến thức cơ bản</a></li>
-					<li class="active"><a href="news.php">Tin tức</a></li>		
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
                 <?php
 					session_start();
 					$rootURL = 'http://localhost:8084/FindMyPet/';
-					//include('../PHP/define.php');
+					
+					echo "<a class='navbar-brand' href='".$rootURL."Index.php'>FindMyPet</a>";
+				?>
+				<!--<a class="navbar-brand" href="./index.php">FindMyPet</a>-->
+			</div>
+			<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;  ">
+                <ul class="nav navbar-nav">
+                	<?php
+						echo "<li class='active'><a href='".$rootURL."Index.php'>Trang chủ</a></li>";
+						echo "<li class='active'><a href='".$rootURL."Khach/IndexLost.php'>Tin mất thú</a></li>";
+						echo "<li class='active'><a href='".$rootURL."Khach/IndexFind.php'>Tin tìm chủ</a></li>";
+						echo "<li class='active'><a href='".$rootURL."Khach/Knowledge.php'>Kiến thức cơ bản</a></li>";
+						echo "<li class='active'><a href='".$rootURL."Khach/News.php'>Tin mới</a></li>";
+					?>
+					<!--<li class="active"><a href="./index.php">Trang chủ</a></li>
+					<li class="active"><a href="indexlost.php">Tin mất thú</a></li>
+					<li class="active"><a href="indexfind.php">Tin tìm chủ</a></li>
+					<li class="active"><a href="knowledge.php">Kiến thức cơ bản</a></li>
+					<li class="active"><a href="news.php">Tin tức</a></li>		-->
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+                <?php
+					//include('file:///C|/xampp/htdocs/PHP/define.php');
 					if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MatKhau',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
 					{
 						

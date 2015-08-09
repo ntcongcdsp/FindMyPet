@@ -25,7 +25,7 @@
 </head>
 <body style="background-color: lightgrey;">
 	<?php
-        include("menu.php");
+        include("Khach/menu_Khach.php");
     ?>
         
 <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;padding-bottom: 20px;">
@@ -45,7 +45,7 @@
                         </ul>
                     </div>
                     <div style="text-align:right;">
-                        <a class="btn btn-success btn-sm" href="indexlost.php">Xem thêm</a>
+                        <a class="btn btn-success btn-sm" href="Khach/indexlost.php">Xem thêm</a>
                     </div>
                 </div>
         	</div>
@@ -62,7 +62,7 @@
                 <div><img src="img/2.jpg" class="imgSlide"/></div>
             </div>-->
             <?php
-				include ("slidelost.php");
+				include ("Khach/slidelost.php");
 			?>
             <!-- Kết thúc chèn slide -->
         </div>
@@ -81,7 +81,7 @@
                 		</ul>
 					</div>
 					<div style="text-align:right;">
-                    	<a class="btn btn-success btn-sm" href="indexfind.php">Xem thêm</a>
+                    	<a class="btn btn-success btn-sm" href="Khach/indexfind.php">Xem thêm</a>
                		</div>
 				</div>
 			</div>
@@ -97,7 +97,7 @@
                 <div><img src="img/12.jpg" class="imgSlide"/></div>
             </div>-->
             <?php
-				include ("slidefind.php");
+				include ("Khach/slidefind.php");
 			?>
             <!-- Kết thúc chèn slide -->
 		</div>
@@ -138,7 +138,7 @@
                 </div>
             </div>
             <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="knowledge.php">Xem thêm</a>
+                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="Khach/knowledge.php">Xem thêm</a>
             </div>
         </div>
         <div class="col-xs-3" style="border: 2px solid lightblue;border-radius:5px;width:240px;">
@@ -160,13 +160,13 @@
 				</div>
             </div>
             <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="news.php">Xem thêm</a>
+                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="Khach/news.php">Xem thêm</a>
             </div>
         </div>   
     </div>
     
     <?php
-		include("footer.php");
+		include("Khach/footer.php");
 	?>
 </div>
 <script type="text/javascript">

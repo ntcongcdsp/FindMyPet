@@ -6,32 +6,32 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="js/jquery-1.11.3.min.js"> </script>
-	<script src="js/jquery.min.js"></script>
-	<script src="./js/ie-emulation-modes-warning.js"></script>
-	<script src="js/jquery-1.11.3.min.js" type="text/javascript"> </script>
+	<script src="../js/jquery-1.11.3.min.js"> </script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/ie-emulation-modes-warning.js"></script>
+	<script src="../js/jquery-1.11.3.min.js" type="text/javascript"> </script>
 	<!--<script src="js/jquery.min.js"></script>
 	<script src="./js/ie-emulation-modes-warning.js"></script>-->
-    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/menu.css" rel="stylesheet">
+    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/menu.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
     <!--<script src="js/custom.js"></script>-->
     <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
    
     <!-- Slick slide -->
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="slick/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="slick/slick.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+	<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../slick/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="../slick/slick.min.js"></script>
 </head>
 <body style="background-color: lightgrey;">
 	<?php
-        include("menu.php");
+        include("menu_Khach.php");
     ?>
 <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;padding-bottom: 20px;">
-	<img class="img-thumbnail" src="img/chobannerfind.jpg" alt="banner" style="width:950px; height: 270px;margin-top: 10px;margin-bottom:5px;">  
+	<img class="img-thumbnail" src="../img/chobannerfind.jpg" alt="banner" style="width:950px; height: 270px;margin-top: 10px;margin-bottom:5px;">  
     <br>
     <div class="row">
 		<div class="col-xs-12" style="background-color: whitesmoke;padding-top: 5px; height:1000px;">
@@ -40,7 +40,7 @@
             </div>
             <div class="row" style="height:300px;">
 				<div class="col-xs-4" style="height:300px;">
-                	<div class="row" style="height:190px;"><img class="thumbnail" src="img/3.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
+                	<div class="row" style="height:190px;"><img class="thumbnail" src="../img/3.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
                     </div>
                     <div class="row" style="margin-left: 18px;width:250px;height:100px;">
                         <a href="find.php"><h3>Tin tìm chủ</h3></a>
@@ -48,7 +48,7 @@
                     </div>
 				</div>
                 <div class="col-xs-4" style="height:300px;">
-                	<div class="row" style="height:190px;"><img class="thumbnail" src="img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
+                	<div class="row" style="height:190px;"><img class="thumbnail" src="../img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
                     </div>
                     <div class="row" style="margin-left: 18px;width:250px;height:100px;">
                         <a href="#"><h3>Tin tìm chủ</h3></a>
@@ -56,7 +56,7 @@
                     </div>
 				</div>
 				<div class="col-xs-4" style="height:300px;">
-                	<div class="row" style="height:190px;"><img class="thumbnail" src="img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
+                	<div class="row" style="height:190px;"><img class="thumbnail" src="../img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
                     </div>
                     <div class="row" style="margin-left: 18px;width:250px;height:100px;">
                         <a href="#"><h3>Tin tìm chủ</h3></a>
@@ -66,7 +66,7 @@
             </div>
             <div class="row" style="height:300px;">
 				<div class="col-xs-4" style="height:300px;">
-                <div class="row" style="height:190px;"><img class="thumbnail" src="img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
+                <div class="row" style="height:190px;"><img class="thumbnail" src="../img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
                 </div>
                 <div class="row" style="margin-left: 18px;width:250px;height:100px;">
                 	<a href="#"><h3>Tin tìm chủ</h3></a>
@@ -74,7 +74,7 @@
 				</div>
 			</div>
             <div class="col-xs-4" style="height:300px;">
-            	<div class="row" style="height:190px;"><img class="thumbnail" src="img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
+            	<div class="row" style="height:190px;"><img class="thumbnail" src="../img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
                 </div>
 				<div class="row" style="margin-left: 18px;width:250px;height:100px;">
 					<a href="#"><h3>Tin tìm chủ</h3></a>
@@ -82,7 +82,7 @@
 				</div>
 			</div>
             <div class="col-xs-4" style="height:300px;">
-            	<div class="row" style="height:190px;"><img class="thumbnail" src="img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
+            	<div class="row" style="height:190px;"><img class="thumbnail" src="../img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
                 </div>
                 <div class="row" style="margin-left: 18px;width:250px;height:100px;">
                     <a href="#"><h3>Tin tìm chủ</h3></a>
@@ -92,7 +92,7 @@
 		</div>
 		<div class="row" style="height:300px;">
 			<div class="col-xs-4" style="height:300px;">
-            	<div class="row" style="height:190px;"><img class="thumbnail" src="img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
+            	<div class="row" style="height:190px;"><img class="thumbnail" src="../img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
                 </div>
                 <div class="row" style="margin-left: 18px;width:250px;height:100px;">
                     <a href="#"><h3>Tin tìm chủ</h3></a>
@@ -100,7 +100,7 @@
                 </div>
 			</div>
 			<div class="col-xs-4" style="height:300px;">
-            	<div class="row" style="height:190px;"><img class="thumbnail" src="img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
+            	<div class="row" style="height:190px;"><img class="thumbnail" src="../img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
             	</div>
                 <div class="row" style="margin-left: 18px;width:250px;height:100px;">
                     <a href="#"><h3>Tin tìm chủ</h3></a>
@@ -108,7 +108,7 @@
                 </div>
 			</div>
 			<div class="col-xs-4" style="height:300px;">
-        		<div class="row" style="height:190px;"><img class="thumbnail" src="img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
+        		<div class="row" style="height:190px;"><img class="thumbnail" src="../img/dogs1.jpg" style="height:180px;width:250px;margin-top:5px;margin-left: 34px;">
         		</div>
                 <div class="row" style="margin-left: 18px;width:250px;height:100px;">
                     <a href="#"><h3>Tin tìm chủ</h3></a>

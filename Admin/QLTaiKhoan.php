@@ -84,7 +84,7 @@
         </div>
 	</div>
 	<div class="row" align="center">
-        <table class="table table-hover">
+        <table class="table table-condensed">
         <tr>
             <th class="info" >Tên đăng nhập</th>
             <th class="info" >Phân quyền</th>
