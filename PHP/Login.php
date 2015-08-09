@@ -61,7 +61,7 @@
       </form>
     </div>
     <div class="login-help">
-        <a href="../Khach/DangKy.php">Đăng ký thành viên</a>
+        <a href="#">Tạo tài khoản mới</a>
     </div>
     <div class="login-help">
         <a href="../index.php">Trở về Trang chủ</a>
