@@ -43,7 +43,7 @@
 </head>
 <body style="background-color: lightgrey;min-height:100%;">
 	<?php
-        include("../Admin/menu_Admin.php");
+        include("menu_Khach.php");
     ?>
 <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
