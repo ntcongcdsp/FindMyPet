@@ -98,7 +98,9 @@
         <?php
             require_once("../PHP/ConnectDB.php");
             $conn = ConnectDB::connect();
-        
+			
+			
+			
             $sql = "SELECT TenDN, MoTa, Ho, Ten, Email, DiaChi, SoDienThoai FROM User AS A INNER JOIN PhanQuyen AS B ON A.MaPhanQuyen = B.MaPhanQuyen ORDER BY TenDN ASC";
 			if(array_key_exists('slPhanQuyen', $_POST))
 			{
@@ -108,7 +110,29 @@
 				}
 			}
 			
-            $result = mysqli_query($conn, $sql);
+			
+			
+			//Code phan trang
+			$row_per_page=10; // Số dòng trên mỗi trang
+						
+            $resultAll = mysqli_query($conn, $sql);
+			
+			$rows = $resultAll->num_rows;//Số dòng cần hiển thị
+			//Tính số trang cần hiển thị
+			if ($rows>$row_per_page) $page=ceil($rows/$row_per_page); 
+			else $page=1; //nếu số dòng trong CSDL nhỏ hơn hoặc bằng số dòng trên 1 trang thì chỉ có 1 trang để hiển thị
+			//Tính số dòng để lấy từ CSDL
+			if(array_key_exists('start',$_GET))
+			{
+				$start = $_GET['start'];
+			}
+			else
+				$start = 0;
+				
+			$sql .= " LIMIT ".$start.",".$row_per_page;
+
+			$result = mysqli_query($conn, $sql);
+			
             if($result->num_rows > 0)
             {
                 while($row = $result->fetch_assoc())
@@ -131,8 +155,19 @@
             ConnectDB::disconnect();
         ?>
 		</table>
-    </div>
-    
+        <?php
+		
+		//bắt đầu phân trang
+		$page_cr=($start/$row_per_page)+1;
+		echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
+		for($i=1;$i<=$page;$i++)
+		{
+		 if ($page_cr!=$i) echo "<a href='QLTaiKhoan.php?start=".$row_per_page*($i-1)."'><span>".$i."</span></a>";
+		 else echo "<span>".$i."</span>";
+		
+		} 
+		?>
+    </div> 
 </div>
 </body>
 </html>
