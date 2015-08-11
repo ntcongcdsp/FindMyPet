@@ -36,7 +36,7 @@
     ?>
 <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
-    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Quản lý Tài khoản</b> </p>
+    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Quản trị Tài khoản</b> </p>
     </div>
     <div class="row">
     	<!-- Chèn giao diện để quản lý User -->	
@@ -162,8 +162,8 @@
 		echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
 		for($i=1;$i<=$page;$i++)
 		{
-		 if ($page_cr!=$i) echo "<a href='QLTaiKhoan.php?start=".$row_per_page*($i-1)."'><span>".$i."</span></a>";
-		 else echo "<span>".$i."</span>";
+		 if ($page_cr!=$i) echo "<a href='QLTaiKhoan.php?start=".$row_per_page*($i-1)."'><span>".$i."&nbsp;</span></a>";
+		 else echo "<span>".$i."&nbsp;</span>";
 		
 		} 
 		?>

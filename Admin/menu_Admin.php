@@ -33,9 +33,10 @@
 				<ul class="nav navbar-nav">
 					
                     <li class="active"><a href="DMChucNang.php">Danh mục chức năng </a></li>
-					<li class="active"><a href="QLBaiViet.php">Quản lý Bài viết/Bình luận</a></li>
-					<li class="active"><a href="QLThuCung.php">Quản lý Thú cưng</a></li>
-					<li class="active"><a href="QLTaiKhoan.php">Quản lý Tài khoản</a></li>
+					<li class="active"><a href="QLBaiViet.php">Quản trị Bài viết/Bình luận</a></li>
+					<li class="active"><a href="QLThuCung.php">Quản trị Thú cưng</a></li>
+					<li class="active"><a href="QLTaiKhoan.php">Quản trị Tài khoản</a></li>
+                    <li class="active"><a href="QLAnhVuiThuCung.php">Quản trị Ảnh vui</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="../PHP/Logout.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>

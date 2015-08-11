@@ -9,7 +9,7 @@
 	<!-- Bootstrap core CSS -->
 	<script src="../js/jquery-1.11.3.min.js"> </script>
 	<script src="../js/jquery.min.js"></script>
-	<script src="../js/ie-emulation-modes-warning.js"></script>
+	<!--<script src="../js/ie-emulation-modes-warning.js"></script>-->
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
 
@@ -34,28 +34,29 @@
 			?>
             <!--<img class="img-thumbnail" src="./img/bannervui.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
-        <div class="row" style="height:255px;width:480px;margin-left:-10px;">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel"  style=" background-color:white;">
-                <div class="carousel-inner" role="listbox">
-                    <?php
-						
-						echo "<div class='item active'><img src='".$rootURL."img/5.jpg' style='height:295px; width:480px;'></div>";
-						echo "<div class='item'><img src='".$rootURL."img/16.jpg' style='height:295px; width:480px;'></div>";
-						echo "<div class='item'><img src='".$rootURL."img/6.jpg' style='height:295px; width:480px;'></div>";
-						echo "<div class='item'><img src='".$rootURL."img/15.jpg' style='height:295px; width:480px;'></div>";
-					?>
-                </div>
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+        <div class="row" style="height:295px;width:480px;margin-left:-10px;">
+            <div id="SlideFooter" align="center">
+                <?php
+					
+                    require_once("ConnectDB.php");
+                    $conn = ConnectDB::connect();
+                    
+                    $sql = "SELECT * FROM Slider ORDER BY ID ASC";
+                    $result = mysqli_query($conn, $sql);
+                    
+                    if($result->num_rows > 0)
+                    {
+                        while($row = $result->fetch_assoc())
+                        {
+                            echo "<div><img src='".$rootURL."img/AnhVui/".$row['TenFile']."' style='height:295px; width:480px;'></div>";
+                        }
+                    }
+                    ConnectDB::disconnect();
+                ?>
             </div>
-        </div>   
-    </div>
+        </div>
+    </div>   
+
     <div class="col-xs-6" style="height: 360px;border: 1px solid grey;border-radius:5px;">
         <div class="row" style="height: 60px;padding-top: 2px;">
         	<?php
@@ -91,6 +92,16 @@
 		<h3>nội dung 2</h3>
 		chèn nội dung
 	</div>    
-</div>  
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#SlideFooter").slick({
+			slidesToShow: 1,
+			slideToScroll : 1,
+			autoplay: true,
+			autoplaySpeed: 1500,
+  		});
+	});
+</script>  
 </body>
 </html>

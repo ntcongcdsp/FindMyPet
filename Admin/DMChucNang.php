@@ -43,7 +43,7 @@
     </div>
     <div class="row" style="height:230px;">
     	 <div class="content">
-<ul class="ca-menu">
+			<ul class="ca-menu">
                     <li style="margin-left: 100px; border-radius:20px;">
                         <a href="QLBaiViet.php">
                             <img src="../button/b2.gif" class="ca-icon" style="margin-left:55px;">
@@ -67,6 +67,41 @@
                             <img src="../button/b3.gif" class="ca-icon">
                             <div class="ca-content">
                                 <h2 class="ca-main">Quản trị User</h2>
+                                
+                            </div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div><!-- content -->
+    </div>
+    
+    <div class="row" style="height:230px;">
+    	 <div class="content">
+			<ul class="ca-menu">
+                    <li style="margin-left: 100px; border-radius:20px;">
+                        <a href="QLAnhVuiThuCung.php">
+                            <img src="../button/b2.gif" class="ca-icon" style="margin-left:55px;">
+                            <div class="ca-content">
+                                <h2 class="ca-main">Quản trị Ảnh vui</h2>
+                                
+                            </div>
+                        </a>
+                    </li>
+                    <li style="margin-left: 80px; border-radius:20px;">
+                        <a href="QLThuCung.php">
+                            <img src="../button/b1.gif" class="ca-icon">
+                            <div class="ca-content">
+                                <h2 class="ca-main">abc</h2>
+                                
+                            </div>
+                        </a>
+                    </li>
+                    <li style="margin-left: 80px; border-radius:20px;">
+                        <a href="QLTaiKhoan.php">
+                            <img src="../button/b3.gif" class="ca-icon">
+                            <div class="ca-content">
+                                <h2 class="ca-main">def</h2>
                                 
                             </div>
                         </a>
