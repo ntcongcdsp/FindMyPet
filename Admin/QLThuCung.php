@@ -24,9 +24,67 @@
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
     	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Quản lý Thú cưng</b> </p>
     </div>
-    <div class="row">
+    <div class="row" align="center">
     	<!-- Chèn giao diện để quản lý User -->	
+			<div class="col-md-6"<p align="left">
+				<a href="ThuCung_taomoi.php" class="btn btn-success">Thêm thú cưng</a>
+			</p>
+			</div>
+			<div class="col-md-4" align="right">
+        	<form name="frmLoc" method="post">
+                <select class="form-control" name="slPhanQuyen">
+                	<option value='0'> Tất cả</option>;
+                    <?php	
+                        require_once("../PHP/ConnectDB.php");
+                        $conn = ConnectDB::connect();							
+                        $sqlDM = "SELECT Loai FROM thucung";
+                        $resutDM = mysqli_query($conn, $sqlDM);
+
+                         ConnectDB::disconnect();
+                    ?>
+                </select>
+		</div>
+                <div class="col-md-2" align="right">
+                	<button type="submit" class="btn btn-info" name="submit">Lọc thú cưng</button>
+                </div>
+            </form>
+
+        <table class="table table-condensed">
+    		<tr>
+                <th class="info">STT</th>
+                <th class="info">Loài</th>
+                <th class="info">Giống</th>
+                <th class="info">Nguồn gốc</th>
+                <th class="info">Tác vụ</th>
+        	</tr>
+			<?php
+				require_once("../PHP/ConnectDB.php");
+				$conn = ConnectDB::connect();
+			
+				$sql = "SELECT ID,Loai, Giong, NguonGoc FROM thucung ORDER BY ID ASC";
+				$result = mysqli_query($conn, $sql);
+            if($result->num_rows > 0)
+            {
+                while($row = $result->fetch_assoc())
+                {
+                    echo "<tr>";
+                        echo "<th>". $row['ID'] ."</th>";
+                        echo "<td>". $row['Loai'] ."</td>";
+						echo "<td>". $row['Giong'] ."</td>";
+						echo "<td>". $row['NguonGoc'] ."</td>";
+                        echo "<td> 
+							<a href='ThuCung_chitiet.php?Giong=".$row['Giong']."'><input type='button' value='Chi tiết' class='btn'/></a>
+                            <a href='ThuCung_Sua.php?Giong=".$row['Giong']."'><input type='button' value='Sửa' class='btn btn-success'/></a>
+                            <a href='ThuCung_Xoa.php?Giong=".$row['Giong']."'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
+                            </td>";
+                    echo "</tr>";
+                }
+            }
+            ConnectDB::disconnect();
+        ?>
+		</table>
     </div>
+
     
 </div>
 </body>
