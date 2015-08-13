@@ -31,11 +31,11 @@
         	<?php
 				$rootURL = 'http://localhost:8084/FindMyPet/';
 				echo "<img class='img-thumbnail' src='".$rootURL."img/bannervui.jpg' style='width:480px;height:55px;margin-left:23px;'>";
-			?>
+		?>
             <!--<img class="img-thumbnail" src="../img/bannervui.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
-        <div class="row" style="height:295px;width:480px;margin-left:-10px;">
-            <div id="SlideFooter" align="center">
+        <div class="row" style="height:295px;width:473px;margin-left:10px;">
+            <div id="SlideFooter" align="center" style="margin-top:0px;">
                 <?php
 					
                     require_once("ConnectDB.php");
@@ -48,7 +48,7 @@
                     {
                         while($row = $result->fetch_assoc())
                         {
-                            echo "<div><img src='".$rootURL."img/AnhVui/".$row['TenFile']."' style='height:295px; width:480px;'></div>";
+                            echo "<div><img src='".$rootURL."img/AnhVui/".$row['TenFile']."' style='height:295px; width:470px;'></div>";
                         }
                     }
                     ConnectDB::disconnect();
@@ -67,7 +67,7 @@
         <div class="row" style="height:255px;width:480px;margin-left:-10px;">
             chèn clip vui
         </div>
-        <div class="btn-group" role="group" aria-label="..." style="margin-top: 5px;margin-left:280px;">
+        <div class="btn-group" role="group" aria-label="..." style="margin-top: 5px;margin-left:320px;">
             <button type="button" class="btn btn-success">1</button>
             <button type="button" class="btn btn-success">2</button>
             <button type="button" class="btn btn-success">3</button>
