@@ -64,7 +64,7 @@
 				<a href="#"> <h4 style="margin-left:30px;"> >>> Bài viết có liên quan <<< </h4> </a>
 			</div>
 		</div>
-        <div class="col-xs-3" style="width:260px;height:1015px; margin-top:5px;">
+<div class="col-xs-3" style="width:260px;height:1015px; margin-top:5px;">
 			<div class="panel panel-primary">
 				<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN TÌM CHỦ MỚI</b></div>
 				<div class="panel-body" style="height:430px; margin-left:10px;">
@@ -84,12 +84,12 @@
                 	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
                 </div>
 			</div>
-            <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="indexfind.php">Xem thêm</a>
-            </div>
+            <div style="text-align:right;margin-top: 15px;">
+                        <a class="button" href="indexfind.php">Xem thêm</a>
+                    </div>
 		</div>
                         </div>
-	<div class="panel panel-primary" style="margin-top: 57px;">
+	<div class="panel panel-primary">
 		<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN MẤT CHÓ MỚI</b></div>
 		<div class="panel-body" style="height:430px;margin-left:10px;">
         	<div class="row" style="width:210px;">
@@ -108,12 +108,12 @@
                 	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
 				</div>
 			</div>
-            <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="indexlost.php">Xem thêm</a>
-            </div>
+            <div style="text-align:right;margin-top: 15px;">
+                        <a class="button" href="indexlost.php">Xem thêm</a>
+                    </div>
 		</div>
 	</div>
-</div>   
+</div>    
 </div>
 <?php
 	include("footer.php");

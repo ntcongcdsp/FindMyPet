@@ -33,7 +33,7 @@
                     <a href="#"><img class="img-thumbnail" src="../img/3.jpg" style="height: 140px;width:200px;"></a>
                 </div>
                 <div class="col-xs-8" style="height:145px;">
-                    <a href="#"><h3>Tiêu đề 1</h3></a>
+                    <a href="knowledgepage.php"><h3>Tiêu đề 1</h3></a>
                     <p>Tóm tắt nội dung bên trong</p>
             	</div>
             </div>

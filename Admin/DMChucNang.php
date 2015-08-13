@@ -81,7 +81,7 @@
 			<ul class="ca-menu">
                     <li style="margin-left: 100px; border-radius:20px;">
                         <a href="QLAnhVuiThuCung.php">
-                            <img src="../button/b2.gif" class="ca-icon" style="margin-left:55px;">
+                            <img src="../button/b4.gif" class="ca-icon" style="margin-left:45px;">
                             <div class="ca-content">
                                 <h2 class="ca-main">Quản trị Ảnh vui</h2>
                                 
