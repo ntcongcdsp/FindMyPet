@@ -1,3 +1,18 @@
+<?php
+	session_start();
+	include_once(realpath(dirname(__DIR__))."/PHP/define.php");
+	if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+	{
+		if($_SESSION['MaPhanQuyen'] != NHOM_QUAN_TRI)
+		{
+			header('Location: ../PHP/Login.php');
+		}
+	}
+	else
+	{
+		header('Location: ../PHP/Login.php');
+	}
+?>
 <html>
 <head>
 	<title>Find My Pet</title>

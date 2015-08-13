@@ -1,22 +1,38 @@
-<?php 
-require_once("../PHP/ConnectDB.php");
+<?php
 
-if ( !empty($_POST)) {
-	// keep track post values
-	$Loai = $_POST['Loai'];
-	$Giong = $_POST['Giong'];
-	$NguonGoc = $_POST['NguonGoc'];
-	$DacDiem =$_POST['DacDiem'];
-	$TinhCach =$_POST['TinhCach'];
-	$KhaNang=$_POST['KhaNang'];
-	$TieuChuan=$_POST['TieuChuan'];
-	// insert data
-	$conn = ConnectDB::connect();
-	$sql = "INSERT INTO thucung (Loai,Giong,DacDiem,TinhCach,KhaNang,NguonGoc,TieuChuan) values('$Loai', '$Giong', '$DacDiem', '$TinhCach','$KhaNang','$NguonGoc','$TieuChuan')";
-	$conn->query($sql);
-	ConnectDB::disconnect();
-	header("Location: QLThuCung.php");
-}
+	session_start();
+	include_once(realpath(dirname(__DIR__))."/PHP/define.php");
+	if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+	{
+		if($_SESSION['MaPhanQuyen'] != NHOM_QUAN_TRI)
+		{
+			header('Location: ../PHP/Login.php');
+		}
+	}
+	else
+	{
+		header('Location: ../PHP/Login.php');
+	}
+
+ 
+	require_once("../PHP/ConnectDB.php");
+	
+	if ( !empty($_POST)) {
+		// keep track post values
+		$Loai = $_POST['Loai'];
+		$Giong = $_POST['Giong'];
+		$NguonGoc = $_POST['NguonGoc'];
+		$DacDiem =$_POST['DacDiem'];
+		$TinhCach =$_POST['TinhCach'];
+		$KhaNang=$_POST['KhaNang'];
+		$TieuChuan=$_POST['TieuChuan'];
+		// insert data
+		$conn = ConnectDB::connect();
+		$sql = "INSERT INTO thucung (Loai,Giong,DacDiem,TinhCach,KhaNang,NguonGoc,TieuChuan) values('$Loai', '$Giong', '$DacDiem', '$TinhCach','$KhaNang','$NguonGoc','$TieuChuan')";
+		$conn->query($sql);
+		ConnectDB::disconnect();
+		header("Location: QLThuCung.php");
+	}
 ?>
 <html>
 <head>

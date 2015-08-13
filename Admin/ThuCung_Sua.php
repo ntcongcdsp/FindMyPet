@@ -1,4 +1,19 @@
-<?php	
+<?php
+
+	session_start();
+	include_once(realpath(dirname(__DIR__))."/PHP/define.php");
+	if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+	{
+		if($_SESSION['MaPhanQuyen'] != NHOM_QUAN_TRI)
+		{
+			header('Location: ../PHP/Login.php');
+		}
+	}
+	else
+	{
+		header('Location: ../PHP/Login.php');
+	}
+	
 	require_once("../PHP/ConnectDB.php");
 	$conn = ConnectDB::connect();
 		
@@ -50,63 +65,64 @@
     	<!-- Chèn form để xem thông tin tài khoản -->
         <?php
 			$sql = "SELECT * FROM thucung WHERE Giong = '".$_GET['Giong']."'";
-	
+
 			$resut = mysqli_query($conn, $sql);
 			if($resut->num_rows>0)
 			{
 				$row = $resut->fetch_assoc();
 			}
 		?>
-        <form class="form-horizontal" name="frmSuaTaiKhoan" method="post" enctype="multipart/form-data">
-				<div class="form-group">
-    				<label for="Loai" class="col-sm-2 control-label">Loài: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="Loai" placeholder="Loài" value="<?php echo $row['Loai']; ?>">
-    				</div>
-  				</div>
-                <div class="form-group">
-	                <label for="Giong" class="col-sm-2 control-label">Giống: </label>
-    				<div class="col-sm-5">
-      					<input type="text" disabled class="form-control" name="Giong" value="<?php echo $_GET['Giong']?>">
-    				</div>
-  				</div>
-                <div class="form-group">
-    				<label for="DacDiem" class="col-sm-2 control-label">Đặc điểm: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="DacDiem" placeholder="Đặc điểm" value="<?php echo $row['DacDiem']; ?>">
-    				</div>
-  				</div>
-                <div class="form-group">
-    				<label for="TinhCach" class="col-sm-2 control-label">Tính cách: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="TinhCach" placeholder="Tính cách" value="<?php echo $row['TinhCach']; ?>">
-    				</div>
-  				</div>
-                <div class="form-group">
-    				<label for="KhaNang" class="col-sm-2 control-label">Khả năng: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="KhaNang" placeholder="Khả năng" value="<?php echo $row['KhaNang']; ?>">
-    				</div>
-  				</div>
-                <div class="form-group">
-    				<label for="NguonGoc" class="col-sm-2 control-label">Nguồn gốc: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="NguonGoc" placeholder="Nguồn gốc" value="<?php echo $row['NguonGoc']; ?>">
-    				</div>
-  				</div>
-                <div class="form-group">
-    				<label for="TieuChuan" class="col-sm-2 control-label">Tiêu chuẩn: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="TieuChuan" placeholder="Số điện thoại" value="<?php echo $row['TieuChuan']; ?>">
-    				</div>
-  				</div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-success" name="submit">Sửa</button>
-                      <a href="QLThuCung.php"><button type="button" class="btn btn-default">Trở về</button></a>
-                    </div>
-              	</div>
-    		</form>
+        <form class="form-horizontal" name="frmSuaThuCung" method="post">
+			<div class="form-group">
+				<label for="Loai" class="col-sm-2 control-label">Loài: </label>
+				<div class="col-sm-5">
+      				<input type="text" class="form-control" name="Loai" placeholder="Loài" value="<?php echo $row['Loai']; ?>"
+    			</div>
+			</div>
+            <div class="form-group">
+				<label for="Giong" class="col-sm-2 control-label">Giống: </label>
+				<div class="col-sm-5">
+      				<input type="text" class="form-control" name="Giong" placeholder="Loài" value="<?php echo $row['Giong']; ?>">
+    			</div>
+			</div>
+            <div class="form-group">
+                <label for="DacDiem" class="col-sm-2 control-label">Đặc điểm: </label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" name="DacDiem" placeholder="Đặc điểm" value="<?php echo $row['DacDiem']; ?>"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="TinhCach" class="col-sm-2 control-label">Tính cách: </label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="TinhCach" placeholder="Tính cách" value="<?php echo $row['TinhCach']; ?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="KhaNang" class="col-sm-2 control-label">Khả năng: </label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="KhaNang" placeholder="Khả năng" value="<?php echo $row['KhaNang']; ?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="NguonGoc" class="col-sm-2 control-label">Nguồn gốc: </label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="NguonGoc" placeholder="Nguồn gốc" value="<?php echo $row['NguonGoc']; ?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="TieuChuan" class="col-sm-2 control-label">Tiêu chuẩn: </label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="TieuChuan" placeholder="Số điện thoại" value="<?php echo $row['TieuChuan']; ?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-success" name="submit">Sửa</button>
+                  <a href="QLThuCung.php"><button type="button" class="btn btn-default">Trở về</button></a>
+                </div>
+            </div>
+		</form>
+	</div>
 </div>
 </body>
 </html>

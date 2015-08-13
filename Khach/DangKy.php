@@ -1,11 +1,11 @@
 <?php
-	$CapCha = rand (100, 1000); 
+	//$CapCha = rand (100, 1000); 
 	require_once("../PHP/ConnectDB.php");
 	$conn = ConnectDB::connect();
 		
 	if(isset($_POST['submit']))
 	{
-		if($_POST['txtTenDN'] != "" && $_POST['txtMatKhau'] != "" && $_POST['txtCapCha'] == $_POST['txtLuuCapCha'])
+		if($_POST['txtTenDN'] != "" && $_POST['txtMatKhau'] != "")// && $_POST['txtCapCha'] == $_POST['txtLuuCapCha'])
 		{
 			// Insert co so du lieu
 			$sql= "INSERT INTO User (TenDN, MatKhau, MaPhanQuyen, Ho, Ten, Email, DiaChi, SoDienThoai) VALUES ('".$_POST['txtTenDN']."','".$_POST['txtMatKhau']."',2,'".$_POST['txtHo']."','".$_POST['txtTen']."','".$_POST['txtEmail']."','".$_POST['txtDiaChi']."','".$_POST['txtSoDienThoai']."')";
@@ -44,6 +44,7 @@
 <body style="background-color: lightgrey;min-height:100%;">
 	<?php
         include("menu_Khach.php");
+		include_once(realpath(dirname(__DIR__))."/PHP/define.php");
     ?>
 <div class="container" style="background-color: whitesmoke;width:1050px; border-radius: 5px;">
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
@@ -94,16 +95,16 @@
       					<input type="text" class="form-control" name="txtSoDienThoai" placeholder="Số điện thoại" >
     				</div>
   				</div>
-                <div class="form-group">
+                <!--<div class="form-group">
     				<label for="txtCapCha" class="col-sm-2 control-label">Chứng minh bạn không phải là rô-bốt: </label>
     				<div class="col-sm-3">
       					<input type="text" class="form-control" name="txtCapCha" placeholder="Nhập số ở bên cạnh" >
                     </div>
                     <div class="col-sm-1 bg-info" align="center">
-						<strong style="font-size:22px;"><?php echo $CapCha; ?></strong>
-                        <input type="hidden" name="txtLuuCapCha" value="<?php echo $CapCha; ?>">
+						<strong style="font-size:22px;"><?php //echo $CapCha; ?></strong>
+                        <input type="hidden" name="txtLuuCapCha" value="<?php //echo $CapCha; ?>">
     				</div>
-  				</div>
+  				</div>-->
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                       <button type="submit" class="btn btn-success" name="submit">Tạo</button>

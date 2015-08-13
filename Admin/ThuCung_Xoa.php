@@ -1,5 +1,19 @@
 <?php
 
+	session_start();
+	include_once(realpath(dirname(__DIR__))."/PHP/define.php");
+	if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+	{
+		if($_SESSION['MaPhanQuyen'] != NHOM_QUAN_TRI)
+		{
+			header('Location: ../PHP/Login.php');
+		}
+	}
+	else
+	{
+		header('Location: ../PHP/Login.php');
+	}
+
 	if(isset($_GET['submit']))
 	{
 		require_once("../PHP/ConnectDB.php");
@@ -45,7 +59,7 @@
     ?>
     <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 		<div class="bg-danger">
-        	<h1> Xóa tài khoản</h1>
+        	<h1>Xóa thú cưng</h1>
         	<h3>Bạn có chắc chắn muốn xóa?</h3>
         </div>
         <div class="control_group">

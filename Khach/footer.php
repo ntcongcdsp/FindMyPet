@@ -29,8 +29,8 @@
     <div class="col-xs-6" style="height: 360px; border: 1px solid grey;border-radius:5px;padding-bottom: 5px;">
         <div class="row" style="height: 60px;padding-top: 2px;">
         	<?php
-				$rootURL = 'http://localhost:8084/FindMyPet/';
-				echo "<img class='img-thumbnail' src='".$rootURL."img/bannervui.jpg' style='width:480px;height:55px;margin-left:23px;'>";
+				include_once(realpath(dirname(__DIR__))."/PHP/define.php");
+				echo "<img class='img-thumbnail' src='".BASE_URL."img/bannervui.jpg' style='width:480px;height:55px;margin-left:23px;'>";
 		?>
             <!--<img class="img-thumbnail" src="../img/bannervui.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
@@ -38,7 +38,7 @@
             <div id="SlideFooter" align="center" style="margin-top:0px;">
                 <?php
 					
-                    require_once("ConnectDB.php");
+                    require_once(BASE_PATH . "/PHP/ConnectDB.php");
                     $conn = ConnectDB::connect();
                     
                     $sql = "SELECT * FROM Slider ORDER BY ID ASC";
@@ -48,7 +48,7 @@
                     {
                         while($row = $result->fetch_assoc())
                         {
-                            echo "<div><img src='".$rootURL."img/AnhVui/".$row['TenFile']."' style='height:295px; width:470px;'></div>";
+                            echo "<div><img src='".BASE_URL."img/AnhVui/".$row['TenFile']."' style='height:295px; width:470px;'></div>";
                         }
                     }
                     ConnectDB::disconnect();
@@ -60,7 +60,7 @@
     <div class="col-xs-6" style="height: 360px;border: 1px solid grey;border-radius:5px;">
         <div class="row" style="height: 60px;padding-top: 2px;">
         	<?php
-				echo "<img class='img-thumbnail' src='".$rootURL."img/bannervui2.jpg' style='width:480px;height:55px;margin-left:23px;'>";
+				echo "<img class='img-thumbnail' src='".BASE_URL."img/bannervui2.jpg' style='width:480px;height:55px;margin-left:23px;'>";
 			?>
             <!--<img class="img-thumbnail" src="../img/bannervui2.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
@@ -80,7 +80,7 @@
 <div class="row" style="height:200px; width:880px;margin-left:70px;margin-top: 30px;border: 2px solid grey;border-radius:5px;">
 	<div class="col-xs-2">
     	<?php
-			echo "<img class='img-thumbnail' src='".$rootURL."img/logo.gif' style='width:130px;height:70; margin-top: 50px;'>";
+			echo "<img class='img-thumbnail' src='".BASE_URL."img/logo.gif' style='width:130px;height:70; margin-top: 50px;'>";
 		?>
 		<!--<img src="./img/logo.gif" style="width:130px;height:70; margin-top: 50px;">-->
 	</div>

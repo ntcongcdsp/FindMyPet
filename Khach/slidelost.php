@@ -27,14 +27,14 @@
 <!-- chèn slide ảnh chó bị mất-->
 <div id="SlideLostPet" align="center" style="margin-top:30px">
     <?php
-		$rootURL = 'http://localhost:8084/FindMyPet/';
-		echo "<div><img src='".$rootURL."img/9.jpg' class='imgSlide'></div>";
-		echo "<div><img src='".$rootURL."img/10.jpg' class='imgSlide'></div>";
-		echo "<div><img src='".$rootURL."img/11.jpg' class='imgSlide'></div>";
-		echo "<div><img src='".$rootURL."img/12.jpg' class='imgSlide'></div>";
-		echo "<div><img src='".$rootURL."img/1.jpg' class='imgSlide'></div>";
-		echo "<div><img src='".$rootURL."img/2.jpg' class='imgSlide'></div>";
-		echo "<div><img src='".$rootURL."img/3.jpg' class='imgSlide'></div>";
+		include_once(realpath(dirname(__DIR__))."/PHP/define.php");
+		echo "<div><img src='".BASE_URL."img/9.jpg' class='imgSlide'></div>";
+		echo "<div><img src='".BASE_URL."img/10.jpg' class='imgSlide'></div>";
+		echo "<div><img src='".BASE_URL."img/11.jpg' class='imgSlide'></div>";
+		echo "<div><img src='".BASE_URL."img/12.jpg' class='imgSlide'></div>";
+		echo "<div><img src='".BASE_URL."img/1.jpg' class='imgSlide'></div>";
+		echo "<div><img src='".BASE_URL."img/2.jpg' class='imgSlide'></div>";
+		echo "<div><img src='".BASE_URL."img/3.jpg' class='imgSlide'></div>";
 	?>
     <!--<div><a href="./img/1.jpg"><img src="./img/1.jpg" class="imgSlide"/></a>
     </div>

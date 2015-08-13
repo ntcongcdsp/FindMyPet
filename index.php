@@ -1,3 +1,4 @@
+
 <html>
 <head>
 	<title>Find My Pet</title>
@@ -25,7 +26,8 @@
 </head>
 <body style="background-color: lightgrey;">
 	<?php
-        include("Khach/menu_Khach.php");
+		include("Khach/menu_Khach.php");
+        include_once("PHP/define.php");
     ?>
         
 <div class="container" style="background-color: whitesmoke;width:1050px; border-radius: 5px;padding-bottom: 20px;">

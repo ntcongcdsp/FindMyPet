@@ -19,6 +19,7 @@
 <body style="background-color: lightgrey;">
 	<?php
         include("menu_Khach.php");
+		include_once(realpath(dirname(__DIR__))."/PHP/define.php");
     ?> 
 <div class="container" style="background-color: whitesmoke;width:1050px; border-radius: 5px;padding-bottom: 20px;">
 	<img class="img-thumbnail" src="../img/banner.jpg" alt="banner" style="width:100%; height: 270px;margin-top: 10px;margin-bottom:5px;">  

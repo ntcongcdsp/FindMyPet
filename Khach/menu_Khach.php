@@ -36,20 +36,20 @@
 				</button>
                 <?php
 					session_start();
-					$rootURL = 'http://localhost:8084/FindMyPet/';
 					
-					echo "<a class='navbar-brand' href='".$rootURL."Index.php'>FindMyPet</a>";
+					include_once(realpath(dirname(__DIR__))."/PHP/define.php");
+					echo "<a class='navbar-brand' href='".BASE_URL."Index.php'>FindMyPet</a>";
 				?>
 				<!--<a class="navbar-brand" href="./index.php">FindMyPet</a>-->
 			</div>
 			<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;  ">
                 <ul class="nav navbar-nav">
                 	<?php
-						echo "<li class='active'><a href='".$rootURL."Index.php'>Trang chủ</a></li>";
-						echo "<li class='active'><a href='".$rootURL."Khach/IndexLost.php'>Tin mất thú</a></li>";
-						echo "<li class='active'><a href='".$rootURL."Khach/IndexFind.php'>Tin tìm chủ</a></li>";
-						echo "<li class='active'><a href='".$rootURL."Khach/Knowledge.php'>Kiến thức cơ bản</a></li>";
-						echo "<li class='active'><a href='".$rootURL."Khach/News.php'>Tin mới</a></li>";
+						echo "<li class='active'><a href='".BASE_URL."Index.php'>Trang chủ</a></li>";
+						echo "<li class='active'><a href='".BASE_URL."Khach/IndexLost.php'>Tin mất thú</a></li>";
+						echo "<li class='active'><a href='".BASE_URL."Khach/IndexFind.php'>Tin tìm chủ</a></li>";
+						echo "<li class='active'><a href='".BASE_URL."Khach/Knowledge.php'>Kiến thức cơ bản</a></li>";
+						echo "<li class='active'><a href='".BASE_URL."Khach/News.php'>Tin mới</a></li>";
 					?>
 					<!--<li class="active"><a href="./index.php">Trang chủ</a></li>
 					<li class="active"><a href="indexlost.php">Tin mất thú</a></li>
@@ -63,27 +63,27 @@
 					if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MatKhau',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
 					{
 						
-						if($_SESSION['MaPhanQuyen'] == 1)
+						if($_SESSION['MaPhanQuyen'] == NHOM_QUAN_TRI)
 						{
-							echo "<li class='active'><a href='".$rootURL."PHP/DangBai.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
-							echo "<li class='active'><a href='".$rootURL."Admin/DMChucNang.php'><span class='glyphicon glyphicon-user'></span> Danh mục chức năng</a></li>";
-							echo "<li class='active'><a href='".$rootURL."PHP/Logout.php'><span class='glyphicon glyphicon-user'></span> Đăng xuất</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."PHP/DangBai.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."Admin/DMChucNang.php'><span class='glyphicon glyphicon-user'></span> Danh mục chức năng</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."PHP/Logout.php'><span class='glyphicon glyphicon-user'></span> Đăng xuất</a></li>";
 						}
-						else if($_SESSION['MaPhanQuyen'] == 2)
+						else if($_SESSION['MaPhanQuyen'] == NHOM_THANH_VIEN)
 						{
-							echo "<li class='active'><a href='".$rootURL."PHP/DangBai.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
-							echo "<li class='active'><a href='".$rootURL."PHP/Logout.php'><span class='glyphicon glyphicon-user'></span> Đăng xuất</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."PHP/DangBai.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."PHP/Logout.php'><span class='glyphicon glyphicon-user'></span> Đăng xuất</a></li>";
 						}
 						else
 						{
-							echo "<li class='active'><a href='".$rootURL."PHP/Login.php'><span class='glyphicon glyphicon-user'></span> Đăng nhập</a></li>";
-							echo "<li class='active'><a href='".$rootURL."Khach/DangKy.php'><span class='glyphicon glyphicon-log-in'></span> Đăng ký</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."PHP/Login.php'><span class='glyphicon glyphicon-user'></span> Đăng nhập</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."Khach/DangKy.php'><span class='glyphicon glyphicon-log-in'></span> Đăng ký</a></li>";
 						}
 					}
 					else
 					{
-						echo "<li class='active'><a href='".$rootURL."PHP/Login.php'><span class='glyphicon glyphicon-user'></span> Đăng nhập</a></li>";
-						echo "<li class='active'><a href='".$rootURL."Khach/DangKy.php'><span class='glyphicon glyphicon-log-in'></span> Đăng ký</a></li>";
+						echo "<li class='active'><a href='".BASE_URL."PHP/Login.php'><span class='glyphicon glyphicon-user'></span> Đăng nhập</a></li>";
+						echo "<li class='active'><a href='".BASE_URL."Khach/DangKy.php'><span class='glyphicon glyphicon-log-in'></span> Đăng ký</a></li>";
 					}
 				?>
       			</ul>
