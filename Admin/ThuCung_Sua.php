@@ -76,8 +76,8 @@
 			<div class="form-group">
 				<label for="Loai" class="col-sm-2 control-label">Loài: </label>
 				<div class="col-sm-5">
-      				<input type="text" class="form-control" name="Loai" placeholder="Loài" value="<?php echo $row['Loai']; ?>"
-                                </div></div>
+      				<input type="text" class="form-control" name="Loai" placeholder="Loài" value="<?php echo $row['Loai']; ?>">
+                                </div>
 			</div>
             <div class="form-group">
 				<label for="Giong" class="col-sm-2 control-label">Giống: </label>
