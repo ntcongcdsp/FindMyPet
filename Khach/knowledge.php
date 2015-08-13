@@ -117,9 +117,9 @@
                 	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
                 </div>
 			</div>
-            <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="indexfind.php">Xem thêm</a>
-            </div>
+            <div style="text-align:right;margin-top: 15px;">
+                        <a class="button" href="indexfind.php">Xem thêm</a>
+                    </div>
 		</div>
                         </div>
 	<div class="panel panel-primary" style="margin-top: 57px;">
@@ -141,9 +141,9 @@
                 	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
 				</div>
 			</div>
-            <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="indexlost.php">Xem thêm</a>
-            </div>
+            <div style="text-align:right;margin-top: 15px;">
+                        <a class="button" href="indexlost.php">Xem thêm</a>
+                    </div>
 		</div>
 	</div>
 </div>      

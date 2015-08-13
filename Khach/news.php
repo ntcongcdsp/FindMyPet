@@ -33,7 +33,7 @@
                     <a href="#"><img class="img-thumbnail" src="../img/3.jpg" style="height: 140px;width:200px;"></a>
                 </div>
                 <div class="col-xs-8" style="height:145px;">
-                    <a href="../newspage.php"><h3>Tiêu đề 1</h3></a>
+                    <a href="#"><h3>Tiêu đề 1</h3></a>
                     <p>Tóm tắt nội dung bên trong</p>
             	</div>
             </div>
@@ -110,12 +110,12 @@
                 	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
                 </div>
 			</div>
-            <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="indexfind.php">Xem thêm</a>
-            </div>
+            <div style="text-align:right;margin-top: 15px;">
+                        <a class="button" href="indexfind.php">Xem thêm</a>
+                    </div>
 		</div>
                         </div>
-	<div class="panel panel-primary">
+	<div class="panel panel-primary"">
 		<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN MẤT CHÓ MỚI</b></div>
 		<div class="panel-body" style="height:430px;margin-left:10px;">
         	<div class="row" style="width:210px;">
@@ -134,9 +134,9 @@
                 	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
 				</div>
 			</div>
-            <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="indexlost.php">Xem thêm</a>
-            </div>
+            <div style="text-align:right;margin-top: 15px;">
+                        <a class="button" href="indexlost.php">Xem thêm</a>
+                    </div>
 		</div>
 	</div>
 </div>   
