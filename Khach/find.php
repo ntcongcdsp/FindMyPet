@@ -87,7 +87,7 @@
         	</div>
     	</div>
 	
-	<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:684px; border-radius: 5px;">
+	<div class="col-xs-8"  style="background-color:lightblue; height: 177px;width:684px; border-radius: 5px;">
 		<!-- chèn slide ảnh chó bị mất-->
         <!--<div id="SlideLostPet" align="center" style="margin-top:30px">
             <div><a href="img/1.jpg"><img src="img/1.jpg" class="imgSlide"/></a>
