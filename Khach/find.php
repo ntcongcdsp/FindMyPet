@@ -69,7 +69,6 @@
 <hr>
 <div class="row">
 	<div class="col-xs-4">
-		<div class="col-xs-4">
             <div class="panel panel-primary">
                 <div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN MẤT THÚ CƯNG</b></div>
                 <div class="panel-body" style="height:130px;">
@@ -87,7 +86,6 @@
                 </div>
         	</div>
     	</div>
-	</div>
 	
 	<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:684px; border-radius: 5px;">
 		<!-- chèn slide ảnh chó bị mất-->
