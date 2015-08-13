@@ -87,14 +87,14 @@
     transition: all 200ms linear;
 }
 .ca-menu li:hover{
-    background-color: #000;
+    background-color: #B8DBFF;
 }
 .ca-menu li:hover .ca-icon{
     color: #fff;
     font-size: 90px;
 }
 .ca-menu li:hover .ca-main{
-    color: #00ccff;
+    color: #1919FF;
     -webkit-animation: moveFromLeftRotate 300ms ease;
     -moz-animation: moveFromLeftRotate 300ms ease;
     -ms-animation: moveFromLeftRotate 300ms ease;
