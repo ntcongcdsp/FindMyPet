@@ -81,7 +81,7 @@
                         </ul>
                     </div>
                     <div style="text-align:right;">
-                        <a class="button" href="Khach/indexlost.php">Xem thêm</a>
+                        <a class="button" href="indexlost.php">Xem thêm</a>
                     </div>
                 </div>
         	</div>
