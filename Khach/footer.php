@@ -30,7 +30,7 @@
         <div class="row" style="height: 60px;padding-top: 2px;">
         	<?php
 				$rootURL = 'http://localhost:8084/FindMyPet/';
-				echo "<img class='img-thumbnail' src='".$rootURL."img/bannervui.jpg' style='width:480px;height:55px;margin-left:5px;'>";
+				echo "<img class='img-thumbnail' src='".$rootURL."img/bannervui.jpg' style='width:480px;height:55px;margin-left:23px;'>";
 			?>
             <!--<img class="img-thumbnail" src="./img/bannervui.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
@@ -60,7 +60,7 @@
     <div class="col-xs-6" style="height: 360px;border: 1px solid grey;border-radius:5px;">
         <div class="row" style="height: 60px;padding-top: 2px;">
         	<?php
-				echo "<img class='img-thumbnail' src='".$rootURL."img/bannervui2.jpg' style='width:480px;height:55px;margin-left:5px;'>";
+				echo "<img class='img-thumbnail' src='".$rootURL."img/bannervui2.jpg' style='width:480px;height:55px;margin-left:23px;'>";
 			?>
             <!--<img class="img-thumbnail" src="./img/bannervui2.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
@@ -77,7 +77,7 @@
     </div>
 </div>      
 <hr>	
-<div class="row" style="height:200px; width:880px;margin-left:35px;margin-top: 30px;border: 2px solid grey;border-radius:5px;">
+<div class="row" style="height:200px; width:880px;margin-left:70px;margin-top: 30px;border: 2px solid grey;border-radius:5px;">
 	<div class="col-xs-2">
     	<?php
 			echo "<img class='img-thumbnail' src='".$rootURL."img/logo.gif' style='width:130px;height:70; margin-top: 50px;'>";

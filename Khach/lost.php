@@ -27,8 +27,8 @@
 	<?php
         include("menu_Khach.php");
     ?>
-<div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;padding-bottom: 20px;">
-	<img class="img-thumbnail" src="../img/chobannerlost.jpg" alt="banner" style="width:950px; height: 270px;margin-top: 10px;margin-bottom:5px;">  
+<div class="container" style="background-color: whitesmoke;width:1050px; border-radius: 5px;padding-bottom: 20px;">
+	<img class="img-thumbnail" src="../img/chobannerlost.jpg" alt="banner" style="width:100%; height: 270px;margin-top: 10px;margin-bottom:5px;">  
 	<br>
     <div class="row" style="margin-bottom: 10px;">
         <div class="col-xs-12" style="padding-top: 5px;">
@@ -69,26 +69,26 @@
 <hr>
 <div class="row">
 	<div class="col-xs-4">
-		<div class="panel panel-primary">
-			<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN TÌM CHỦ</b></div>
-			<div class="panel-body" style="height:130px;">
-            	<div style="position:relative;right:20px;">
-                	<ul>
-                        <!-- chèn tin mất chó -->
-                        <li><a href="">Tin tìm chó 1</a></li>
-                		<li><a href="">Tin tìm chó 2</a></li>
-                		<li><a href="">Tin tìm chó 3</a></li>
-                	</ul>
-                </div>
-			<div style="text-align:right;">
-				<a class="btn btn-success btn-sm" href="indexfind.php">Xem thêm</a>
+			<div class="panel panel-primary">
+				<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN TÌM CHỦ</b></div>
+				<div class="panel-body" style="height:130px;">
+                	<div style="position:relative;right:20px;">
+                        <ul>
+                            <!-- chèn tin mất chó -->
+                            <li class="findlost"><a href="">Tin tìm chó 1 gggggggggggggggggggggggggggggg</a></li>
+                            <li class="findlost" style="margin-top:8px;"><a href="">Tin tìm chó 2 gggggggggggggggggggggggggggggg</a></li>
+                            <li class="findlost" style="margin-top:8px;"><a href="">Tin tìm chó 3 gggggggggggggggggggggggggggggg</a></li>
+                        </ul>
+                    </div>
+                    <div style="text-align:right;">
+                        <a class="button" href="Khach/indexfind.php">Xem thêm</a>
+                    </div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
-<div class="col-xs-8"  style=" height: 175px;width:637px; border:1px solid bluelight;border-radius:4px;">
+<div class="col-xs-8"  style=" height:175px;width:684px; border:1px solid bluelight;border-radius:4px; margin-left:-15px;">
 
-	<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:637px;">
+	<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:684px;">
         <!-- chèn slide ảnh tìm chủ-->
         <!--<div id="SlideFindOwner" align="center" style="margin-top:30px">
             <div><a href="img/15.jpg"><img src="img/15.jpg" class="imgSlide"/></a>

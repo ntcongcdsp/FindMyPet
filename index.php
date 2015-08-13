@@ -28,8 +28,8 @@
         include("Khach/menu_Khach.php");
     ?>
         
-<div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;padding-bottom: 20px;">
-    <img class="img-thumbnail" src="img/banner.jpg" alt="banner" style="width:950px; height: 270px;margin-top: 10px;margin-bottom:5px;">  
+<div class="container" style="background-color: whitesmoke;width:1050px; border-radius: 5px;padding-bottom: 20px;">
+    <img class="img-thumbnail" src="img/banner.jpg" alt="banner" style="width:100%; height: 270px;margin-top: 10px;margin-bottom:5px;">  
     <br>
     <div class="row">
         <div class="col-xs-4">
@@ -39,18 +39,18 @@
                     <div style="position:relative;right:20px;">
                         <ul>
                             <!-- chèn tin mất chó -->
-                            <li><a href="">Tin mất chó 1</a></li>
-                            <li><a href="">Tin mất chó 2</a></li>
-                            <li><a href="">Tin mất chó 3</a></li>
+                            <li class="findlost"><a href="">Tin mất chó 1 gggggggggggggggggggggggggggggg</a></li>
+                            <li class="findlost" style="margin-top:8px;"><a href="">Tin mất chó 2 gggggggggggggggggggggggggggggg</a></li>
+                            <li class="findlost" style="margin-top:8px;"><a href="">Tin mất chó 3 gggggggggggggggggggggggggggggg</a></li>
                         </ul>
                     </div>
                     <div style="text-align:right;">
-                        <a class="btn btn-success btn-sm" href="Khach/indexlost.php">Xem thêm</a>
+                        <a class="button" href="Khach/indexlost.php">Xem thêm</a>
                     </div>
                 </div>
         	</div>
     	</div>
-        <div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:637px;">
+        <div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:684px; border-radius:5px;">
             <!-- chèn slide ảnh chó bị mất-->
             <!--<div id="SlideLostPet" align="center" style="margin-top:30px">
             	<div><a href="img/1.jpg"><img src="img/1.jpg" class="imgSlide"/></a>
@@ -73,20 +73,20 @@
 				<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN TÌM CHỦ</b></div>
 				<div class="panel-body" style="height:130px;">
                 	<div style="position:relative;right:20px;">
-                		<ul>
-                        	<!-- chèn tin mất chó -->
-                        	<li><a href="">Tin tìm chó 1</a></li>
-                			<li><a href="">Tin tìm chó 2</a></li>
-                			<li><a href="">Tin tìm chó 3</a></li>
-                		</ul>
-					</div>
-					<div style="text-align:right;">
-                    	<a class="btn btn-success btn-sm" href="Khach/indexfind.php">Xem thêm</a>
-               		</div>
+                        <ul>
+                            <!-- chèn tin mất chó -->
+                            <li class="findlost"><a href="">Tin tìm chó 1 gggggggggggggggggggggggggggggg</a></li>
+                            <li class="findlost" style="margin-top:8px;"><a href="">Tin tìm chó 2 gggggggggggggggggggggggggggggg</a></li>
+                            <li class="findlost" style="margin-top:8px;"><a href="">Tin tìm chó 3 gggggggggggggggggggggggggggggg</a></li>
+                        </ul>
+                    </div>
+                    <div style="text-align:right;">
+                        <a class="button" href="Khach/indexfind.php">Xem thêm</a>
+                    </div>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:637px;">
+		<div class="col-xs-8" style="background-color:lightblue; height: 180px;width:684px; border-radius:5px;">
 			<!-- chèn slide ảnh tìm chủ-->
             <!--<div id="SlideFindOwner" align="center" style="margin-top:30px">
             	<div><a href="img/15.jpg"><img src="img/15.jpg" class="imgSlide"/></a>
@@ -106,7 +106,7 @@
 	<div class="row">
 		<div class="col-xs-9" style="background-color: whitesmoke;padding-top: 5px; height:535px;">
 			<div class="row">
-				<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Những kiến thức cơ bản về thú cưng</b> </p>
+				<p class="bg-primary" style="margin-right: 5px;margin-left: 15px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Những kiến thức cơ bản về thú cưng</b> </p>
 			</div>
             <div class="row" style="height:145px;">
 				<div class="col-xs-4" style="height:145px;">
@@ -138,10 +138,10 @@
                 </div>
             </div>
             <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="Khach/knowledge.php">Xem thêm</a>
+                <a style="margin-bottom: 4px;"class="btn btn-success btn-xs" href="Khach/knowledge.php">Xem thêm</a>
             </div>
         </div>
-        <div class="col-xs-3" style="border: 2px solid lightblue;border-radius:5px;width:240px;">
+        <div class="col-xs-3" style="border: 2px solid lightblue;border-radius:5px;width:240px;  margin-left:7px;">
             <div class="row" style="height:75px"><img style="width:230px; height:70px;margin-top: 3px;margin-left: 3px;" src="img/news.gif"></div>
             <div class="row" style="margin-left: 2px;width:210px;">
 				<div class="row" style="height:140px;">
@@ -160,7 +160,7 @@
 				</div>
             </div>
             <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-sm" href="Khach/news.php">Xem thêm</a>
+                <a style="margin-bottom: 4px;"class="btn btn-success btn-xs" href="Khach/news.php">Xem thêm</a>
             </div>
         </div>   
     </div>
