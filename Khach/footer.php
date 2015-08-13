@@ -32,7 +32,7 @@
 				$rootURL = 'http://localhost:8084/FindMyPet/';
 				echo "<img class='img-thumbnail' src='".$rootURL."img/bannervui.jpg' style='width:480px;height:55px;margin-left:23px;'>";
 			?>
-            <!--<img class="img-thumbnail" src="./img/bannervui.jpg" style="width:480px;height:55px;margin-left:5px;">-->
+            <!--<img class="img-thumbnail" src="../img/bannervui.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
         <div class="row" style="height:295px;width:480px;margin-left:-10px;">
             <div id="SlideFooter" align="center">
@@ -62,7 +62,7 @@
         	<?php
 				echo "<img class='img-thumbnail' src='".$rootURL."img/bannervui2.jpg' style='width:480px;height:55px;margin-left:23px;'>";
 			?>
-            <!--<img class="img-thumbnail" src="./img/bannervui2.jpg" style="width:480px;height:55px;margin-left:5px;">-->
+            <!--<img class="img-thumbnail" src="../img/bannervui2.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
         <div class="row" style="height:255px;width:480px;margin-left:-10px;">
             chèn clip vui
