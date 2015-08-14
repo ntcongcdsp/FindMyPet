@@ -66,7 +66,7 @@
 
         <table class="table table-condensed">
     		<tr>
-                <th class="info">STT</th>
+                <th class="info">ID</th>
                 <th class="info">Loài</th>
                 <th class="info">Giống</th>
                 <th class="info">Nguồn gốc</th>
@@ -88,8 +88,8 @@
 						echo "<td>". $row['Giong'] ."</td>";
 						echo "<td>". $row['NguonGoc'] ."</td>";
                         echo "<td> 
-							<a href='ThuCung_chitiet.php?Giong=".$row['Giong']."'><input type='button' value='Chi tiết' class='btn'/></a>
-                            <a href='ThuCung_Sua.php?Giong=".$row['Giong']."'><input type='button' value='Sửa' class='btn btn-success'/></a>
+							<a href='ThuCung_chitiet.php?ID=".$row['ID']."'><input type='button' value='Chi tiết' class='btn'/></a>
+                            <a href='ThuCung_Sua.php?ID=".$row['ID']."'><input type='button' value='Sửa' class='btn btn-success'/></a>
                             <a href='ThuCung_Xoa.php?Giong=".$row['Giong']."'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
                             </td>";
                     echo "</tr>";

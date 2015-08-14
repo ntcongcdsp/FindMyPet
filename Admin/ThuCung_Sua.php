@@ -20,7 +20,8 @@
 	if(isset($_POST['submit']))
 	{
 		// Insert co so du lieu
-		$sql = "UPDATE thucung SET Loai='".$_POST['Loai']."', DacDiem =".$_POST['DacDiem'].", TinhCach = '".$_POST['TinhCach']."', KhaNang = '".$_POST['KhaNang']."', NguonGoc ='".$_POST['NguonGoc']."', TieuChuan='".$_POST['TieuChuan']."' WHERE Giong = '".$_GET['Giong']."'";
+		$sql = "UPDATE thucung SET Loai='".$_POST['Loai']."', Giong = '".$_POST['Giong']."', DacDiem ='".$_POST['DacDiem']."', TinhCach = '".$_POST['TinhCach']."', KhaNang = '".$_POST['KhaNang']."', NguonGoc ='".$_POST['NguonGoc']."', TieuChuan='".$_POST['TieuChuan']."' WHERE ID = ".$_POST['txtID'];
+
 		if($conn->query($sql) === TRUE)
 		{
 			echo "Nhap du lieu thanh cong";
@@ -64,8 +65,8 @@
     <div class="row">
     	<!-- Chèn form để xem thông tin tài khoản -->
         <?php
-			$sql = "SELECT * FROM thucung WHERE Giong = '".$_GET['Giong']."'";
-
+			$sql = "SELECT * FROM thucung WHERE ID = ".$_GET['ID'];
+			
 			$resut = mysqli_query($conn, $sql);
 			if($resut->num_rows>0)
 			{
@@ -73,6 +74,7 @@
 			}
 		?>
         <form class="form-horizontal" name="frmSuaThuCung" method="post">
+        	<input type="hidden" name="txtID" value="<?php echo $row['ID']; ?>">
 			<div class="form-group">
 				<label for="Loai" class="col-sm-2 control-label">Loài: </label>
 				<div class="col-sm-5">
@@ -87,32 +89,32 @@
 			</div>
             <div class="form-group">
                 <label for="DacDiem" class="col-sm-2 control-label">Đặc điểm: </label>
-                <div class="col-sm-8">
-                    <textarea class="form-control" name="DacDiem" placeholder="Đặc điểm" value="<?php echo $row['DacDiem']; ?>"></textarea>
+                <div class="col-sm-7">
+                    <textarea class="form-control" name="DacDiem" placeholder="Đặc điểm"><?php echo $row['DacDiem']; ?></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label for="TinhCach" class="col-sm-2 control-label">Tính cách: </label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" name="TinhCach" placeholder="Tính cách" value="<?php echo $row['TinhCach']; ?>">
+                <div class="col-sm-7">
+                    <textarea class="form-control" name="TinhCach" placeholder="Tính cách"><?php echo $row['TinhCach']; ?></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label for="KhaNang" class="col-sm-2 control-label">Khả năng: </label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" name="KhaNang" placeholder="Khả năng" value="<?php echo $row['KhaNang']; ?>">
+                <div class="col-sm-7">
+                    <textarea class="form-control" name="KhaNang" placeholder="Khả năng"><?php echo $row['KhaNang']; ?></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label for="NguonGoc" class="col-sm-2 control-label">Nguồn gốc: </label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" name="NguonGoc" placeholder="Nguồn gốc" value="<?php echo $row['NguonGoc']; ?>">
+                <div class="col-sm-7">
+                    <textarea class="form-control" name="NguonGoc" placeholder="Nguồn gốc"><?php echo $row['NguonGoc']; ?></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label for="TieuChuan" class="col-sm-2 control-label">Tiêu chuẩn: </label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" name="TieuChuan" placeholder="Số điện thoại" value="<?php echo $row['TieuChuan']; ?>">
+                <div class="col-sm-7">
+                    <textarea class="form-control" name="TieuChuan" placeholder="Tiêu chuẩn"><?php echo $row['TieuChuan']; ?></textarea>
                 </div>
             </div>
             <div class="form-group">

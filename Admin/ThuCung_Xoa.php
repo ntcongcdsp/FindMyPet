@@ -19,7 +19,7 @@
 		require_once("../PHP/ConnectDB.php");
 		$conn = ConnectDB::connect();
 	
-		$sql = "DELETE FROM thucung WHERE Giong = '".$_GET['Giong']."'";
+		$sql = "DELETE FROM thucung WHERE ID = ".$_GET['ID'];
 		
 		if($conn->query($sql) === TRUE)
 		{
@@ -64,7 +64,7 @@
         </div>
         <div class="control_group">
              <form class="form-horizontal" name="xoathucung" method="get">
-                <input type="hidden" name="Giong" value="<?php echo $_GET['Giong']?>"/>
+                <input type="hidden" name="ID" value="<?php echo $_GET['ID']?>"/>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-danger" name="submit">Xóa</button>

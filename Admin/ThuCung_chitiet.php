@@ -44,7 +44,7 @@
 			<?php	
 			require_once("../PHP/ConnectDB.php");
 			$conn = ConnectDB::connect();
-			$sql = "SELECT * FROM thucung WHERE Giong  = '".$_GET['Giong']."'";
+			$sql = "SELECT * FROM thucung WHERE ID  = ".$_GET['ID'];
 	
 			$resut = mysqli_query($conn, $sql);
 			if($resut->num_rows>0)
@@ -110,8 +110,8 @@
             </div>
         </div>
         <div class="row" align="center">
-        	<a href='ThuCung_Sua.php?Giong=<?php echo $row['Giong']?>'><input type='button' value='Sửa' class='btn btn-success'/></a>
-			<a href='ThuCung_Xoa.php?Giong=<?php echo $row['Giong']?>'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
+        	<a href='ThuCung_Sua.php?ID=<?php echo $row['ID']?>'><input type='button' value='Sửa' class='btn btn-success'/></a>
+			<a href='ThuCung_Xoa.php?ID=<?php echo $row['ID']?>'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
             <a href="QLThuCung.php"><button type="button" class="btn btn-default">Trở về</button></a>
         </div>
 	</div>
