@@ -39,31 +39,52 @@
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
     	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Quản lý Thú cưng</b> </p>
     </div>
-    <div class="row" align="center">
-    	<!-- Chèn giao diện để quản lý User -->	
-			<div class="col-md-6"<p align="left">
-				<a href="ThuCung_taomoi.php" class="btn btn-success">Thêm thú cưng</a>
-			</p>
-			</div>
-			<div class="col-md-4" align="right">
+    <div class="row">
+    	<!-- Chèn giao diện để quản lý Thu cung-->	
+        <div class="col-md-3">
         	<form name="frmLoc" method="post">
-                <select class="form-control" name="slPhanQuyen">
+                <select class="form-control" name="slLoai">
                 	<option value='0'> Tất cả</option>;
                     <?php	
                         require_once("../PHP/ConnectDB.php");
                         $conn = ConnectDB::connect();							
-                        $sqlDM = "SELECT Loai FROM thucung";
+                        $sqlDM = "SELECT DISTINCT Loai FROM thucung";
                         $resutDM = mysqli_query($conn, $sqlDM);
-
-                         ConnectDB::disconnect();
+                        if($resutDM->num_rows >0)
+                        {
+                            while ($rowMD = $resutDM->fetch_assoc())
+                            {
+                                if(array_key_exists('slLoai',$_POST))
+                                {
+                                    if($_POST['slLoai'] == $rowMD['Loai'])
+                                    {
+                                        echo "<option value='".$rowMD['Loai']."' selected> ".$rowMD['Loai']."</option>";
+                                    }
+                                    else
+                                    {
+                                        echo "<option value='".$rowMD['Loai']."'> ".$rowMD['Loai']."</option>";
+                                    }
+                                }
+                                else
+                                {
+                                     echo "<option value='".$rowMD['Loai']."'> ".$rowMD['Loai']."</option>";
+                                }
+                            }
+                        }
+                        ConnectDB::disconnect();
                     ?>
                 </select>
 		</div>
-                <div class="col-md-2" align="right">
+                <div class="col-md-3" align="left">
                 	<button type="submit" class="btn btn-info" name="submit">Lọc thú cưng</button>
                 </div>
             </form>
-
+        
+        <div class="col-md-6" align="right">
+        <p><a href="ThuCung_Tao.php"><input type="button" value="Thêm thú cưng"/></a> </p>
+        </div>
+	</div>    
+   <div class="row" align="center">         
         <table class="table table-condensed">
     		<tr>
                 <th class="info">ID</th>
@@ -77,30 +98,68 @@
 				$conn = ConnectDB::connect();
 			
 				$sql = "SELECT ID,Loai, Giong, NguonGoc FROM thucung ORDER BY ID ASC";
+				if(array_key_exists('slLoai', $_POST))
+				{
+					if($_POST['slLoai'] != '0')
+					{
+						$sql = "SELECT ID,Loai, Giong, NguonGoc FROM thucung WHERE Loai like '%". $_POST['slLoai'] ."%' ORDER BY ID ASC";	
+					}
+				}
+				
+				//Code phan trang
+				$row_per_page=10; // Số dòng trên mỗi trang
+							
+				$resultAll = mysqli_query($conn, $sql);
+				
+				$rows = $resultAll->num_rows;//Số dòng cần hiển thị
+				//Tính số trang cần hiển thị
+				if ($rows>$row_per_page) $page=ceil($rows/$row_per_page); 
+				else $page=1; //nếu số dòng trong CSDL nhỏ hơn hoặc bằng số dòng trên 1 trang thì chỉ có 1 trang để hiển thị
+				//Tính số dòng để lấy từ CSDL
+				if(array_key_exists('start',$_GET))
+				{
+					$start = $_GET['start'];
+				}
+				else
+					$start = 0;
+					
+				$sql .= " LIMIT ".$start.",".$row_per_page;
+	
 				$result = mysqli_query($conn, $sql);
-            if($result->num_rows > 0)
-            {
-                while($row = $result->fetch_assoc())
-                {
-                    echo "<tr>";
-                        echo "<th>". $row['ID'] ."</th>";
-                        echo "<td>". $row['Loai'] ."</td>";
-						echo "<td>". $row['Giong'] ."</td>";
-						echo "<td>". $row['NguonGoc'] ."</td>";
-                        echo "<td> 
-							<a href='ThuCung_chitiet.php?ID=".$row['ID']."'><input type='button' value='Chi tiết' class='btn'/></a>
-                            <a href='ThuCung_Sua.php?ID=".$row['ID']."'><input type='button' value='Sửa' class='btn btn-success'/></a>
-                            <a href='ThuCung_Xoa.php?Giong=".$row['Giong']."'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
-                            </td>";
-                    echo "</tr>";
-                }
-            }
-            ConnectDB::disconnect();
+			
+				if($result->num_rows > 0)
+				{
+					while($row = $result->fetch_assoc())
+					{
+						echo "<tr>";
+							echo "<th>". $row['ID'] ."</th>";
+							echo "<td>". $row['Loai'] ."</td>";
+							echo "<td>". $row['Giong'] ."</td>";
+							echo "<td>". $row['NguonGoc'] ."</td>";
+							echo "<td width='183'>
+								<a href='ThuCung_Doc.php?ID=".$row['ID']."'><input type='button' value='Chi tiết' class='btn'/></a>
+								<a href='ThuCung_Sua.php?ID=".$row['ID']."'><input type='button' value='Sửa' class='btn btn-success'/></a>
+								<a href='ThuCung_Xoa.php?ID=".$row['ID']."'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
+								</td>";
+						echo "</tr>";
+					}
+				}
+				ConnectDB::disconnect();
         ?>
 		</table>
+         <?php
+		
+		//bắt đầu phân trang
+		$page_cr=($start/$row_per_page)+1;
+		echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
+		for($i=1;$i<=$page;$i++)
+		{
+		 if ($page_cr!=$i) echo "<a href='QLTaiKhoan.php?start=".$row_per_page*($i-1)."'><span>".$i."&nbsp;</span></a>";
+		 else echo "<span>".$i."&nbsp;</span>";
+		
+		} 
+		?>
     </div>
-
-    
 </div>
 </body>
 </html>

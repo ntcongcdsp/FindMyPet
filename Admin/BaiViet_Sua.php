@@ -72,9 +72,8 @@
 		?>
         <form class="form-horizontal" name="frmSuaTaiKhoan" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-	                <label for="txtID" class="col-sm-2 control-label">ID: </label>
     				<div class="col-sm-5">
-      					<input type="text" disabled class="form-control" name="txtID" value="<?php echo $_GET['ID']?>">
+      					<input type="hidden" disabled class="form-control" name="txtID" value="<?php echo $_GET['ID']?>">
     				</div>
   				</div>
                 <div class="form-group">
@@ -86,6 +85,7 @@
 				<div class="form-group">
     				<label for="txtNoiDung" class="col-sm-2 control-label">Nội dung: </label>
     				<div class="col-sm-5">
+                    	
       					<input type="text" class="form-control" name="txtNoiDung" placeholder="Nội dung" value="<?php echo $row['NoiDung']; ?>">
     				</div>
   				</div>

@@ -81,12 +81,12 @@
 					<?php
 						if(array_key_exists('slKiemDuyet',$_POST))
 						{
-							if($_POST['slKiemDuyet'] == 1)
+							if($_POST['slKiemDuyet'] == DA_KIEM_DUYET)
 							{
 								echo "<option value='1' selected> Đã kiểm duyệt </option>";
 								echo "<option value='0'>Chưa kiểm duyệt </option>";
 							}
-							else if($_POST['slKiemDuyet'] == 0)
+							else if($_POST['slKiemDuyet'] == CHUA_KIEM_DUYET)
 							{
 								echo "<option value='1'> Đã kiểm duyệt </option>";
 								echo "<option value='0' selected>Chưa kiểm duyệt </option>";
@@ -106,12 +106,12 @@
 				</select>
 		</div>
                 <div class="col-md-3" align="left">
-                	<button type="submit" class="btn btn-info" name="submit">Lọc</button>
+                	<button type="submit" class="btn btn-info" name="submit">Lọc Bài viết</button>
                 </div>
             </form>
         
         <div class="col-md-4" align="right">
-        <p><a href="DangBaiViet.php"><input type="button" value="Đăng bài viết/Bản tin mới"/></a> </p>
+        <p><a href="BaiViet_Tao.php"><input type="button" value="Đăng bài viết/Bản tin mới"/></a> </p>
         </div>
 	</div>
 	<div class="row" align="center">
@@ -119,43 +119,64 @@
         <tr>
             <th class="info" >ID</th>
             <th class="info" >Tiêu đề</th>
-			<th class="info" >Nội dung</th>
+			<th class="info" >Tóm tắt</th>
             <th class="info" >Hình ảnh</th>
             <th class="info" >Người đăng</th>
-			<th class="info">Loại</th>
+			<th class="info" >Loại</th>
             <th class="info" >Kiểm duyệt</th>
             <th class="info" >Ngày dăng</th>
-            <th class="info" >Tác vụ</th>
+            <th class="info" width="183px">Tác vụ</th>
         </tr>
         <?php
             require_once("../PHP/ConnectDB.php");
             $conn = ConnectDB::connect();
         
-            $sql = "SELECT A.ID, TieuDe, NoiDung, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID ORDER BY A.ID ASC";
+            $sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID ORDER BY A.ID ASC";
 			if(array_key_exists('slDanhMuc', $_POST) && array_key_exists('slKiemDuyet',$_POST))
 			{
 				//Truong hop chi co Danh muc
-				if($_POST['slDanhMuc']!=0 && $_POST['slKiemDuyet'] == 2)
+				if($_POST['slDanhMuc']!='0' && $_POST['slKiemDuyet'] == '2')
 				{
-					$sql = "SELECT A.ID, TieuDe, NoiDung, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE A.IDDanhMuc = ". $_POST['slDanhMuc'] ." ORDER BY A.ID ASC";
+					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE A.IDDanhMuc = ". $_POST['slDanhMuc']." ORDER BY A.ID ASC";
 				}
 				//Truong hop chi co Kiem duyet
-				else if ($_POST['slDanhMuc'] == 0 && $_POST['slKiemDuyet'] != 2)
+				else if ($_POST['slDanhMuc'] == '0' && $_POST['slKiemDuyet'] != '2')
 				{
-					$sql = "SELECT A.ID, TieuDe, NoiDung, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE KiemDuyet = ". $_POST['slKiemDuyet'] ." ORDER BY A.ID ASC";
+					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE KiemDuyet = ". $_POST['slKiemDuyet']." ORDER BY A.ID ASC";
+
 				}
 				//Truong hop co Danh muc va Kiem duyet
 				else
 				{
-					$sql = "SELECT A.ID, TieuDe, NoiDung, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE A.IDDanhMuc = ". $_POST['slDanhMuc'] ." AND KiemDuyet = ". $_POST['slKiemDuyet'] ." ORDER BY A.ID ASC";
+					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE A.IDDanhMuc = ". $_POST['slDanhMuc'] ." AND KiemDuyet = ". $_POST['slKiemDuyet']." ORDER BY A.ID ASC";
 				}
-				/*if($_POST['slDanhMuc'] != 0)
+				//Truong hop khong co Danh muc va Kiem duyet
+				if($_POST['slDanhMuc']=='0' && $_POST['slKiemDuyet'] == '2')
 				{
-					$sql = "SELECT A.ID, TieuDe, NoiDung, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE A.IDDanhMuc = ". $_POST['slDanhMuc'] ." ORDER BY A.ID ASC";
-				}*/
+					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID ORDER BY A.ID ASC";
+				}
 			}
+			//Code phan trang
+			$row_per_page=10; // Số dòng trên mỗi trang
+						
+			$resultAll = mysqli_query($conn, $sql);
 			
-            $result = mysqli_query($conn, $sql);
+			$rows = $resultAll->num_rows;//Số dòng cần hiển thị
+			//Tính số trang cần hiển thị
+			if ($rows>$row_per_page) $page=ceil($rows/$row_per_page); 
+			else $page=1; //nếu số dòng trong CSDL nhỏ hơn hoặc bằng số dòng trên 1 trang thì chỉ có 1 trang để hiển thị
+			//Tính số dòng để lấy từ CSDL
+			if(array_key_exists('start',$_GET))
+			{
+				$start = $_GET['start'];
+			}
+			else
+				$start = 0;
+				
+			$sql .= " LIMIT ".$start.",".$row_per_page;
+
+			$result = mysqli_query($conn, $sql);
+			
             if($result->num_rows > 0)
             {
                 while($row = $result->fetch_assoc())
@@ -163,18 +184,16 @@
                     echo "<tr>";
                         echo "<td>". $row['ID'] ."</td>";
                         echo "<th>". $row['TieuDe'] ."</th>";
-						echo "<td>". $row['NoiDung'] ."</td>";
-						echo "<td><img src='../img/". $row['HinhAnh'] ."'></td>";
+						echo "<td>". $row['TomTat'] ."</td>";
+						echo "<td><img class='imgSlide' src='".BASE_URL."img/". $row['HinhAnh'] ."'></td>";
 						echo "<td>". $row['TenDN'] ."</td>";
 						echo "<td>". $row['TenDanhMuc'] ."</td>";
 						echo "<td>". $row['KiemDuyet'] ."</td>";
 						echo "<td>". $row['NgayDang'] ."</td>";
-                        echo "<td width=183>";
-					   	echo "<a href='BaiViet_Doc.php?ID=".$row['ID']."'><input type='button' value='Xem' class='btn btn-default'/></a>";
-					   	echo "&nbsp;";
-					   	echo "<a href='BaiViet_Sua.php?ID=".$row['ID']."'><input type='button' value='Sửa' class='btn btn-success'/></a>";
-					   	echo "&nbsp;";
-					   	echo "<a href='BaiViet_Xoa.php?ID=".$row['ID']."'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>";
+                        echo "<td>
+							<a href='BaiViet_Doc.php?ID=".$row['ID']."'><input type='button' value='Xem' class='btn btn-default'/></a>
+							<a href='BaiViet_Sua.php?ID=".$row['ID']."'><input type='button' value='Sửa' class='btn btn-success'/></a>
+							<a href='BaiViet_Xoa.php?ID=".$row['ID']."'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>";
 					   	echo "</td>";
                     echo "</tr>";
                 }
@@ -182,6 +201,18 @@
             ConnectDB::disconnect();
         ?>
 		</table>
+         <?php
+		
+			//bắt đầu phân trang
+			$page_cr=($start/$row_per_page)+1;
+			echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
+			for($i=1;$i<=$page;$i++)
+			{
+				if ($page_cr!=$i) echo "<a href='QLTaiKhoan.php?start=".$row_per_page*($i-1)."'><span>".$i."&nbsp;</span></a>";
+			 	else echo "<span>".$i."&nbsp;</span>";
+			
+			} 
+		?>
     </div>
     
 </div>

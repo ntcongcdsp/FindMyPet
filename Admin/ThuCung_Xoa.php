@@ -59,7 +59,19 @@
     ?>
     <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 		<div class="bg-danger">
-        	<h1>Xóa thú cưng</h1>
+        <?php
+			require_once("../PHP/ConnectDB.php");
+			$conn = ConnectDB::connect();
+		
+			$sql = "SELECT ID,Loai, Giong FROM thucung WHERE ID = ".$_GET['ID'];
+			$result = mysqli_query($conn, $sql);
+            if($result->num_rows > 0)
+            {
+               $row = $result->fetch_assoc();
+            }
+            ConnectDB::disconnect();
+		?>
+        	<h1>Xóa thú cưng "Loài: <?php echo $row['Loai']." - Giống: ".$row['Giong']; ?>"</h1>
         	<h3>Bạn có chắc chắn muốn xóa?</h3>
         </div>
         <div class="control_group">

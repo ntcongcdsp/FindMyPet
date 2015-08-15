@@ -1,8 +1,9 @@
 <?php 
-session_start();
+	session_start();
+	include_once(realpath(dirname(__DIR__))."/PHP/define.php");
 	if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
 	{
-		if($_SESSION['MaPhanQuyen'] != 1)
+		if($_SESSION['MaPhanQuyen'] != NHOM_QUAN_TRI)
 		{
 			header('Location: ../PHP/Login.php');
 		}
@@ -11,93 +12,180 @@ session_start();
 	{
 		header('Location: ../PHP/Login.php');
 	}
-$ID = null;
-if ( !empty($_GET['ID'])) {
-	$ID = $_REQUEST['ID'];
-}
-
-if ( null==$ID || !(is_numeric($ID))) {
-	header("Location: QLBaiViet.php");
-} else {
-	require_once("../PHP/ConnectDB.php");
-   	$conn = ConnectDB::connect();
-   	$sql = "SELECT * FROM baiviet";
-	$results = mysqli_query($conn, $sql);
-	if ($results->num_rows > 0) {
-		$data = $results->fetcharray();
-	}
-	ConnectDB::disconnect();
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <link   href="css/bootstrap.min.css" rel="stylesheet"/>
-    <script src="js/bootstrap.min.js"></script>
+    <title>Find My Pet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Meta Responsive -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap core CSS -->
+	<script src="../js/jquery-1.11.3.min.js"> </script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/ie-emulation-modes-warning.js"></script>
+    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/menu.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+    <script src="../js/bootstrap.min.js"></script>
 </head>
 
-<body>
-    <div class="container">
-		<div class="span10 offset1">
-			<div class="row">
-    			<h3>Xem bài viết</h3>
-    		</div>    		
-			<div class="form-horizontal" >
-			  <div class="control-group">
-			    <label class="control-label">Tiêu đề</label>
-			    <div class="controls">
-				    <label class="checkbox">
-				     	<?php echo $data['TieuDe'];?>
-				    </label>
-			    </div>
-			  </div>
-			  <div class="control-group">
-			    <label class="control-label">Nội dung</label>
-			    <div class="controls">
-			      	<label class="checkbox">
-				     	<?php echo $data['NoiDung'];?>
-				    </label>
-			    </div>
-			  </div>
-			  <div class="control-group">
-			    <label class="control-label">Hình ảnh</label>
-			    <div class="controls">
-			      	<label class="checkbox">
-				     	<?php echo $data['HinhAnh'];?>
-				    </label>
-			    </div>
-			  </div>
-			  <div class="control-group">
-			    <label class="control-label">Người đăng</label>
-			    <div class="controls">
-			      	<label class="checkbox">
-				     	<?php echo $data['TenDN'];?>
-				    </label>
-			    </div>
-			  </div>
-			  <div class="control-group">
-			    <label class="control-label">Kiểm duyệt</label>
-			    <div class="controls">
-			      	<label class="checkbox">
-				     	<?php echo $data['KiemDuyet'];?>
-				    </label>
-			    </div>
-			  </div>
-			  <div class="control-group">
-			    <label class="control-label">Ngày đăng</label>
-			    <div class="controls">
-			      	<label class="checkbox">
-				     	<?php echo $data['NgayDang'];?>
-				    </label>
-			    </div>
-			  </div>
-			    <div class="form-actions">
-				  <a class="btn" href="QLBaiViet.php">Back</a>
-			   </div>
-			</div>
-		</div>
-    </div> <!-- /container -->
-  </body>
+<body style="background-color: lightgrey;min-height:100%;">
+	<?php
+        include("menu_Admin.php");
+    ?>
+   <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
+	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
+    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Chi tiết Bài viết</b> </p>
+    </div>
+    <div class="row">
+    	<!-- Chèn form để xem thông tin tài khoản -->
+			<?php	
+			require_once("../PHP/ConnectDB.php");
+			$conn = ConnectDB::connect();
+			$sql = "SELECT A.ID, TieuDe, TomTat, NoiDung, HinhAnh, TenDN, IDDanhMuc, KiemDuyet, NgayDang, Ten, Mau, Tuoi, DacDiemNhanDang, Loai, Giong FROM BaiViet AS A INNER JOIN BaiViet_ThuCung AS B ON A.ID = B.IDBaiViet INNER JOIN ThuCung AS C ON B.IDThuCung = C.ID WHERE A.ID = ".$_GET['ID'];
+
+			$resut = mysqli_query($conn, $sql);
+			if($resut->num_rows>0)
+			{
+				$row = $resut->fetch_assoc();
+			}
+			ConnectDB::disconnect();
+		?>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Tiêu đề:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['TieuDe']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Tóm tắt:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['TomTat']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Nội dung:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['NoiDung']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Hình Ảnh:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo "<img class='imgSlide' src='".BASE_URL."img/". $row['HinhAnh'] ."'>"; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Người đăng:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['TenDN']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Danh mục:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify">
+					<?php 
+						$connDM = ConnectDB::connect();
+						$sqlDM = "SELECT * FROM DanhMuc WHERE ID = ".$row['IDDanhMuc'];
+			
+						$resutDM = mysqli_query($connDM, $sqlDM);
+						if($resutDM->num_rows>0)
+						{
+							$rowDM = $resutDM->fetch_assoc();
+							echo $rowDM['TenDanhMuc']." - <strong>Mô tả:</strong> ".$rowDM['MoTa'];
+						}
+						ConnectDB::disconnect();
+					?>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Kiểm duyệt:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php if($row['KiemDuyet']==DA_KIEM_DUYET) echo "Đã kiểm duyệt"; else echo "Chưa kiểm duyệt";?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Ngày đăng:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['NgayDang']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Tên của thú cưng:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['Ten']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Màu của thú cưng:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['Mau']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Tuổi của thú cưng:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['Tuoi']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Đặc điểm nhận dạng của thú cưng:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['DacDiemNhanDang']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Loài thú cưng:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['Loai']; ?></p>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-2 control-label" align="right">
+            	<label>- Giống thú cưng:</label>
+            </div>
+            <div class="col-md-9" align="left">
+            	<p align="justify"><?php echo $row['Giong']; ?></p>
+            </div>
+        </div>
+        <div class="row" align="center">
+        	<a href='BaiViet_Sua.php?ID=<?php echo $row['ID']?>'><input type='button' value='Sửa' class='btn btn-success'/></a>
+			<a href='BaiViet_Xoa.php?ID=<?php echo $row['ID']?>'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
+            <a href="QLBaiViet.php"><button type="button" class="btn btn-default">Trở về</button></a>
+        </div>
+	</div>
+	</div> <!-- /container -->
+</body>
 </html>

@@ -100,8 +100,6 @@
             require_once("../PHP/ConnectDB.php");
             $conn = ConnectDB::connect();
 			
-			
-			
             $sql = "SELECT TenDN, MoTa, Ho, Ten, Email, DiaChi, SoDienThoai FROM User AS A INNER JOIN PhanQuyen AS B ON A.MaPhanQuyen = B.MaPhanQuyen ORDER BY TenDN ASC";
 			if(array_key_exists('slPhanQuyen', $_POST))
 			{
@@ -110,8 +108,6 @@
 					$sql = "SELECT TenDN, MoTa, Ho, Ten, Email, DiaChi, SoDienThoai FROM User AS A INNER JOIN PhanQuyen AS B ON A.MaPhanQuyen = B.MaPhanQuyen WHERE A.MaPhanQuyen = ". $_POST['slPhanQuyen'] ." ORDER BY TenDN ASC";
 				}
 			}
-			
-			
 			
 			//Code phan trang
 			$row_per_page=10; // Số dòng trên mỗi trang

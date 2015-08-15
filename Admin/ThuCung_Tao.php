@@ -57,7 +57,7 @@
     ?>
 <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
-    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Tạo tài khoản</b> </p>
+    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Tạo thông tin thú cưng</b> </p>
     </div>
     <div class="row">
     	<!-- Chèn form để xem thông tin tài khoản -->
@@ -76,32 +76,32 @@
   				</div>
                 <div class="form-group">
     				<label for="DacDiem" class="col-sm-2 control-label">Đặc điểm: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="DacDiem" placeholder="Đặc điểm" >
+    				<div class="col-sm-7">
+                    	<textarea class="form-control" name="DacDiem" placeholder="Đặc điểm"></textarea>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="TinhCach" class="col-sm-2 control-label">Tính cách: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="TinhCach" placeholder="tính cách" >
+    				<div class="col-sm-7">
+                    	<textarea class="form-control" name="TinhCach" placeholder="Tính cách"></textarea>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="KhaNang" class="col-sm-2 control-label">Khả năng: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="KhaNang" placeholder="Khả năng">
+    				<div class="col-sm-7">
+                    	<textarea class="form-control" name="KhaNang" placeholder="Khả năng"></textarea>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="NguonGoc" class="col-sm-2 control-label">Nguồn gốc: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="NguonGoc" placeholder="Nguồn gốc">
+    				<div class="col-sm-7">
+                   		<textarea class="form-control" name="NguonGoc" placeholder="Nguồn gốc"></textarea>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="TieuChuan" class="col-sm-2 control-label">Tiêu chuẩn: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="TieuChuan" placeholder="Tiêu chuẩn">
+    				<div class="col-sm-7">
+                    	<textarea class="form-control" name="TieuChuan" placeholder="Tiêu chuẩn"></textarea>
     				</div>
   				</div>
                 <div class="form-group">
