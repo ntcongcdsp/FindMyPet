@@ -37,7 +37,7 @@
     ?>
 <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
-    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Quản lý Bài viết</b> </p>
+    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Quản lý Bài viết/Bản tin</b> </p>
     </div>
     <div class="row">
     	<!-- Chèn giao diện để quản lý User -->	
@@ -122,38 +122,39 @@
 			<th class="info" >Tóm tắt</th>
             <th class="info" >Hình ảnh</th>
             <th class="info" >Người đăng</th>
-			<th class="info" >Loại</th>
+			<th class="info" >Danh mục</th>
             <th class="info" >Kiểm duyệt</th>
             <th class="info" >Ngày dăng</th>
-            <th class="info" width="183px">Tác vụ</th>
+            <th class="info" >Tác vụ</th>
         </tr>
         <?php
             require_once("../PHP/ConnectDB.php");
             $conn = ConnectDB::connect();
         
-            $sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID ORDER BY A.ID ASC";
+            $sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID ORDER BY A.ID DESC";
+
 			if(array_key_exists('slDanhMuc', $_POST) && array_key_exists('slKiemDuyet',$_POST))
 			{
 				//Truong hop chi co Danh muc
 				if($_POST['slDanhMuc']!='0' && $_POST['slKiemDuyet'] == '2')
 				{
-					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE A.IDDanhMuc = ". $_POST['slDanhMuc']." ORDER BY A.ID ASC";
+					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE A.IDDanhMuc = ". $_POST['slDanhMuc']." ORDER BY A.ID DESC";
 				}
 				//Truong hop chi co Kiem duyet
 				else if ($_POST['slDanhMuc'] == '0' && $_POST['slKiemDuyet'] != '2')
 				{
-					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE KiemDuyet = ". $_POST['slKiemDuyet']." ORDER BY A.ID ASC";
+					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE KiemDuyet = ". $_POST['slKiemDuyet']." ORDER BY A.ID DESC";
 
 				}
 				//Truong hop co Danh muc va Kiem duyet
 				else
 				{
-					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE A.IDDanhMuc = ". $_POST['slDanhMuc'] ." AND KiemDuyet = ". $_POST['slKiemDuyet']." ORDER BY A.ID ASC";
+					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE A.IDDanhMuc = ". $_POST['slDanhMuc'] ." AND KiemDuyet = ". $_POST['slKiemDuyet']." ORDER BY A.ID DESC";
 				}
 				//Truong hop khong co Danh muc va Kiem duyet
 				if($_POST['slDanhMuc']=='0' && $_POST['slKiemDuyet'] == '2')
 				{
-					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID ORDER BY A.ID ASC";
+					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID ORDER BY A.ID DESC";
 				}
 			}
 			//Code phan trang
@@ -174,7 +175,7 @@
 				$start = 0;
 				
 			$sql .= " LIMIT ".$start.",".$row_per_page;
-
+			
 			$result = mysqli_query($conn, $sql);
 			
             if($result->num_rows > 0)

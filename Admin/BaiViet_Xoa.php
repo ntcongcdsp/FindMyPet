@@ -1,7 +1,14 @@
 <?php
-
 	session_start();
-	if(!array_key_exists('TenDN',$_SESSION))
+	include_once(realpath(dirname(__DIR__))."/PHP/define.php");
+	if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+	{
+		if($_SESSION['MaPhanQuyen'] != NHOM_QUAN_TRI)
+		{
+			header('Location: ../PHP/Login.php');
+		}
+	}
+	else
 	{
 		header('Location: ../PHP/Login.php');
 	}
@@ -51,7 +58,19 @@
     ?>
     <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 		<div class="bg-danger">
-        	<h1>Xóa bài viết - "<?php echo $_GET['ID'];?>"</h1>
+         <?php
+			require_once("../PHP/ConnectDB.php");
+			$conn = ConnectDB::connect();
+		
+			$sql = "SELECT TieuDe FROM BaiViet WHERE ID = ".$_GET['ID'];
+			$result = mysqli_query($conn, $sql);
+            if($result->num_rows > 0)
+            {
+               $row = $result->fetch_assoc();
+            }
+            ConnectDB::disconnect();
+		?>
+        	<h1>Xóa bài viết - "<?php echo $row['TieuDe'];?>"</h1>
         	<h3>Bạn có chắc chắn muốn xóa?</h3>
         </div>
         <div class="control_group">
