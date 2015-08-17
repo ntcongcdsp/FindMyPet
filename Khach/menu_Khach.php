@@ -1,4 +1,9 @@
-
+<?php
+	if(!isset($_SESSION))
+	{
+		session_start();
+	} 
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,8 +40,6 @@
 					<span class="icon-bar"></span>
 				</button>
                 <?php
-					session_start();
-					
 					include_once(realpath(dirname(__DIR__))."/PHP/define.php");
 					echo "<a class='navbar-brand' href='".BASE_URL."Index.php'>FindMyPet</a>";
 				?>
@@ -59,19 +62,19 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
                 <?php
-					//include('file:///C|/xampp/htdocs/PHP/define.php');
+					
 					if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MatKhau',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
 					{
 						
 						if($_SESSION['MaPhanQuyen'] == NHOM_QUAN_TRI)
 						{
-							echo "<li class='active'><a href='".BASE_URL."PHP/DangBai.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."Admin/BaiViet_Tao.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
 							echo "<li class='active'><a href='".BASE_URL."Admin/DMChucNang.php'><span class='glyphicon glyphicon-user'></span> Danh mục chức năng</a></li>";
 							echo "<li class='active'><a href='".BASE_URL."PHP/Logout.php'><span class='glyphicon glyphicon-user'></span> Đăng xuất</a></li>";
 						}
 						else if($_SESSION['MaPhanQuyen'] == NHOM_THANH_VIEN)
 						{
-							echo "<li class='active'><a href='".BASE_URL."PHP/DangBai.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."Khach/DangBai.php'><span class='glyphicon glyphicon-user'></span> Đăng bài viết/bản tin</a></li>";
 							echo "<li class='active'><a href='".BASE_URL."PHP/Logout.php'><span class='glyphicon glyphicon-user'></span> Đăng xuất</a></li>";
 						}
 						else

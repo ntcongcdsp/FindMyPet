@@ -1,9 +1,14 @@
 <?php
-	session_start();
+	
+    if(!isset($_SESSION))
+	{
+		session_start();
+	} 
+
 	include_once(realpath(dirname(__DIR__))."/PHP/define.php");
 	if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
 	{
-		if($_SESSION['MaPhanQuyen'] != NHOM_QUAN_TRI)
+		if($_SESSION['MaPhanQuyen'] != NHOM_THANH_VIEN)
 		{
 			header('Location: ../PHP/Login.php');
 		}
@@ -16,7 +21,7 @@
 	require_once("../PHP/ConnectDB.php");
 	$conn = ConnectDB::connect();
 	$date = date('Y-m-d H:i:s',time());
-	
+		
 	if(isset($_POST['submit']))
 	{
 		$target_file = '';
@@ -76,18 +81,21 @@
 					}
 				}
 			}
-				
+			if($store_url == '')
+			{
+				$store_url = $_POST['linkImg'];
+			}
+	
 		$Tuoi = 0;
 		if($_POST['txtTuoi'] != "")
 			$Tuoi = $_POST['txtTuoi'];
-		
 		// Insert co so du lieu
-		$sqlInsert = "INSERT INTO baiviet(TieuDe, TomTat, NoiDung, HinhAnh, TenDN, IDDanhMuc, KiemDuyet, NgayDang, Loai, Giong, DacDiem, TinhCach, KhaNang, NguonGoc, TieuChuan, Ten, Mau, Tuoi, DacDiemNhanDang) VALUES ('".$_POST['txtTieuDe']."', '".$_POST['txtTomTat']."', '".$_POST['txtNoiDung']."', '".$store_url."', '".$_POST['txtTenDN']."', ".$_POST['slDanhMuc'].", ".$_POST['txtKiemDuyet'].", '".$date."', '".$_POST['txtLoai']."', '".$_POST['txtGiong']."', '".$_POST['txtDacDiem']."', '".$_POST['txtTinhCach']."', '".$_POST['txtKhaNang']."', '".$_POST['txtNguonGoc']."', '".$_POST['txtTieuChuan']."', '".$_POST['txtTen']."', '".$_POST['txtMau']."', ".$Tuoi.", '".$_POST['txtDacDiemNhanDang']."')";
-		
+		$sqlInsert = "INSERT INTO baiviet(TieuDe, TomTat, NoiDung, HinhAnh, TenDN, IDDanhMuc, KiemDuyet, NgayDang, Loai, Giong, DacDiem, TinhCach, KhaNang, NguonGoc, TieuChuan, Ten, Mau, Tuoi, DacDiemNhanDang) VALUES ('".$_POST['txtTieuDe']."', '".$_POST['txtTomTat']."', '".$_POST['txtNoiDung']."', '".$store_url."', '".$_SESSION['TenDN']."', ".$_POST['slDanhMuc'].", ".CHUA_KIEM_DUYET.", '".$date."', '".$_POST['txtLoai']."', '".$_POST['txtGiong']."', '".$_POST['txtDacDiem']."', '".$_POST['txtTinhCach']."', '".$_POST['txtKhaNang']."', '".$_POST['txtNguonGoc']."', '".$_POST['txtTieuChuan']."', '".$_POST['txtTen']."', '".$_POST['txtMau']."', ".$Tuoi.", '".$_POST['txtDacDiemNhanDang']."')";
+				
 		if(mysqli_query($conn,$sqlInsert) === TRUE)
 			{
 				echo "Chen du lieu thanh cong";
-				header('Location: QLBaiViet.php');
+				header('Location: ../Index.php');
 				ConnectDB::disconnect();
 			}
 			else
@@ -119,7 +127,8 @@
 
 <body style="background-color: lightgrey;min-height:100%;">
 	<?php
-        include("menu_Admin.php");
+        include("menu_Khach.php");
+		include_once(realpath(dirname(__DIR__))."/PHP/define.php");
     ?>
 <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
@@ -154,12 +163,6 @@
     				</div>
   				</div>
                 <div class="form-group">
-    				<label for="txtTenDN" class="col-sm-2 control-label">Người đăng: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="txtTenDN" placeholder="Tên đăng nhập">
-    				</div>
-  				</div>
-                <div class="form-group">
     				<label for="slPhanQuyen" class="col-sm-2 control-label">Danh mục: </label>
     				<div class="col-sm-5">
                     	<select class="form-control" name="slDanhMuc">
@@ -173,17 +176,6 @@
 										echo "<option value='".$rowMD['ID']."'> ".$rowMD['TenDanhMuc']." - ".$rowMD['MoTa']."</option>";										
 									}
 								}
-							?>
-                        </select>
-    				</div>
-  				</div>
-                <div class="form-group">
-    				<label for="txtKiemDuyet" class="col-sm-2 control-label">Kiểm duyệt: </label>
-    				<div class="col-sm-5">
-                    	<select class="form-control" name="txtKiemDuyet">
-                        	<?php
-								echo "<option value='1'> Đã kiểm duyệt </option>";
-								echo "<option value='0'>Chưa kiểm duyệt </option>";
 							?>
                         </select>
     				</div>
@@ -265,8 +257,8 @@
                 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-success" name="submit">Tạo</button>
-                      <a href="QLBaiViet.php"><button type="button" class="btn btn-default">Trở về</button></a>
+                      <button type="submit" class="btn btn-success" name="submit">Đăng bài</button>
+                      <a href="../Index.php"><button type="button" class="btn btn-default">Trở về</button></a>
                     </div>
               	</div>
     		</form>

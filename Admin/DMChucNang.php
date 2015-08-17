@@ -90,10 +90,10 @@
                         </a>
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
-                        <a href="QLThuCung.php">
+                        <a href="QLBinhLuan.php">
                             <img src="../button/b1.gif" class="ca-icon">
                             <div class="ca-content">
-                                <h2 class="ca-main">abc</h2>
+                                <h2 class="ca-main">Quản lý Bình luận</h2>
                                 
                             </div>
                         </a>

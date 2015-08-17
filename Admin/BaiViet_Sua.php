@@ -14,6 +14,7 @@
 	
 	require_once("../PHP/ConnectDB.php");
 	$conn = ConnectDB::connect();
+	$date = date('Y-m-d H:i:s',time());
 		
 	if(isset($_POST['submit']))
 	{
@@ -79,9 +80,12 @@
 				$store_url = $_POST['linkImg'];
 			}
 	
-		
+		$Tuoi = 0;
+		if($_POST['txtTuoi'] != "")
+			$Tuoi = $_POST['txtTuoi'];
+					
 		// Insert co so du lieu
-		$sqlUpdate = "UPDATE baiviet SET TieuDe='".$_POST['txtTieuDe']."', TomTat='".$_POST['txtTomTat']."', NoiDung='".$_POST['txtNoiDung']."', HinhAnh='".$store_url."', TenDN='".$_POST['txtTenDN']."', IDDanhMuc=".$_POST['slDanhMuc'].", KiemDuyet=".$_POST['txtKiemDuyet'].", NgayDang='".$_POST['txtNgayDang']."',Loai='".$_POST['txtLoai']."', Giong='".$_POST['txtGiong']."',DacDiem='".$_POST['txtDacDiem']."', TinhCach='".$_POST['txtTinhCach']."', KhaNang='".$_POST['txtKhaNang']."', NguonGoc='".$_POST['txtNguonGoc']."', TieuChuan='".$_POST['txtTieuChuan']."', Ten='".$_POST['txtTen']."', Mau='".$_POST['txtMau']."',Tuoi=".$_POST['txtTuoi'].", DacDiemNhanDang='".$_POST['txtDacDiemNhanDang']."' WHERE ID = ".$_GET['ID'];
+		$sqlUpdate = "UPDATE baiviet SET TieuDe='".$_POST['txtTieuDe']."', TomTat='".$_POST['txtTomTat']."', NoiDung='".$_POST['txtNoiDung']."', HinhAnh='".$store_url."', TenDN='".$_POST['txtTenDN']."', IDDanhMuc=".$_POST['slDanhMuc'].", KiemDuyet=".$_POST['txtKiemDuyet'].", NgayDang='".$date."',Loai='".$_POST['txtLoai']."', Giong='".$_POST['txtGiong']."',DacDiem='".$_POST['txtDacDiem']."', TinhCach='".$_POST['txtTinhCach']."', KhaNang='".$_POST['txtKhaNang']."', NguonGoc='".$_POST['txtNguonGoc']."', TieuChuan='".$_POST['txtTieuChuan']."', Ten='".$_POST['txtTen']."', Mau='".$_POST['txtMau']."',Tuoi=".$Tuoi.", DacDiemNhanDang='".$_POST['txtDacDiemNhanDang']."' WHERE ID = ".$_GET['ID'];
 		
 		if(mysqli_query($conn,$sqlUpdate) === TRUE)
 			{
@@ -222,7 +226,7 @@
                 <div class="form-group">
     				<label for="txtNgayDang" class="col-sm-2 control-label">Ngày đăng: </label>
     				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="txtNgayDang" placeholder="Ngày đăng" value="<?php echo $row['NgayDang']; ?>">
+      					<input type="text" disabled class="form-control" name="txtNgayDang" placeholder="Ngày đăng" value="<?php echo $row['NgayDang']; ?>">
     				</div>
   				</div>
                 <div class="form-group">

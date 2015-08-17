@@ -1,9 +1,0 @@
-<?php
-define('NHOM_QUAN_TRI', 1);
-
-
-$logged = THong tin nguoi da dang nhap;
-$logged->MaPhanQuyen == NHOM_QUAN_TRI;
-for(){
-	jhjsgfjasdf
-} 
