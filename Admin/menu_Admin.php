@@ -35,7 +35,7 @@
                     <li class="active"><a href="DMChucNang.php">Danh mục chức năng </a></li>
 					<li class="active"><a href="QLBaiViet.php">Quản trị Bài viết</a></li>
                     <li class="active"><a href="QLBinhLuan.php">Quản trị Bình luận</a></li>
-					<li class="active"><a href="QLThuCung.php">Quản trị Thú cưng</a></li>
+					<!--<li class="active"><a href="QLThuCung.php">Quản trị Thú cưng</a></li>-->
 					<li class="active"><a href="QLTaiKhoan.php">Quản trị Tài khoản</a></li>
                     <li class="active"><a href="QLAnhVuiThuCung.php">Quản trị Ảnh vui</a></li>
 				</ul>

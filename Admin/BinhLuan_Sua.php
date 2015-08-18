@@ -12,6 +12,30 @@
 	{
 		header('Location: ../PHP/Login.php');
 	}
+	
+	require_once("../PHP/ConnectDB.php");
+	$conn = ConnectDB::connect();
+	$date = date('Y-m-d H:i:s',time());
+		
+	if(isset($_POST['submit']))
+	{
+					
+		// Insert co so du lieu
+		$sqlUpdate = "UPDATE BinhLuan SET NoiDung='".$_POST['txtNoiDung']."' WHERE ID = ".$_GET['ID'];
+		
+		if(mysqli_query($conn,$sqlUpdate) === TRUE)
+			{
+				echo "Cap nhat du lieu thanh cong";
+				header('Location: QLBinhLuan.php');
+				ConnectDB::disconnect();
+			}
+			else
+			{
+				echo "Cap nhat du lieu Loi";
+			}
+		
+		ConnectDB::disconnect();
+	}
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +63,7 @@
     ?>
    <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
-    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Chi tiết Bình luận</b> </p>
+    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Cập nhật Bình luận</b> </p>
     </div>
     <div class="row">
     	<!-- Chèn form để xem thông tin tài khoản -->
@@ -55,6 +79,7 @@
 			}
 			ConnectDB::disconnect();
 		?>
+        
         <div class="row">
         	<div class="col-md-2 control-label" align="right">
             	<label>- Tiêu đề bài viết bình luận:</label>
@@ -67,14 +92,15 @@
                 </p>
             </div>
         </div>
-        <div class="row">
-        	<div class="col-md-2 control-label" align="right">
-            	<label>- Nội dung:</label>
+        <form class="form-horizontal" name="frmSuaTaiKhoan" method="post">
+             <div class="row">
+                <div class="col-md-2 control-label" align="right">
+                    <label>- Nội dung:</label>
+                </div>
+                <div class="col-md-9" align="left">
+                    <textarea class="form-control" name="txtNoiDung" placeholder="Nội dung bình luận"><?php echo $row['NoiDung']; ?></textarea>
+                </div>
             </div>
-            <div class="col-md-9" align="left">
-            	<p align="justify"><?php echo $row['NoiDung']; ?></p>
-            </div>
-        </div>
         <div class="row">
         	<div class="col-md-2 control-label" align="right">
             	<label>- Người đăng:</label>
@@ -131,14 +157,12 @@
             	<p align="justify"><?php echo $row['NgayBinhLuan']; ?></p>
             </div>
         </div>
-        
         <div class="row" align="center">
-        	<a href='BinhLuan_Duyet.php?ID=<?php echo $row['ID']?>'><input type='button' value='Duyệt bình luận' class='btn btn-success'/></a>
-        	<a href='BinhLuan_Sua.php?ID=<?php echo $row['ID']?>'><input type='button' value='Sửa' class='btn btn-warning'/></a>
-			<a href='BinhLuan_Xoa.php?ID=<?php echo $row['ID']?>'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
-            <a href="QLBinhLuan.php"><button type="button" class="btn btn-default">Trở về</button></a>
+            	<a href='BinhLuan_Duyet.php?ID=<?php echo $row['ID']?>'><input type='button' value='Duyệt bình luận' class='btn btn-success'/></a>
+				<button type="submit" class="btn btn-warning" name="submit">Sửa</button>
+				<a href="QLBinhLuan.php"><button type="button" class="btn btn-default">Trở về</button></a>
         </div>
-	</div>
+    </form>
 	</div> <!-- /container -->
 </body>
 </html>

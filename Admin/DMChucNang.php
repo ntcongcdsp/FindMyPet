@@ -55,19 +55,19 @@
                         </a>
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
-                        <a href="QLThuCung.php">
+                        <a href="QLBinhLuan.php">
                             <img src="../button/b1.gif" class="ca-icon">
                             <div class="ca-content">
-                                <h2 class="ca-main">Quản trị thú cưng</h2>
+                                <h2 class="ca-main">Quản trị bình luận</h2>
                                 
                             </div>
                         </a>
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
-                        <a href="QLTaiKhoan.php">
-                            <img src="../button/b3.gif" class="ca-icon">
+                        <a href="QLAnhVuiThuCung.php">
+                            <img src="../button/b4.gif" class="ca-icon">
                             <div class="ca-content">
-                                <h2 class="ca-main">Quản trị User</h2>
+                                <h2 class="ca-main">Quản trị Ảnh vui</h2>
                                 
                             </div>
                         </a>
@@ -81,25 +81,25 @@
     	 <div class="content">
 			<ul class="ca-menu">
                     <li style="margin-left: 100px; border-radius:20px;">
-                        <a href="QLAnhVuiThuCung.php">
-                            <img src="../button/b4.gif" class="ca-icon" style="margin-left:45px;">
+                        <a href="QLTaiKhoan.php">
+                            <img src="../button/b3.gif" class="ca-icon" style="margin-left:45px;">
                             <div class="ca-content">
-                                <h2 class="ca-main">Quản trị Ảnh vui</h2>
+                                <h2 class="ca-main">Quản trị tài khoản</h2>
                                 
                             </div>
                         </a>
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
-                        <a href="QLBinhLuan.php">
+                        <a href="#">
                             <img src="../button/b1.gif" class="ca-icon">
                             <div class="ca-content">
-                                <h2 class="ca-main">Quản lý Bình luận</h2>
+                                <h2 class="ca-main">xyzn</h2>
                                 
                             </div>
                         </a>
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
-                        <a href="QLTaiKhoan.php">
+                        <a href="#">
                             <img src="../button/b3.gif" class="ca-icon">
                             <div class="ca-content">
                                 <h2 class="ca-main">def</h2>

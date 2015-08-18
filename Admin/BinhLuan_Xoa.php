@@ -18,13 +18,13 @@
 		require_once("../PHP/ConnectDB.php");
 		$conn = ConnectDB::connect();
 	
-		$sql = "DELETE FROM baiviet WHERE ID = '".$_GET['txtID']."'";
+		$sql = "DELETE FROM BinhLuan WHERE ID = '".$_GET['txtID']."'";
 		
 		if($conn->query($sql) === TRUE)
 		{
 			echo "Dữ liệu đã xóa";
 			ConnectDB::disconnect();
-			header('Location: QLBaiViet.php');
+			header('Location: QLBinhLuan.php');
 		}
 		else
 		{
@@ -57,12 +57,12 @@
         include("menu_Admin.php");
     ?>
     <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
-		<div class="bg-danger">
+		<div class="row bg-danger">
          <?php
 			require_once("../PHP/ConnectDB.php");
 			$conn = ConnectDB::connect();
 		
-			$sql = "SELECT TieuDe FROM BaiViet WHERE ID = ".$_GET['ID'];
+			$sql = "SELECT NoiDung FROM BinhLuan WHERE ID = ".$_GET['ID'];
 			$result = mysqli_query($conn, $sql);
             if($result->num_rows > 0)
             {
@@ -70,7 +70,7 @@
             }
             ConnectDB::disconnect();
 		?>
-        	<h1>Xóa bài viết<br> "<?php echo $row['TieuDe'];?>"</h1>
+        	<h1>Xóa bình luận <br> "<?php echo $row['NoiDung'];?>"</h1>
         	<h3>Bạn có chắc chắn muốn xóa?</h3>
         </div>
         <div class="control_group">
@@ -79,7 +79,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-danger" name="submit">Xóa</button>
-                    <a href="QLBaiViet.php"><button type="button" class="btn btn-default">Trở về</button></a>
+                    <a href="QLBinhLuan.php"><button type="button" class="btn btn-default">Trở về</button></a>
                     </div>
                 </div>
             </form>
