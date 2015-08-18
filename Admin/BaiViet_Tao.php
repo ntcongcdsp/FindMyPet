@@ -112,7 +112,7 @@
 	<script src="../js/ie-emulation-modes-warning.js"></script>
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
-
+	<script lang="javascript" src="ckeditor/ckeditor.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
     <script src="../js/bootstrap.min.js"></script>
 </head>
@@ -271,5 +271,9 @@
               	</div>
     		</form>
 </div>
+<form method="post" action="xuly.php" enctype="multipart/form-data">
+            <textarea id="txt" name="content"></textarea>
+        </form>
+        <script lang="text/javascript">CKEDITOR.replace(*txt*);</script>
 </body>
 </html>
