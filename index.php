@@ -140,27 +140,29 @@
                 </div>
             </div>
             <div style="text-align:right;">
-                <a style="margin-bottom: 4px;"class="btn btn-success btn-xs" href="Khach/knowledge.php">Xem thêm</a>
+                <a class="btn btn-success btn-xs" href="Khach/knowledge.php">Xem thêm</a>
             </div>
         </div>
         <div class="col-xs-3" style="border: 2px solid lightblue;border-radius:5px;width:240px;  margin-left:7px;">
             <div class="row" style="height:75px"><img style="width:230px; height:70px;margin-top: 3px;margin-left: 3px;" src="img/news.gif"></div>
-            <div class="row" style="margin-left: 2px;width:210px;">
-				<div class="row" style="height:140px;">
-                	<a href="#"><img class="img-thumbnail" src="img/dogs1.jpg" style="height: 135px;width:200px;margin-left: 17px;margin-top: 3px;"></a>
-				</div>
+                <div class="row" style="height:70px;">
+                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
+                </div>
+                <div class="row" style="height:70px;">
+                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
+                </div>
+                <div class="row" style="height:70px;">
+                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
+                </div>
+                <div class="row" style="height:70px;">
+                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
+                </div>
+                <div class="row" style="height:70px;">
+                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
+                </div>
                 <div class="row" style="height:71px;">
-                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali</a></h4>
-				</div>
-			</div>
-            <div class="row" style="margin-left: 2px;width:210px;">
-                <div class="row" style="height:140px;">
-            		<a href="#"><img class="img-thumbnail" src="img/Guide-Dogs_025-11.jpg" style="height: 135px;width:200px;margin-left: 17px;margin-top: 3px;"></a>
-				</div>
-                <div class="row" style="height:71px;">
-                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali</a></h4>
-				</div>
-            </div>
+                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
+                </div>
             <div style="text-align:right;">
                 <a style="margin-bottom: 4px;"class="btn btn-success btn-xs" href="Khach/news.php">Xem thêm</a>
             </div>
