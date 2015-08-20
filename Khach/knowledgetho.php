@@ -30,11 +30,11 @@
             	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Những kiến thức cơ bản về thú cưng</b> </p>
             </div>
 			<ul class="nav nav-tabs">
-                            <li role="presentation" class="active"><a href="knowledge.php">Tất cả</a></li>
+                            <li role="presentation"><a href="knowledge.php">Tất cả</a></li>
                             <li role="presentation"><a href="knowledgecho.php">Chóa</a></li>
                             <li role="presentation"><a href="knowledgemeo.php">Meo meo</a></li>
                             <li role="presentation"><a href="knowledgechim.php">Trym</a></li>
-                            <li role="presentation"><a href="knowledgetho.php">Thỏ</a></li>
+                            <li role="presentation" class="active"><a href="knowledgetho.php">Thỏ</a></li>
                             <li role="presentation"><a href="knowledgekhac.php">Khác</a></li>
 			</ul>
             <div class="row" style="height:145px;margin-top: 5px;">
