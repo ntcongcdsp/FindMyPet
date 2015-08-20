@@ -47,7 +47,7 @@
 			<ul class="ca-menu">
                     <li style="margin-left: 100px; border-radius:20px;">
                         <a href="QLBaiViet.php">
-                            <img src="../button/b2.gif" class="ca-icon" style="margin-left:55px;">
+                            <span class="ca-icon">&#68;</span>
                             <div class="ca-content">
                                 <h2 class="ca-main">Quản trị bài viết</h2>
                                 
@@ -56,7 +56,7 @@
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
                         <a href="QLBinhLuan.php">
-                            <img src="../button/b5.gif" class="ca-icon">
+                            <span class="ca-icon">&#101;</span>
                             <div class="ca-content">
                                 <h2 class="ca-main">Quản trị bình luận</h2>
                                 
@@ -65,7 +65,7 @@
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
                         <a href="QLAnhVuiThuCung.php">
-                            <img src="../button/b4.gif" class="ca-icon">
+                            <span class="ca-icon">&#73;</span>
                             <div class="ca-content">
                                 <h2 class="ca-main">Quản trị Ảnh vui</h2>
                                 
@@ -82,7 +82,7 @@
 			<ul class="ca-menu">
                     <li style="margin-left: 100px; border-radius:20px;">
                         <a href="QLTaiKhoan.php">
-                            <img src="../button/b3.gif" class="ca-icon" style="margin-left:45px;">
+                            <span class="ca-icon">&#85;</span>
                             <div class="ca-content">
                                 <h2 class="ca-main">Quản trị tài khoản</h2>
                                 
@@ -91,7 +91,7 @@
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
                         <a href="#">
-                            <img src="../button/b1.gif" class="ca-icon">
+                            <span class="ca-icon">&#75;</span>
                             <div class="ca-content">
                                 <h2 class="ca-main">xyzn</h2>
                                 
@@ -100,7 +100,7 @@
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
                         <a href="#">
-                            <img src="../button/b3.gif" class="ca-icon">
+                            <span class="ca-icon">&#75;</span>
                             <div class="ca-content">
                                 <h2 class="ca-main">def</h2>
                                 

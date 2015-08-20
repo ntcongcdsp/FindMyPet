@@ -42,11 +42,13 @@
     position: relative;
 }
 .ca-icon{
+    color:#496ead;
+    font-size: 50px;
     font-family: 'WebSymbolsRegular', cursive;
     text-shadow: 0px 0px 1px #333;
     line-height: 150px;
     position: absolute;
-    width:110px; margin-top: 15px; margin-left: 45px;
+    width:110px; margin-top: -15px; margin-left: 45px;
     height: 90px;
     left: 0px;
     top: 0px;
@@ -90,8 +92,8 @@
     background-color: #B8DBFF;
 }
 .ca-menu li:hover .ca-icon{
-    color: #fff;
-    font-size: 90px;
+    color: #496ead;
+    font-size: 70px;
 }
 .ca-menu li:hover .ca-main{
     color: #1919FF;
