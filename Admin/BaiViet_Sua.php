@@ -115,7 +115,8 @@
 	<script src="../js/ie-emulation-modes-warning.js"></script>
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
-
+	<!-- Thẻ ckeditor-->
+	<script lang="javascript" src="ckeditor/ckeditor.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
     <script src="../js/bootstrap.min.js"></script>
 </head>
@@ -152,16 +153,22 @@
     				</div>
   				</div>
                 <div class="form-group">
-    				<label for="txtNoiDung" class="col-sm-2 control-label">Tóm tắt: </label>
+    				<label for="txtTomTat" class="col-sm-2 control-label">Tóm tắt: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtTomTat" placeholder="Tóm tắt"><?php echo $row['TomTat']; ?></textarea>
+					<!--Thẻ CKEDITOR-->
+                    	<textarea id="txt" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("txt");</script>
   				</div>
 				<div class="form-group">
     				<label for="txtNoiDung" class="col-sm-2 control-label">Nội dung: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtNoiDung" placeholder="Nội dung"><?php echo $row['NoiDung']; ?></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="NoiDung" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("NoiDung");</script>
   				</div>
                 <!-- Chưa xử lý tải file ảnh-->
                 <div class="form-group">
@@ -245,32 +252,47 @@
                 <div class="form-group">
     				<label for="txtDacDiem" class="col-sm-2 control-label">Đặc điểm: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtDacDiem" placeholder="Đặc điểm"><?php echo $row['DacDiem']; ?></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="DacDiem" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("DacDiem");</script>
   				</div>
                 <div class="form-group">
     				<label for="txtTinhCach" class="col-sm-2 control-label">Tính cách: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtTinhCach" placeholder="Tính cách"><?php echo $row['TinhCach']; ?></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="TinhCach" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("TinhCach");</script>
   				</div>
                 <div class="form-group">
     				<label for="txtKhaNang" class="col-sm-2 control-label">Khả năng: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtKhaNang" placeholder="Khả năng"><?php echo $row['KhaNang']; ?></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="KhaNang" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("KhaNang");</script>
   				</div>
                 <div class="form-group">
     				<label for="txtNguonGoc" class="col-sm-2 control-label">Nguồn gốc: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtNguonGoc" placeholder="Nguồn gốc"><?php echo $row['NguonGoc']; ?></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="NguonGoc" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("NguonGoc");</script>
   				</div>
                 <div class="form-group">
     				<label for="txtTieuChuan" class="col-sm-2 control-label">Tiêu chuẩn: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtTieuChuan" placeholder="Tiêu chuẩn"><?php echo $row['TieuChuan']; ?></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="TieuChuan" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("TieuChuan");</script>
   				</div>
                 <!-- -->
                 <div class="form-group">
@@ -294,8 +316,11 @@
                 <div class="form-group">
     				<label for="txtDacDiemNhanDang" class="col-sm-2 control-label">Đặc điểm nhận dạng của thú cưng: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtDacDiemNhanDang" placeholder="Đặc điểm nhận dạng của thú cưng"><?php echo $row['DacDiemNhanDang']; ?></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="DacDiemNhanDang" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("DacDiemNhanDang");</script>
   				</div>
                 
                 <div class="form-group">

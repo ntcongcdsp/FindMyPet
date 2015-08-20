@@ -47,7 +47,8 @@
 	<script src="../js/ie-emulation-modes-warning.js"></script>
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
-
+	<!--Thẻ CKEDITOR-->
+	<script lang="javascript" src="ckeditor/ckeditor.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
     <script src="../js/bootstrap.min.js"></script>
 </head>
@@ -77,32 +78,47 @@
                 <div class="form-group">
     				<label for="DacDiem" class="col-sm-2 control-label">Đặc điểm: </label>
     				<div class="col-sm-7">
-                    	<textarea class="form-control" name="DacDiem" placeholder="Đặc điểm"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="DacDiem" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("DacDiem");</script>
   				</div>
                 <div class="form-group">
     				<label for="TinhCach" class="col-sm-2 control-label">Tính cách: </label>
     				<div class="col-sm-7">
-                    	<textarea class="form-control" name="TinhCach" placeholder="Tính cách"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="TinhCach" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("TinhCach");</script>
   				</div>
                 <div class="form-group">
     				<label for="KhaNang" class="col-sm-2 control-label">Khả năng: </label>
     				<div class="col-sm-7">
-                    	<textarea class="form-control" name="KhaNang" placeholder="Khả năng"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="KhaNang" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("KhaNang");</script>
   				</div>
                 <div class="form-group">
     				<label for="NguonGoc" class="col-sm-2 control-label">Nguồn gốc: </label>
     				<div class="col-sm-7">
-                   		<textarea class="form-control" name="NguonGoc" placeholder="Nguồn gốc"></textarea>
+                   		<!--Thẻ CKEDITOR-->
+                    	<textarea id="NguonGoc" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("NguonGoc");</script>
   				</div>
                 <div class="form-group">
     				<label for="TieuChuan" class="col-sm-2 control-label">Tiêu chuẩn: </label>
     				<div class="col-sm-7">
-                    	<textarea class="form-control" name="TieuChuan" placeholder="Tiêu chuẩn"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="TieuChuan" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("TieuChuan");</script>
   				</div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">

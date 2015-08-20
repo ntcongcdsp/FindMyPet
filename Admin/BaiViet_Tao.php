@@ -137,14 +137,20 @@
                 <div class="form-group">
     				<label for="txtNoiDung" class="col-sm-2 control-label">Tóm tắt: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtTomTat" placeholder="Tóm tắt"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="TomTat" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("TomTat");</script>
   				</div>
 				<div class="form-group">
     				<label for="txtNoiDung" class="col-sm-2 control-label">Nội dung: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtNoiDung" placeholder="Nội dung"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="NoiDung" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("NoiDung");</script>
   				</div>
                 <!-- Chưa xử lý tải file ảnh-->
                 <div class="form-group">
@@ -210,32 +216,47 @@
                 <div class="form-group">
     				<label for="txtDacDiem" class="col-sm-2 control-label">Đặc điểm: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtDacDiem" placeholder="Đặc điểm"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="DacDiem" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("DacDiem");</script>
   				</div>
                 <div class="form-group">
     				<label for="txtTinhCach" class="col-sm-2 control-label">Tính cách: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtTinhCach" placeholder="Tính cách"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="TinhCach" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("TinhCach");</script>
   				</div>
                 <div class="form-group">
     				<label for="txtKhaNang" class="col-sm-2 control-label">Khả năng: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtKhaNang" placeholder="Khả năng"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="KhaNang" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("KhaNang");</script>
   				</div>
                 <div class="form-group">
     				<label for="txtNguonGoc" class="col-sm-2 control-label">Nguồn gốc: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtNguonGoc" placeholder="Nguồn gốc"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="NguonGoc" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("NguonGoc");</script>
   				</div>
                 <div class="form-group">
     				<label for="txtTieuChuan" class="col-sm-2 control-label">Tiêu chuẩn: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtTieuChuan" placeholder="Tiêu chuẩn"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="TieuChuan" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("TieuChuan");</script>
   				</div>
                 <!-- -->
                 <div class="form-group">
@@ -259,8 +280,11 @@
                 <div class="form-group">
     				<label for="txtDacDiemNhanDang" class="col-sm-2 control-label">Đặc điểm nhận dạng của thú cưng: </label>
     				<div class="col-sm-9">
-                    	<textarea class="form-control" name="txtDacDiemNhanDang" placeholder="Đặc điểm nhận dạng của thú cưng"></textarea>
+                    	<!--Thẻ CKEDITOR-->
+                    	<textarea id="DacDiemNhanDang" name="content"></textarea>
     				</div>
+					<!--Thẻ CKEDITOR-->
+					<script lang="text/javascrip">CKEDITOR.replace("DacDiemNhanDang");</script>
   				</div>
                 
                 <div class="form-group">
@@ -271,9 +295,5 @@
               	</div>
     		</form>
 </div>
-<form method="post" action="xuly.php" enctype="multipart/form-data">
-            <textarea id="txt" name="content"></textarea>
-        </form>
-        <script lang="text/javascript">CKEDITOR.replace(*txt*);</script>
 </body>
 </html>
