@@ -107,14 +107,16 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="../js/jquery-1.11.3.min.js"> </script>
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/ie-emulation-modes-warning.js"></script>
-    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../asset/js/jquery-1.11.3.min.js"> </script>
+	<script src="../asset/js/jquery.min.js"></script>
+	<script src="../asset/js/ie-emulation-modes-warning.js"></script>
+    <link href="../asset/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
-	<script lang="javascript" src="ckeditor/ckeditor.js" type="text/javascript"></script>
+	<script lang="javascript" src="../asset/ckeditor/ckeditor.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../asset/js/bootstrap.min.js"></script>
+    <!-- Chen Validation -->
+    <script src="../asset/js/jquery.validate.js"></script>
 </head>
 
 <body style="background-color: lightgrey;min-height:100%;">
@@ -129,28 +131,48 @@
     	<!-- Chèn form để xem thông tin tài khoản -->
         <form class="form-horizontal" name="frmSuaTaiKhoan" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-    				<label for="txtTieuDe" class="col-sm-2 control-label">Tiêu đề: </label>
-    				<div class="col-sm-9">
-      					<input type="text" class="form-control" name="txtTieuDe" placeholder="Tiêu đề">
+    				<label for="slDanhMuc" class="col-sm-2 control-label">Danh mục: </label>
+    				<div class="col-sm-5">
+                    	<select class="form-control" name="slDanhMuc" id="slDanhMuc">
+                        	<?php	
+								require_once("../PHP/ConnectDB.php");
+								$conn = ConnectDB::connect();							
+								$sqlDM = "SELECT * FROM DanhMuc";
+								$resutDM = mysqli_query($conn, $sqlDM);
+								if($resutDM->num_rows >0)
+								{
+									while ($rowMD = $resutDM->fetch_assoc())
+									{
+										echo "<option value='".$rowMD['ID']."'> ".$rowMD['TenDanhMuc']." - ".$rowMD['MoTa']."</option>";										
+									}
+								}
+								ConnectDB::disconnect();
+							?>
+                        </select>
     				</div>
   				</div>
                 <div class="form-group">
-    				<label for="txtNoiDung" class="col-sm-2 control-label">Tóm tắt: </label>
+    				<label for="txtTieuDe" class="col-sm-2 control-label">Tiêu đề: </label>
+    				<div class="col-sm-9">
+      					<input type="text" class="form-control" name="txtTieuDe" placeholder="Tiêu đề" required>
+    				</div>
+  				</div>
+                <div class="form-group">
+    				<label for="txtTomTat" class="col-sm-2 control-label">Tóm tắt: </label>
     				<div class="col-sm-9">
                     	<!--Thẻ CKEDITOR-->
-                    	<textarea id="TomTat" name="content"></textarea>
+                    	<textarea class="form-control" id="txtTomTat" name="txtTomTat" placeholder="Tóm tắt"></textarea>
     				</div>
 					<!--Thẻ CKEDITOR-->
-					<script lang="text/javascrip">CKEDITOR.replace("TomTat");</script>
+					<!--<script lang="text/javascrip">CKEDITOR.replace("TomTat");</script>-->
   				</div>
 				<div class="form-group">
     				<label for="txtNoiDung" class="col-sm-2 control-label">Nội dung: </label>
     				<div class="col-sm-9">
                     	<!--Thẻ CKEDITOR-->
-                    	<textarea id="NoiDung" name="content"></textarea>
+                    	<textarea class="ckeditor" id="txtNoiDung" name="txtNoiDung" placeholder="Nội dung"></textarea>
     				</div>
-					<!--Thẻ CKEDITOR-->
-					<script lang="text/javascrip">CKEDITOR.replace("NoiDung");</script>
+					
   				</div>
                 <!-- Chưa xử lý tải file ảnh-->
                 <div class="form-group">
@@ -165,39 +187,16 @@
       					<input type="text" class="form-control" name="txtTenDN" placeholder="Tên đăng nhập">
     				</div>
   				</div>
-                <div class="form-group">
-    				<label for="slPhanQuyen" class="col-sm-2 control-label">Danh mục: </label>
-    				<div class="col-sm-5">
-                    	<select class="form-control" name="slDanhMuc">
-                        	<?php								
-								$sqlDM = "SELECT * FROM DanhMuc";
-								$resutDM = mysqli_query($conn, $sqlDM);
-								if($resutDM->num_rows >0)
-								{
-									while ($rowMD = $resutDM->fetch_assoc())
-									{
-										echo "<option value='".$rowMD['ID']."'> ".$rowMD['TenDanhMuc']." - ".$rowMD['MoTa']."</option>";										
-									}
-								}
-							?>
-                        </select>
-    				</div>
-  				</div>
+                
                 <div class="form-group">
     				<label for="txtKiemDuyet" class="col-sm-2 control-label">Kiểm duyệt: </label>
     				<div class="col-sm-5">
                     	<select class="form-control" name="txtKiemDuyet">
                         	<?php
-								echo "<option value='1'> Đã kiểm duyệt </option>";
 								echo "<option value='0'>Chưa kiểm duyệt </option>";
+								echo "<option value='1'> Đã kiểm duyệt </option>";							
 							?>
                         </select>
-    				</div>
-  				</div>
-                <div class="form-group">
-    				<label for="txtNgayDang" class="col-sm-2 control-label">Ngày đăng: </label>
-    				<div class="col-sm-5">
-      					<input type="text" disabled class="form-control" name="txtNgayDang" placeholder="Ngày đăng" value="<?php  echo $date; ?>">
     				</div>
   				</div>
                 <div class="form-group">
@@ -213,78 +212,78 @@
     				</div>
   				</div>
                 
-                <div class="form-group">
+                <div class="form-group" id="DacDiem">
     				<label for="txtDacDiem" class="col-sm-2 control-label">Đặc điểm: </label>
     				<div class="col-sm-9">
                     	<!--Thẻ CKEDITOR-->
-                    	<textarea id="DacDiem" name="content"></textarea>
+                    	<textarea class="form-control" id="txtDacDiem" name="txtDacDiem" placeholder="Đặc điểm"></textarea>
     				</div>
 					<!--Thẻ CKEDITOR-->
-					<script lang="text/javascrip">CKEDITOR.replace("DacDiem");</script>
+					<!--<script lang="text/javascrip">CKEDITOR.replace("DacDiem");</script>-->
   				</div>
-                <div class="form-group">
+                <div class="form-group" id="TinhCach">
     				<label for="txtTinhCach" class="col-sm-2 control-label">Tính cách: </label>
     				<div class="col-sm-9">
                     	<!--Thẻ CKEDITOR-->
-                    	<textarea id="TinhCach" name="content"></textarea>
+                    	<textarea class="form-control" id="txtTinhCach" name="txtTinhCach" placeholder="Tính cách"></textarea>
     				</div>
 					<!--Thẻ CKEDITOR-->
-					<script lang="text/javascrip">CKEDITOR.replace("TinhCach");</script>
+					<!--<script lang="text/javascrip">CKEDITOR.replace("TinhCach");</script>-->
   				</div>
-                <div class="form-group">
+                <div class="form-group" id="KhaNang">
     				<label for="txtKhaNang" class="col-sm-2 control-label">Khả năng: </label>
     				<div class="col-sm-9">
                     	<!--Thẻ CKEDITOR-->
-                    	<textarea id="KhaNang" name="content"></textarea>
+                    	<textarea class="form-control" id="txtKhaNang" name="txtKhaNang" placeholder="Khả năng"></textarea>
     				</div>
 					<!--Thẻ CKEDITOR-->
-					<script lang="text/javascrip">CKEDITOR.replace("KhaNang");</script>
+					<!--<script lang="text/javascrip">CKEDITOR.replace("KhaNang");</script>-->
   				</div>
-                <div class="form-group">
+                <div class="form-group" id="NguonGoc">
     				<label for="txtNguonGoc" class="col-sm-2 control-label">Nguồn gốc: </label>
     				<div class="col-sm-9">
                     	<!--Thẻ CKEDITOR-->
-                    	<textarea id="NguonGoc" name="content"></textarea>
+                    	<textarea class="form-control" id="txtNguonGoc" name="txtNguonGoc" placeholder="Nguồn gốc"></textarea>
     				</div>
 					<!--Thẻ CKEDITOR-->
-					<script lang="text/javascrip">CKEDITOR.replace("NguonGoc");</script>
+					<!--<script lang="text/javascrip">CKEDITOR.replace("NguonGoc");</script>-->
   				</div>
-                <div class="form-group">
+                <div class="form-group" id="TieuChuan">
     				<label for="txtTieuChuan" class="col-sm-2 control-label">Tiêu chuẩn: </label>
     				<div class="col-sm-9">
                     	<!--Thẻ CKEDITOR-->
-                    	<textarea id="TieuChuan" name="content"></textarea>
+                    	<textarea class="form-control" id="txtTieuChuan" name="txtTieuChuan" placeholder="Tiêu chuẩn"></textarea>
     				</div>
 					<!--Thẻ CKEDITOR-->
-					<script lang="text/javascrip">CKEDITOR.replace("TieuChuan");</script>
+					<!--<script lang="text/javascrip">CKEDITOR.replace("TieuChuan");</script>-->
   				</div>
                 <!-- -->
-                <div class="form-group">
+                <div class="form-group" id="Ten">
     				<label for="txtTen" class="col-sm-2 control-label">Tên của thú cưng: </label>
     				<div class="col-sm-5">
       					<input type="text" class="form-control" name="txtTen" placeholder="Tên của thú cưng">
     				</div>
   				</div>
-                <div class="form-group">
+                <div class="form-group" id="Mau">
     				<label for="txtMau" class="col-sm-2 control-label">Màu của thú cưng: </label>
     				<div class="col-sm-5">
       					<input type="text" class="form-control" name="txtMau" placeholder="Màu của thú cưng">
     				</div>
   				</div>
-                <div class="form-group">
+                <div class="form-group" id="Tuoi">
     				<label for="txtTuoi" class="col-sm-2 control-label">Tuổi của thú cưng: </label>
     				<div class="col-sm-5">
       					<input type="text" class="form-control" name="txtTuoi" placeholder="Tuổi của thú cưng">
     				</div>
   				</div>
-                <div class="form-group">
+                <div class="form-group" id="DacDiemNhanDang">
     				<label for="txtDacDiemNhanDang" class="col-sm-2 control-label">Đặc điểm nhận dạng của thú cưng: </label>
     				<div class="col-sm-9">
                     	<!--Thẻ CKEDITOR-->
-                    	<textarea id="DacDiemNhanDang" name="content"></textarea>
+                    	<textarea class="form-control" id="txtDacDiemNhanDang" name="txtDacDiemNhanDang" placeholder="Đặc điểm nhận dạng của thú cưng"></textarea>
     				</div>
 					<!--Thẻ CKEDITOR-->
-					<script lang="text/javascrip">CKEDITOR.replace("DacDiemNhanDang");</script>
+					<!--<script lang="text/javascrip">CKEDITOR.replace("DacDiemNhanDang");</script>-->
   				</div>
                 
                 <div class="form-group">
@@ -295,5 +294,42 @@
               	</div>
     		</form>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	//Mặc định sẽ ẩn các phần của đăng tin
+	$("#Ten").hide();
+	$("#Mau").hide();
+	$("#Tuoi").hide();
+	$("#DacDiemNhanDang").hide();
+	$("#slDanhMuc").change(function(){
+		//Lựa chọn bài viết
+		if($("#slDanhMuc").select().val() == 1){
+			$("#DacDiem").show();
+			$("#TinhCach").show();
+			$("#KhaNang").show();
+			$("#NguonGoc").show();
+			$("#TieuChuan").show();
+			
+			$("#Ten").hide();
+			$("#Mau").hide();
+			$("#Tuoi").hide();
+			$("#DacDiemNhanDang").hide();
+		}
+		//Lựa chọn đăng tin
+		else {
+			$("#DacDiem").hide();
+			$("#TinhCach").hide();
+			$("#KhaNang").hide();
+			$("#NguonGoc").hide();
+			$("#TieuChuan").hide();
+			
+			$("#Ten").show();
+			$("#Mau").show();
+			$("#Tuoi").show();
+			$("#DacDiemNhanDang").show();
+		}
+	});
+});
+</script>
 </body>
 </html>

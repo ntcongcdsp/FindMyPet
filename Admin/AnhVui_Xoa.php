@@ -43,14 +43,14 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="../js/jquery-1.11.3.min.js"> </script>
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/ie-emulation-modes-warning.js"></script>
-    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../asset/js/jquery-1.11.3.min.js"> </script>
+	<script src="../asset/js/jquery.min.js"></script>
+	<script src="../asset/js/ie-emulation-modes-warning.js"></script>
+    <link href="../asset/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../asset/js/bootstrap.min.js"></script>
 </head>
 
 <body style="background-color: lightgrey;min-height:100%;">

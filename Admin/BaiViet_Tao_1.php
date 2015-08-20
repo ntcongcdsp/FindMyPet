@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html" />
 	<meta name="author" content="GallerySoft.info" />
-    <script lang="javascript" src="ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script lang="javascript" src="../asset/ckeditor/ckeditor.js" type="text/javascript"></script>
 	<title>Untitled 1</title>
 </head>
 

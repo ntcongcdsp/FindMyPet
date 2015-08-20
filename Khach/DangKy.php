@@ -32,14 +32,16 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="../js/jquery-1.11.3.min.js"> </script>
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/ie-emulation-modes-warning.js"></script>
-    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../asset/js/jquery-1.11.3.min.js"> </script>
+	<script src="../asset/js/jquery.min.js"></script>
+	<script src="../asset/js/ie-emulation-modes-warning.js"></script>
+    <link href="../asset/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../asset/js/bootstrap.min.js"></script>
+    <!-- Chen Validation -->
+    <script src="../asset/js/jquery.validate.js"></script>
 </head>
 <body style="background-color: lightgrey;min-height:100%;">
 	<?php
@@ -52,47 +54,47 @@
     </div>
     <div class="row">
     	<!-- Chèn form để xem thông tin tài khoản -->
-        <form class="form-horizontal" name="frmSuaTaiKhoan" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" name="frmDangKyTaiKhoan" method="post">
                 <div class="form-group">
 	                <label for="txtTenDN" class="col-sm-2 control-label">Tên đăng nhập: </label>
     				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="txtTenDN" placeholder="Tên đăng nhập">
+      					<input type="text" class="form-control" name="txtTenDN" placeholder="Tên đăng nhập" required>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="txtMatKhau" class="col-sm-2 control-label">Mật khẩu: </label>
     				<div class="col-sm-5">
-      					<input type="password" class="form-control" name="txtMatKhau" placeholder="Mật khẩu" >
+      					<input type="password" class="form-control" name="txtMatKhau" placeholder="Mật khẩu" required>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="txtHo" class="col-sm-2 control-label">Họ: </label>
     				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="txtHo" placeholder="Họ lót" >
+      					<input type="text" class="form-control" name="txtHo" placeholder="Họ lót" required>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="txtTen" class="col-sm-2 control-label">Tên: </label>
     				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="txtTen" placeholder="Tên">
+      					<input type="text" class="form-control" name="txtTen" placeholder="Tên" required>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="txtEmail" class="col-sm-2 control-label">Email: </label>
     				<div class="col-sm-5">
-      					<input type="email" class="form-control" name="txtEmail" placeholder="Email@gmail.com">
+      					<input type="email" class="form-control" name="txtEmail" placeholder="Email@gmail.com" required>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="txtDiaChi" class="col-sm-2 control-label">Địa chỉ: </label>
     				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="txtDiaChi" placeholder="Địa chỉ">
+      					<input type="text" class="form-control" name="txtDiaChi" placeholder="Địa chỉ" required>
     				</div>
   				</div>
                 <div class="form-group">
     				<label for="txtSoDienThoai" class="col-sm-2 control-label">Số điện thoại: </label>
     				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="txtSoDienThoai" placeholder="Số điện thoại" >
+      					<input type="number" class="form-control" name="txtSoDienThoai" placeholder="Số điện thoại" required>
     				</div>
   				</div>
                 <div class="form-group">
@@ -103,5 +105,6 @@
               	</div>
     		</form>
 </div>
+
 </body>
 </html>

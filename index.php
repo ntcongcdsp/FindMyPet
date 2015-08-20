@@ -7,10 +7,10 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="js/jquery-1.11.3.min.js" type="text/javascript"> </script>
+	<script src="asset/js/jquery-1.11.3.min.js" type="text/javascript"> </script>
 	<!--<script src="js/jquery.min.js"></script>
 	<script src="./js/ie-emulation-modes-warning.js"></script>-->
-    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="asset/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
@@ -18,11 +18,11 @@
     <!--<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
    
     <!-- Slick slide -->
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="slick/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="slick/slick.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="asset/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="asset/slick/slick-theme.css"/>
+	<script type="text/javascript" src="asset/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="asset/slick/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="asset/slick/slick.min.js"></script>
 </head>
 <body style="background-color: lightgrey;">
 	<?php

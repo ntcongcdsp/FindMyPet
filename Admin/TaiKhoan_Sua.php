@@ -42,14 +42,16 @@
 	<!-- Meta Responsive -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap core CSS -->
-	<script src="../js/jquery-1.11.3.min.js"> </script>
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/ie-emulation-modes-warning.js"></script>
-    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../asset/js/jquery-1.11.3.min.js"> </script>
+	<script src="../asset/js/jquery.min.js"></script>
+	<script src="../asset/js/ie-emulation-modes-warning.js"></script>
+    <link href="../asset/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../asset/js/bootstrap.min.js"></script>
+    <!-- Chen Validation -->
+    <script src="../asset/js/jquery.validate.js"></script>
 </head>
 <body style="background-color: lightgrey;min-height:100%;">
 	<?php
@@ -62,6 +64,8 @@
     <div class="row">
     	<!-- Chèn form để xem thông tin tài khoản -->
         <?php
+			require_once("../PHP/ConnectDB.php");
+			$conn = ConnectDB::connect();
 			$sql = "SELECT * FROM User WHERE TenDN = '".$_GET['TenDN']."'";
 	
 			$resut = mysqli_query($conn, $sql);
@@ -87,7 +91,9 @@
     				<label for="slPhanQuyen" class="col-sm-2 control-label">Phân quyền: </label>
     				<div class="col-sm-5">
                     	<select class="form-control" name="slPhanQuyen">
-                        	<?php								
+                        	<?php	
+								require_once("../PHP/ConnectDB.php");
+								$conn = ConnectDB::connect();							
 								$sqlDM = "SELECT MaPhanQuyen, MoTa FROM PhanQuyen";
 								$resutDM = mysqli_query($conn, $sqlDM);
 								if($resutDM->num_rows >0)
@@ -123,7 +129,7 @@
                 <div class="form-group">
     				<label for="txtEmail" class="col-sm-2 control-label">Email: </label>
     				<div class="col-sm-5">
-      					<input type="email" class="form-control" name="txtEmail" placeholder="Email@gmail.com" value="<?php echo $row['Email']; ?>">
+      					<input type="email" class="form-control" name="txtEmail" placeholder="Email@gmail.com" value="<?php echo $row['Email']; ?>" required>
     				</div>
   				</div>
                 <div class="form-group">
@@ -135,7 +141,7 @@
                 <div class="form-group">
     				<label for="txtSoDienThoai" class="col-sm-2 control-label">Số điện thoại: </label>
     				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="txtSoDienThoai" placeholder="Số điện thoại" value="<?php echo $row['SoDienThoai']; ?>">
+      					<input type="number" class="form-control" name="txtSoDienThoai" placeholder="Số điện thoại" value="<?php echo $row['SoDienThoai']; ?>" required>
     				</div>
   				</div>
                 <div class="form-group">
