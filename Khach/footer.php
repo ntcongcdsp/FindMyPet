@@ -76,20 +76,33 @@
     </div>
 </div>      
 <hr>	
-<div class="row" style="height:200px; width:880px;margin-left:70px;margin-top: 30px;border: 2px solid grey;border-radius:5px;">
+<div class="row" style="width:880px;margin:30px 0px 0px 70px; padding-bottom:20px; border: 2px solid grey;border-radius:5px;">
 	<div class="col-xs-2">
     	<?php
 			echo "<img class='img-thumbnail' src='".BASE_URL."img/logo.gif' style='width:130px;height:70; margin-top: 50px;'>";
 		?>
 		<!--<img src="./img/logo.gif" style="width:130px;height:70; margin-top: 50px;">-->
 	</div>
-	<div class="col-xs-5" style="background-color:gray;height:196px;">
-		<h3>nội dung 1</h3>
+	<div class="col-xs-4" >
+		<h3>GIỚI THIỆU</h3>
+		FindMyPet là nơi mọi người cùng chia sẻ, giúp đỡ những bé thú cưng thất lạc tìm về được với chủ của mình. Và cũng là nơi để cộng đồng yêu thú giao lưu, trao đổi kinh nghiệm với nhau. <br>
+		Những bài viết có nội dung không lành mạnh sẽ bị ban quản trị xóa. <br>
+		Chúng tôi không chịu trách nhiệm về các bài đăng của thành viên. <br>
+	
+	</div>    
+	<div class="col-xs-3">
+		<h3>LIÊN KẾT</h3>
 		chèn nội dung
 	</div>    
-	<div class="col-xs-5" style="background-color:lightblue;height:196px;">
-		<h3>nội dung 2</h3>
-		chèn nội dung
+	<div class="col-xs-3">
+		<h3>FindMyPet</h3>
+		<ul style="list-style-type:none;">
+					<li  ><a href="Index.php" >Trang chủ</a></li>
+					<li><a href="Khach/IndexLost.php">Tin mất thú</a></li>
+					<li ><a href="Khach/IndexFind.php">Tin tìm chủ</a></li>
+					<li><a href="Khach/Knowledge.php">Kiến thức cơ bản</a></li>
+					<li><a href="Khach/News.php">Tin tức</a></li>
+		</ul>
 	</div>    
 </div>
 <script type="text/javascript">
@@ -104,3 +117,9 @@
 </script>  
 </body>
 </html>
+
+
+
+
+
+
