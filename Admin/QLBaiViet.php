@@ -109,11 +109,29 @@
                 	<button type="submit" class="btn btn-info" name="submit">Lọc Bài viết</button>
                 </div>
             </form>
-        
         <div class="col-md-4" align="right">
         <p><a href="BaiViet_Tao.php"><input type="button" value="Đăng bài viết/Bản tin mới"/></a> </p>
         </div>
 	</div>
+    <div class="row col-lg-8" align="left" style="margin-bottom:15px">
+       	<form name="frmTimKiem" method="post">
+	        <div class="input-group">
+            	<?php
+					if(array_key_exists('txtTimKiem',$_POST))
+					{
+						echo "<input type='text' class='form-control' placeholder='Tìm kiếm theo tiêu đề' name='txtTimKiem' value='".$_POST['txtTimKiem']."'>";
+					}
+					else
+						echo "<input type='text' class='form-control' placeholder='Tìm kiếm theo tiêu đề' name='txtTimKiem'>";
+					
+				?>
+				<!--<input type="text" class="form-control" placeholder="Tìm kiếm theo tiêu đề" name="txtTimKiem">-->
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit" name="TimKiem">Tìm kiếm!</button>
+                </span>
+			</div>
+		</form>
+    </div>
 	<div class="row" align="center">
         <table class="table table-condensed">
         <tr>
@@ -157,6 +175,19 @@
 					$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID ORDER BY A.ID DESC";
 				}
 			}
+			$ChuoiTimKiem = "%";
+			if(array_key_exists('txtTimKiem', $_POST))
+			{
+				$Arr =explode(' ',$_POST['txtTimKiem']);
+				$i = 0;
+				while($i < count($Arr))
+				{
+					$ChuoiTimKiem .=$Arr[$i]."%";
+					$i++;
+				}
+				$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE TieuDe like '".$ChuoiTimKiem."' ORDER BY A.ID DESC"; 
+			}
+			
 			//Code phan trang
 			$row_per_page=10; // Số dòng trên mỗi trang
 						
@@ -209,7 +240,7 @@
 			echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
 			for($i=1;$i<=$page;$i++)
 			{
-				if ($page_cr!=$i) echo "<a href='QLTaiKhoan.php?start=".$row_per_page*($i-1)."'><span>".$i."&nbsp;</span></a>";
+				if ($page_cr!=$i) echo "<a href='QLBaiViet.php?start=".$row_per_page*($i-1)."'><span>".$i."&nbsp;</span></a>";
 			 	else echo "<span>".$i."&nbsp;</span>";
 			
 			} 

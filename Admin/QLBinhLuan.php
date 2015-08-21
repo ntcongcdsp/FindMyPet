@@ -151,7 +151,7 @@
 			echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
 			for($i=1;$i<=$page;$i++)
 			{
-				if ($page_cr!=$i) echo "<a href='QLTaiKhoan.php?start=".$row_per_page*($i-1)."'><span>".$i."&nbsp;</span></a>";
+				if ($page_cr!=$i) echo "<a href='QLBinhLuan.php?start=".$row_per_page*($i-1)."'><span>".$i."&nbsp;</span></a>";
 			 	else echo "<span>".$i."&nbsp;</span>";
 			
 			} 

@@ -28,12 +28,29 @@
 <div id="SlideFindOwner" align="center" style="margin-top:30px">
 	<?php
 		include_once(realpath(dirname(__DIR__))."/PHP/define.php");
-		echo "<div><img src='".BASE_URL."img/9.jpg' class='imgSlide'></div>";
+		/*echo "<div><img src='".BASE_URL."img/9.jpg' class='imgSlide'></div>";
 		echo "<div><img src='".BASE_URL."img/10.jpg' class='imgSlide'></div>";
 		echo "<div><img src='".BASE_URL."img/11.jpg' class='imgSlide'></div>";
 		echo "<div><img src='".BASE_URL."img/12.jpg' class='imgSlide'></div>";
 		echo "<div><img src='".BASE_URL."img/13.jpg' class='imgSlide'></div>";
-		echo "<div><img src='".BASE_URL."img/15.jpg' class='imgSlide'></div>";
+		echo "<div><img src='".BASE_URL."img/15.jpg' class='imgSlide'></div>";*/
+		
+		require_once(BASE_PATH . "/PHP/ConnectDB.php");
+		$conn = ConnectDB::connect();
+		
+		$sql = "SELECT ID,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID ASC";
+
+		$result = mysqli_query($conn, $sql);
+				
+		if($result->num_rows > 0)
+		{
+			while($row = $result->fetch_assoc())
+			{
+				echo "<div><a href='".BASE_URL."/Khach/Find.php?ID=".$row['ID']."'><img src='".BASE_URL."img/".$row['HinhAnh']."' class='imgSlide'></a></div>";
+			}
+		}
+		ConnectDB::disconnect();
+		
 	?>
 	<!--<div><a href="./img/15.jpg"><img src="./img/15.jpg" class="imgSlide"/></a>
 	</div>

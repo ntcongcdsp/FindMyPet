@@ -37,7 +37,6 @@
         <div class="row" style="height:295px;width:473px;margin-left:10px;">
             <div id="SlideFooter" align="center" style="margin-top:0px;">
                 <?php
-					
                     require_once(BASE_PATH . "/PHP/ConnectDB.php");
                     $conn = ConnectDB::connect();
                     

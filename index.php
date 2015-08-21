@@ -41,9 +41,24 @@
                     <div style="position:relative;right:20px;">
                         <ul>
                             <!-- chèn tin mất chó -->
-                            <li class="findlost"><a href="">Tin mất chó 1 gggggggggggggggggggggggggggggg</a></li>
-                            <li class="findlost" style="margin-top:8px;"><a href="">Tin mất chó 2 gggggggggggggggggggggggggggggg</a></li>
-                            <li class="findlost" style="margin-top:8px;"><a href="">Tin mất chó 3 gggggggggggggggggggggggggggggg</a></li>
+                            <?php
+								require_once(BASE_PATH . "/PHP/ConnectDB.php");
+								$conn = ConnectDB::connect();
+								
+								$sql = "SELECT ID,TieuDe FROM BaiViet WHERE IDDanhMuc = ".TIN_MAT." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 3";
+						
+								$result = mysqli_query($conn, $sql);
+										
+								if($result->num_rows > 0)
+								{
+									while($row = $result->fetch_assoc())
+									{
+										echo "<li class='findlost'><a href='".BASE_URL."/Khach/Lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
+									}
+								}
+								ConnectDB::disconnect();
+							
+							?>
                         </ul>
                     </div>
                     <div style="text-align:right;">
@@ -54,15 +69,6 @@
     	</div>
         <div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:684px; border-radius:5px;">
             <!-- chèn slide ảnh chó bị mất-->
-            <!--<div id="SlideLostPet" align="center" style="margin-top:30px">
-            	<div><a href="img/1.jpg"><img src="img/1.jpg" class="imgSlide"/></a>
-                </div>
-                <div><img src="img/2.jpg" class="imgSlide"/></div>
-                <div><img src="img/3.jpg" class="imgSlide"/></div>
-                <div><img src="img/4.jpg" class="imgSlide"/></div>
-                <div><img src="img/6.jpg" class="imgSlide"/></div>
-                <div><img src="img/2.jpg" class="imgSlide"/></div>
-            </div>-->
             <?php
 				include ("Khach/slidelost.php");
 			?>
@@ -77,9 +83,24 @@
                 	<div style="position:relative;right:20px;">
                         <ul>
                             <!-- chèn tin mất chó -->
-                            <li class="findlost"><a href="">Tin tìm chó 1 gggggggggggggggggggggggggggggg</a></li>
-                            <li class="findlost" style="margin-top:8px;"><a href="">Tin tìm chó 2 gggggggggggggggggggggggggggggg</a></li>
-                            <li class="findlost" style="margin-top:8px;"><a href="">Tin tìm chó 3 gggggggggggggggggggggggggggggg</a></li>
+                            <?php
+								require_once(BASE_PATH . "/PHP/ConnectDB.php");
+								$conn = ConnectDB::connect();
+								
+								$sql = "SELECT ID,TieuDe FROM BaiViet WHERE IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 3";
+						
+								$result = mysqli_query($conn, $sql);
+										
+								if($result->num_rows > 0)
+								{
+									while($row = $result->fetch_assoc())
+									{
+										echo "<li class='findlost'><a href='".BASE_URL."/Khach/Find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
+									}
+								}
+								ConnectDB::disconnect();
+							
+							?>
                         </ul>
                     </div>
                     <div style="text-align:right;">
@@ -90,14 +111,6 @@
 		</div>
 		<div class="col-xs-8" style="background-color:lightblue; height: 180px;width:684px; border-radius:5px;">
 			<!-- chèn slide ảnh tìm chủ-->
-            <!--<div id="SlideFindOwner" align="center" style="margin-top:30px">
-            	<div><a href="img/15.jpg"><img src="img/15.jpg" class="imgSlide"/></a>
-                </div>
-                <div><img src="img/9.jpg" class="imgSlide"/></div>
-                <div><img src="img/10.jpg" class="imgSlide"/></div>
-                <div><img src="img/11.jpg" class="imgSlide"/></div>
-                <div><img src="img/12.jpg" class="imgSlide"/></div>
-            </div>-->
             <?php
 				include ("Khach/slidefind.php");
 			?>
@@ -110,26 +123,34 @@
 			<div class="row">
 				<p class="bg-primary" style="margin-right: 5px;margin-left: 15px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Những kiến thức cơ bản về thú cưng</b> </p>
 			</div>
-            <div class="row" style="height:145px;">
-				<div class="col-xs-4" style="height:145px;">
-					<a href="#"><img class="img-thumbnail" src="img/3.jpg" style="height: 140px;width:200px;"></a>
-                </div>
-					<div class="col-xs-8" style="height:145px;">
-					<a href="#"><h3>Tiêu đề 1</h3></a>
-					<p>Tóm tắt nội dung bên trong</p>
-                </div>
-			</div>
-            
-			<div class="row" style="height:145px;">
-				<div class="col-xs-4" style="height:145px;">
-					<a href="#"><img class="img-thumbnail" src="img/Animals___Birds_Bird_Hummingbird_041609_.jpg" style="height: 140px;width:200px;"></a>
-                </div>
-				<div class="col-xs-8" style="height:145px;">
-                    <a href="#"><h3>Tiêu đề 2</h3></a>
-                    <p>Tóm tắt nội dung bên trong</p>
-                </div>
-            </div>
-            
+            <?php
+				require_once(BASE_PATH . "/PHP/ConnectDB.php");
+				$conn = ConnectDB::connect();
+				
+				$sql = "SELECT ID,TieuDe, TomTat,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 3";
+		
+				$result = mysqli_query($conn, $sql);
+						
+				if($result->num_rows > 0)
+				{
+					while($row = $result->fetch_assoc())
+					{
+						echo '<div class="row" style="height:145px;">';
+							echo '<div class="col-xs-4" style="height:145px;">';
+								echo "<a href='".BASE_URL."/Khach/knowledgepage.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 140px;width:200px;'></a>";
+							echo '</div>';
+							echo '<div class="col-xs-8" style="height:145px;fon">';
+								echo "<a href='".BASE_URL."/Khach/knowledgepage.php?ID=".$row['ID']."'><h3>".$row['TieuDe']."</h3></a>";
+								echo "<p align='justify'>".$row['TomTat']."</p>";
+							echo '</div>';
+						echo "</div>";
+						
+					}
+				}
+				ConnectDB::disconnect();
+			
+			?>
+            <!--           
             <div class="row" style="height:145px;">
                 <div class="col-xs-4" style="height:145px;">
                     <a href="#"><img class="img-thumbnail" src="img/Dog3.jpeg" style="height: 140px;width:200px;"></a>
@@ -138,31 +159,46 @@
                     <a href="#"><h3>Tiêu đề 3</h3></a>
                     <p>Tóm tắt nội dung bên trong</p>
                 </div>
-            </div>
+            </div>-->
             <div style="text-align:right;">
                 <a class="btn btn-success btn-xs" href="Khach/knowledge.php">Xem thêm</a>
             </div>
         </div>
         <div class="col-xs-3" style="border: 2px solid lightblue;border-radius:5px;width:240px;  margin-left:7px;">
             <div class="row" style="height:75px"><img style="width:230px; height:70px;margin-top: 3px;margin-left: 3px;" src="img/news.gif"></div>
-                <div class="row" style="height:70px;">
-                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
-                </div>
-                <div class="row" style="height:70px;">
-                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
-                </div>
-                <div class="row" style="height:70px;">
-                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
-                </div>
-                <div class="row" style="height:70px;">
-                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
-                </div>
-                <div class="row" style="height:70px;">
-                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
-                </div>
-                <div class="row" style="height:71px;">
-                	<h4 style="margin-left: 10px;"><a href="#">Tiêu đề Xumali aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa</a></h4>
-                </div>
+                 <?php
+					require_once(BASE_PATH . "/PHP/ConnectDB.php");
+					$conn = ConnectDB::connect();
+					
+					$sql = "SELECT ID, TieuDe, IDDanhMuc FROM BaiViet WHERE KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 5";
+			
+					$result = mysqli_query($conn, $sql);
+							
+					if($result->num_rows > 0)
+					{
+						while($row = $result->fetch_assoc())
+						{
+							echo "<div class='row' style='height:70px;'>";
+								echo "<h4 style='margin-left: 10px;'>";
+									switch ($row['IDDanhMuc'])
+									{
+										case BAI_VIET:
+											echo "<a href='".BASE_URL."/Khach/knowledgepage.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
+											break;
+										case TIN_MAT:
+											echo "<a href='".BASE_URL."/Khach/Lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
+											break;
+										case TIN_TIM:
+											echo "<a href='".BASE_URL."/Khach/Find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
+											break;
+									}
+								echo "</h4>";
+							echo "</div>";
+						}
+					}
+					ConnectDB::disconnect();
+				
+				?>
             <div style="text-align:right;">
                 <a style="margin-bottom: 4px;"class="btn btn-success btn-xs" href="Khach/news.php">Xem thêm</a>
             </div>
