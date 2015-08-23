@@ -92,7 +92,8 @@
 	</div>    
 	<div class="col-xs-3">
 		<h3>LIÊN KẾT</h3>
-		chèn nội dung
+		<a href="http://thucung.vn"> Thế giới thú cưng </a>
+		<a href=" http://www.yeuthucung.com"> diễn đàn thú cưng </a> 
 	</div>    
 	<div class="col-xs-3">
 		<h3>FindMyPet</h3>
