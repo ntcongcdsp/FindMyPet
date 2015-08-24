@@ -82,7 +82,7 @@
 				<div class="panel-body" style="height:130px;">
                 	<div style="position:relative;right:20px;">
                         <ul>
-                            <!-- chèn tin mất chó -->
+                            <!-- chèn tin tìm chủ -->
                             <?php
 								require_once(BASE_PATH . "/PHP/ConnectDB.php");
 								$conn = ConnectDB::connect();
@@ -123,7 +123,8 @@
 			<div class="row">
 				<p class="bg-primary" style="margin-right: 5px;margin-left: 15px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Những kiến thức cơ bản về thú cưng</b> </p>
 			</div>
-            <?php
+            <!-- Chen bai viet -->
+			<?php
 				require_once(BASE_PATH . "/PHP/ConnectDB.php");
 				$conn = ConnectDB::connect();
 				

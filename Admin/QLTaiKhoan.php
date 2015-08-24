@@ -84,6 +84,26 @@
         <p><a href="TaiKhoan_Tao.php"><input type="button" value="Tạo tài khoản mới"/></a> </p>
         </div>
 	</div>
+     <div class="row col-lg-8" align="left" style="margin-bottom:15px">
+       	<form name="frmTimKiem" method="post">
+	        <div class="input-group">
+            	<?php
+					if(array_key_exists('txtTimKiem',$_POST))
+					{
+						echo "<input type='text' class='form-control' placeholder='Tìm kiếm theo tên tài khoản' name='txtTimKiem' value='".$_POST['txtTimKiem']."'>";
+					}
+					else
+						echo "<input type='text' class='form-control' placeholder='Tìm kiếm theo tên tài khoản' name='txtTimKiem'>";
+					
+				?>
+				<!--<input type="text" class="form-control" placeholder="Tìm kiếm theo tiêu đề" name="txtTimKiem">-->
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit" name="TimKiem">Tìm kiếm!</button>
+                </span>
+			</div>
+		</form>
+    </div>
+    
 	<div class="row" align="center">
         <table class="table table-condensed">
         <tr>
@@ -107,6 +127,21 @@
 				{
 					$sql = "SELECT TenDN, MoTa, Ho, Ten, Email, DiaChi, SoDienThoai FROM User AS A INNER JOIN PhanQuyen AS B ON A.MaPhanQuyen = B.MaPhanQuyen WHERE A.MaPhanQuyen = ". $_POST['slPhanQuyen'] ." ORDER BY TenDN ASC";
 				}
+			}
+			
+			$ChuoiTimKiem = "%";
+			if(array_key_exists('txtTimKiem', $_POST))
+			{
+				$Arr =explode(' ',$_POST['txtTimKiem']);
+				$i = 0;
+				while($i < count($Arr))
+				{
+					$ChuoiTimKiem .=$Arr[$i]."%";
+					$i++;
+				}
+				$sql = "SELECT TenDN, MoTa, Ho, Ten, Email, DiaChi, SoDienThoai FROM User AS A INNER JOIN PhanQuyen AS B ON A.MaPhanQuyen = B.MaPhanQuyen WHERE TenDN like '".$_POST['txtTimKiem']."' UNION 
+						SELECT TenDN, MoTa, Ho, Ten, Email, DiaChi, SoDienThoai FROM User AS A INNER JOIN PhanQuyen AS B ON A.MaPhanQuyen = B.MaPhanQuyen WHERE TenDN like '%".$_POST['txtTimKiem']."%' UNION 
+						SELECT TenDN, MoTa, Ho, Ten, Email, DiaChi, SoDienThoai FROM User AS A INNER JOIN PhanQuyen AS B ON A.MaPhanQuyen = B.MaPhanQuyen WHERE TenDN like '".$ChuoiTimKiem."'"; 
 			}
 			
 			//Code phan trang

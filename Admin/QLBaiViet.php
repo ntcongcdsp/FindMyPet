@@ -119,10 +119,10 @@
             	<?php
 					if(array_key_exists('txtTimKiem',$_POST))
 					{
-						echo "<input type='text' class='form-control' placeholder='Tìm kiếm theo tiêu đề' name='txtTimKiem' value='".$_POST['txtTimKiem']."'>";
+						echo "<input type='text' class='form-control' placeholder='Tìm kiếm theo tiêu đề hoặc nội dung' name='txtTimKiem' value='".$_POST['txtTimKiem']."'>";
 					}
 					else
-						echo "<input type='text' class='form-control' placeholder='Tìm kiếm theo tiêu đề' name='txtTimKiem'>";
+						echo "<input type='text' class='form-control' placeholder='Tìm kiếm theo tiêu đề hoặc nội dung' name='txtTimKiem'>";
 					
 				?>
 				<!--<input type="text" class="form-control" placeholder="Tìm kiếm theo tiêu đề" name="txtTimKiem">-->
@@ -185,7 +185,12 @@
 					$ChuoiTimKiem .=$Arr[$i]."%";
 					$i++;
 				}
-				$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE TieuDe like '".$ChuoiTimKiem."' ORDER BY A.ID DESC"; 
+				$sql = "SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE TieuDe like '".$_POST['txtTimKiem']."' UNION 
+						SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE TieuDe like '%".$_POST['txtTimKiem']."%' UNION 
+						SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE TieuDe like '".$ChuoiTimKiem."' UNION 
+						SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE NoiDung like '".$_POST['txtTimKiem']."' UNION 
+						SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE NoiDung like '%".$_POST['txtTimKiem']."%' UNION 
+						SELECT A.ID, TieuDe, TomTat, HinhAnh, TenDN, TenDanhMuc, KiemDuyet, NgayDang FROM baiviet AS A INNER JOIN DanhMuc AS B ON A.IDDanhMuc = B.ID WHERE NoiDung like '".$ChuoiTimKiem."' "; 
 			}
 			
 			//Code phan trang

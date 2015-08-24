@@ -82,7 +82,7 @@
 			$Tuoi = $_POST['txtTuoi'];
 		
 		// Insert co so du lieu
-		$sqlInsert = "INSERT INTO baiviet(TieuDe, TomTat, NoiDung, HinhAnh, TenDN, IDDanhMuc, KiemDuyet, NgayDang, Loai, Giong, DacDiem, TinhCach, KhaNang, NguonGoc, TieuChuan, Ten, Mau, Tuoi, DacDiemNhanDang) VALUES ('".$_POST['txtTieuDe']."', '".$_POST['txtTomTat']."', '".$_POST['txtNoiDung']."', '".$store_url."', '".$_POST['txtTenDN']."', ".$_POST['slDanhMuc'].", ".$_POST['txtKiemDuyet'].", '".$date."', '".$_POST['txtLoai']."', '".$_POST['txtGiong']."', '".$_POST['txtDacDiem']."', '".$_POST['txtTinhCach']."', '".$_POST['txtKhaNang']."', '".$_POST['txtNguonGoc']."', '".$_POST['txtTieuChuan']."', '".$_POST['txtTen']."', '".$_POST['txtMau']."', ".$Tuoi.", '".$_POST['txtDacDiemNhanDang']."')";
+		$sqlInsert = "INSERT INTO baiviet(TieuDe, TomTat, NoiDung, HinhAnh, TenDN, IDDanhMuc, KiemDuyet, NgayDang, Loai, Giong, DacDiem, TinhCach, KhaNang, NguonGoc, TieuChuan, Ten, Mau, Tuoi, DacDiemNhanDang) VALUES ('".$_POST['txtTieuDe']."', '".$_POST['txtTomTat']."', '".$_POST['txtNoiDung']."', '".$store_url."', '".$_SESSION['TenDN']."', ".$_POST['slDanhMuc'].", ".$_POST['txtKiemDuyet'].", '".$date."', '".$_POST['txtLoai']."', '".$_POST['txtGiong']."', '".$_POST['txtDacDiem']."', '".$_POST['txtTinhCach']."', '".$_POST['txtKhaNang']."', '".$_POST['txtNguonGoc']."', '".$_POST['txtTieuChuan']."', '".$_POST['txtTen']."', '".$_POST['txtMau']."', ".$Tuoi.", '".$_POST['txtDacDiemNhanDang']."')";
 		
 		if(mysqli_query($conn,$sqlInsert) === TRUE)
 			{
@@ -180,14 +180,7 @@
     				<div class="col-sm-5">
       					<input type="file" name="imgFile" id="imgFile">
     				</div>
-  				</div>
-                <div class="form-group">
-    				<label for="txtTenDN" class="col-sm-2 control-label">Người đăng: </label>
-    				<div class="col-sm-5">
-      					<input type="text" class="form-control" name="txtTenDN" placeholder="Tên đăng nhập">
-    				</div>
-  				</div>
-                
+  				</div>               
                 <div class="form-group">
     				<label for="txtKiemDuyet" class="col-sm-2 control-label">Kiểm duyệt: </label>
     				<div class="col-sm-5">
