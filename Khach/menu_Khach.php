@@ -76,6 +76,7 @@
 						else if($_SESSION['MaPhanQuyen'] == NHOM_THANH_VIEN)
 						{
 							echo "<li class='active'><a href='".BASE_URL."Khach/DangBai.php'><span class='glyphicon glyphicon-file'></span> Đăng bài viết/bản tin</a></li>";
+							echo "<li class='active'><a href='".BASE_URL."Khach/ThongTinCaNhan.php'><span class='glyphicon glyphicon-log-out'></span>Thông tin cá nhân</a></li>";
 							echo "<li class='active'><a href='".BASE_URL."PHP/Logout.php'><span class='glyphicon glyphicon-log-out'></span> Đăng xuất</a></li>";
 						}
 						else

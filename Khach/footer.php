@@ -85,24 +85,29 @@
 	</div>
 	<div class="col-xs-4" >
 		<h3>GIỚI THIỆU</h3>
+        <p align="justify">
 		FindMyPet là nơi mọi người cùng chia sẻ, giúp đỡ những bé thú cưng thất lạc tìm về được với chủ của mình. Và cũng là nơi để cộng đồng yêu thú giao lưu, trao đổi kinh nghiệm với nhau. <br>
 		Những bài viết có nội dung không lành mạnh sẽ bị ban quản trị xóa. <br>
-		Chúng tôi không chịu trách nhiệm về các bài đăng của thành viên. <br>
-	
+        Những thành viên đăng các nội dung không phù hợp với tiêu chí của trang sẽ được nhắc nhở và xóa tài khoản nếu còn tái phạm. <br>
+		Chúng tôi không chịu trách nhiệm về các bài đăng của thành viên.
+		</p>
 	</div>    
 	<div class="col-xs-3">
 		<h3>LIÊN KẾT</h3>
-		<a href="http://thucung.vn"> Thế giới thú cưng </a>
-		<a href=" http://www.yeuthucung.com"> diễn đàn thú cưng </a> 
+        <a href="http://baovecho.org">Liên minh bảo vệ chó châu Á (ACPA)</a>
+        <br>
+		<a href="http://thucung.vn">Thế giới thú cưng</a>
+        <br>
+		<a href=" http://www.yeuthucung.com">Diễn đàn thú cưng</a>
 	</div>    
 	<div class="col-xs-3">
 		<h3>FindMyPet</h3>
 		<ul style="list-style-type:none;">
-					<li  ><a href="Index.php" >Trang chủ</a></li>
+					<li><a href="Index.php">Trang chủ</a></li>
 					<li><a href="Khach/IndexLost.php">Tin mất thú</a></li>
 					<li ><a href="Khach/IndexFind.php">Tin tìm chủ</a></li>
 					<li><a href="Khach/Knowledge.php">Kiến thức cơ bản</a></li>
-					<li><a href="Khach/News.php">Tin tức</a></li>
+					<li><a href="Khach/News.php">Tin mới</a></li>
 		</ul>
 	</div>    
 </div>
