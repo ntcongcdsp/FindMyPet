@@ -140,7 +140,7 @@
 							echo '<div class="col-xs-4" style="height:145px;">';
 								echo "<a href='".BASE_URL."/Khach/knowledgepage.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 140px;width:200px;'></a>";
 							echo '</div>';
-							echo '<div class="col-xs-8" style="height:145px;margin-left:-40px;margin-top:-15px;">';
+							echo '<div class="col-xs-8" style="height:145px;fon">';
 								echo "<a href='".BASE_URL."/Khach/knowledgepage.php?ID=".$row['ID']."'><h3>".$row['TieuDe']."</h3></a>";
 								echo "<p align='justify'>".$row['TomTat']."</p>";
 							echo '</div>';
@@ -171,7 +171,7 @@
 					require_once(BASE_PATH . "/PHP/ConnectDB.php");
 					$conn = ConnectDB::connect();
 					
-					$sql = "SELECT ID, TieuDe, IDDanhMuc FROM BaiViet WHERE KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 6";
+					$sql = "SELECT ID, TieuDe, IDDanhMuc FROM BaiViet WHERE KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 5";
 			
 					$result = mysqli_query($conn, $sql);
 							
