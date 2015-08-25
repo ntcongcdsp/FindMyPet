@@ -30,18 +30,49 @@
             	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Những kiến thức cơ bản về thú cưng</b> </p>
             </div>
 			<ul class="nav nav-tabs">
-                            <li role="presentation" class="active"><a href="knowledge.php">Tất cả</a></li>
-                            <li role="presentation"><a href="knowledgecho.php">Chóa</a></li>
-                            <li role="presentation"><a href="knowledgemeo.php">Meo meo</a></li>
-                            <li role="presentation"><a href="knowledgechim.php">Trym</a></li>
-                            <li role="presentation"><a href="knowledgetho.php">Thỏ</a></li>
-                            <li role="presentation"><a href="knowledgekhac.php">Khác</a></li>
+            	
+				 <?php
+                    require_once(BASE_PATH . "/PHP/ConnectDB.php");
+                    $conn = ConnectDB::connect();
+                    
+                    $sql = "SELECT DISTINCT Loai FROM BaiViet WHERE KiemDuyet = ".DA_KIEM_DUYET;
+
+                    $result = mysqli_query($conn, $sql);
+                    echo "<li role='presentation'><a href='knowledge.php'>Tất cả</a></li>";
+                    if($result->num_rows > 0)
+                    {
+                        while($row = $result->fetch_assoc())
+                        {
+							if(array_key_exists('Loai',$_GET))
+							{
+								if($row['Loai'] == $_GET['Loai'])
+									echo "<li role='presentation' class='active'><a href='knowledge.php?Loai=".$row['Loai']."'>".$row['Loai']."</a></li>";
+								else
+									echo "<li role='presentation' ><a href='knowledge.php?Loai=".$row['Loai']."'>".$row['Loai']."</a></li>";		
+							}
+							else
+							{
+								
+								echo "<li role='presentation' ><a href='knowledge.php?Loai=".$row['Loai']."'>".$row['Loai']."</a></li>";
+							}
+                        }
+                    }
+                    ConnectDB::disconnect();
+                
+                ?>
+                    <!--<li role="presentation" class="active"><a href="knowledge.php">Tất cả</a></li>
+                    <li role="presentation"><a href="knowledgecho.php">Chóa</a></li>
+                    <li role="presentation"><a href="knowledgemeo.php">Meo meo</a></li>
+                    <li role="presentation"><a href="knowledgechim.php">Trym</a></li>
+                    <li role="presentation"><a href="knowledgetho.php">Thỏ</a></li>
+                    <li role="presentation"><a href="knowledgekhac.php">Khác</a></li>-->
 			</ul>
 				 <?php
 				require_once(BASE_PATH . "/PHP/ConnectDB.php");
 				$conn = ConnectDB::connect();
-				
 				$sql = "SELECT ID,TieuDe, TomTat,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 5";
+				if(array_key_exists('Loai',$_GET))
+					$sql = "SELECT ID,TieuDe, TomTat,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." AND Loai = '".$_GET['Loai']."' ORDER BY ID DESC LIMIT 5";
 		
 				$result = mysqli_query($conn, $sql);
 						
