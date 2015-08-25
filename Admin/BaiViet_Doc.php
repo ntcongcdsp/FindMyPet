@@ -42,8 +42,8 @@
     	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Chi tiết Bài viết</b> </p>
     </div>
     <div class="row">
-    	<!-- Chèn form để xem thông tin tài khoản -->
-			<?php	
+    	<!-- Chèn form để xem thông tin bài viết -->
+		<?php	
 			require_once("../PHP/ConnectDB.php");
 			$conn = ConnectDB::connect();
 			$sql = "SELECT * FROM BaiViet WHERE ID = ".$_GET['ID'];
@@ -222,7 +222,8 @@
         </div>
         
         <div class="row" align="center">
-        	<a href='BaiViet_Sua.php?ID=<?php echo $row['ID']?>'><input type='button' value='Sửa' class='btn btn-success'/></a>
+        	<a href='BaiViet_Duyet.php?ID=<?php echo $row['ID']?>'><input type='button' value='Duyệt bài viết/tin' class='btn btn-success'/></a>
+        	<a href='BaiViet_Sua.php?ID=<?php echo $row['ID']?>'><input type='button' value='Sửa' class='btn btn-warning'/></a>
 			<a href='BaiViet_Xoa.php?ID=<?php echo $row['ID']?>'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
             <a href="QLBaiViet.php"><button type="button" class="btn btn-default">Trở về</button></a>
         </div>

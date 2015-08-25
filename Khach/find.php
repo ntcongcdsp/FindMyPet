@@ -29,29 +29,57 @@
 		include_once(realpath(dirname(__DIR__))."/PHP/define.php");
     ?>
 <div class="container" style="background-color: whitesmoke;width:1050px; border-radius: 5px;padding-bottom: 20px;">
-    <img class="img-thumbnail" src="../img/chobannerfind.jpg" alt="banner" style="width:950px; height: 270px;margin-top: 10px;margin-bottom:5px;">
+    <img class="img-thumbnail" src="../img/chobannerfind.jpg" alt="banner" style="width:100%; height: 270px;margin-top: 10px;margin-bottom:5px;">
 	<br>
     <div class="row" style="margin-bottom: 10px;">
 		<div class="col-xs-12" style="padding-top: 5px;">
 			<div class="row">
             	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Tin tìm chủ</b> </p>
             </div>
+            <?php	
+				require_once("../PHP/ConnectDB.php");
+				$conn = ConnectDB::connect();
+				$sql = "SELECT * FROM BaiViet WHERE ID = ".$_GET['ID'];
+	
+				$resut = mysqli_query($conn, $sql);
+				if($resut->num_rows>0)
+				{
+					$row = $resut->fetch_assoc();
+				}
+				ConnectDB::disconnect();
+			?>
             <div class="row">
                 <div class="col-xs-7">
-                    <img class="thumbnail" src="../img/3.jpg" style="width:500px;height:350px;margin-top: 15px; margin-left: 30px;">
+                    <?php
+						echo "<img class='thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='width:500px;height:350px;margin-top: 15px; margin-left: 30px;'>";
+					?>
+                    <!--<img class="thumbnail" src="../img/3.jpg" style="width:500px;height:350px;margin-top: 15px; margin-left: 30px;">-->
                 </div>
 			<div class="col-xs-5">
             	<div style="border: 2px solid blueviolet; border-radius:5px;width:380px;height: 350px; margin-top:15px;">
                 	<div style="text-align: center;font-size: 30px;margin-top:5px;">
 						Đặc điểm thú cưng
 					</div>
+                    <?php
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Loài: ".$row['Loai']."</p>";
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Giống: ".$row['Giong']."</p>";
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Tên: ".$row['Ten']."</p>";
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Màu: ".$row['Mau']."</p>";
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Tuổi: ".$row['Tuoi']."</p>";	
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Đặc điểm nhận dạng: ".$row['DacDiemNhanDang']."</p>";
+					?>
+                    <!-- Loai, Giong, Ten, Mau, Tuoi, DacdiemNhanDang-->
 				</div>
 			</div>
 			<div class="col-xs-12">
 				<div style="border: 2px solid gray; border-radius:5px;height: 200px; margin-top:15px;">
 					<div style="text-align: center;font-size: 30px;margin-top:5px;">
-                    	Mô tả thêm về thú cưng
+                    	Mô tả về thú cưng
 					</div>
+                    <?php
+						echo "<div style='text-align: left;font-size: 20px;margin-left:10px;'>".$row['NoiDung']."</div>";
+					?>
+                    <!-- Noi dung -->
 				</div> 
 			</div>
 			<div class="col-xs-12">
@@ -105,16 +133,6 @@
 	
 	<div class="col-xs-8"  style="background-color:lightblue; height: 177px;width:684px; border-radius: 5px;">
 		<!-- chèn slide ảnh chó bị mất-->
-        <!--<div id="SlideLostPet" align="center" style="margin-top:30px">
-            <div><a href="img/1.jpg"><img src="img/1.jpg" class="imgSlide"/></a>
-            </div>
-            <div><img src="img/2.jpg" class="imgSlide"/></div>
-            <div><img src="img/3.jpg" class="imgSlide"/></div>
-            <div><img src="img/4.jpg" class="imgSlide"/></div>
-            <div><img src="img/6.jpg" class="imgSlide"/></div>
-            <div><img src="img/2.jpg" class="imgSlide"/></div>
-        </div>-->
-        <!-- Kết thúc chèn slide -->
         <?php
 			include("slidelost.php");
 		?>
