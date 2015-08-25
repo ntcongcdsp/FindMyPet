@@ -128,9 +128,24 @@
                     <div style="position:relative;right:20px;">
                         <ul>
                             <!-- chèn tin mất chó -->
-                            <li class="findlost"><a href="">Tin mất chó 1 gggggggggggggggggggggggggggggg</a></li>
-                            <li class="findlost" style="margin-top:8px;"><a href="">Tin mất chó 2 gggggggggggggggggggggggggggggg</a></li>
-                            <li class="findlost" style="margin-top:8px;"><a href="">Tin mất chó 3 gggggggggggggggggggggggggggggg</a></li>
+                            <?php
+								require_once(BASE_PATH . "/PHP/ConnectDB.php");
+								$conn = ConnectDB::connect();
+								
+								$sql = "SELECT ID,TieuDe FROM BaiViet WHERE IDDanhMuc = ".TIN_MAT." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 3";
+						
+								$result = mysqli_query($conn, $sql);
+										
+								if($result->num_rows > 0)
+								{
+									while($row = $result->fetch_assoc())
+									{
+										echo "<li class='findlost'><a href='".BASE_URL."/Khach/Lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
+									}
+								}
+								ConnectDB::disconnect();
+							
+							?>
                         </ul>
                     </div>
                     <div style="text-align:right;">
