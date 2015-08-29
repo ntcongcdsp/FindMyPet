@@ -40,7 +40,7 @@
                 <div class="panel-body" style="height:130px;">
                     <div style="position:relative;right:20px;">
                         <ul>
-                            <!-- chèn tin mất -->
+                            <!-- chèn tin mất chó -->
                             <?php
 								require_once(BASE_PATH . "/PHP/ConnectDB.php");
 								$conn = ConnectDB::connect();

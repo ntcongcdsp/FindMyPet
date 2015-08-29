@@ -43,7 +43,7 @@
     	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Danh mục chức năng</b> </p>
     </div>
     <div class="row" style="height:230px;">
-    	 <div class="content">
+    	 <div>
 			<ul class="ca-menu">
                     <li style="margin-left: 100px; border-radius:20px;">
                         <a href="QLBaiViet.php">
@@ -64,10 +64,10 @@
                         </a>
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
-                        <a href="QLAnhVuiThuCung.php">
-                            <span class="ca-icon">&#73;</span>
+                        <a href="QLTaiKhoan.php">
+                            <span class="ca-icon">&#85;</span>
                             <div class="ca-content">
-                                <h2 class="ca-main">Quản trị Ảnh vui</h2>
+                                <h2 class="ca-main">Quản trị tài khoản</h2>
                                 
                             </div>
                         </a>
@@ -80,29 +80,20 @@
     <div class="row" style="height:230px;">
     	 <div class="content">
 			<ul class="ca-menu">
-                    <li style="margin-left: 100px; border-radius:20px;">
-                        <a href="QLTaiKhoan.php">
-                            <span class="ca-icon">&#85;</span>
+                    <li style="margin-left: 80px; border-radius:20px;">
+                        <a href="QLAnhVuiThuCung.php">
+                            <span class="ca-icon">&#73;</span>
                             <div class="ca-content">
-                                <h2 class="ca-main">Quản trị tài khoản</h2>
+                                <h2 class="ca-main">Quản trị Ảnh vui</h2>
                                 
                             </div>
                         </a>
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
                         <a href="#">
-                            <span class="ca-icon">&#75;</span>
+                            <span class="ca-icon">&#77;</span>
                             <div class="ca-content">
-                                <h2 class="ca-main">xyzn</h2>
-                                
-                            </div>
-                        </a>
-                    </li>
-                    <li style="margin-left: 80px; border-radius:20px;">
-                        <a href="#">
-                            <span class="ca-icon">&#75;</span>
-                            <div class="ca-content">
-                                <h2 class="ca-main">def</h2>
+                                <h2 class="ca-main">Quản trị Video Clip</h2>
                                 
                             </div>
                         </a>
