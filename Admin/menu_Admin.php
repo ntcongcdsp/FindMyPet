@@ -38,6 +38,7 @@
 					<!--<li class="active"><a href="QLThuCung.php">Quản trị Thú cưng</a></li>-->
 					<li class="active"><a href="QLTaiKhoan.php">Quản trị Tài khoản</a></li>
                     <li class="active"><a href="QLAnhVuiThuCung.php">Quản trị Ảnh vui</a></li>
+                    <li class="active"><a href="QLVideoClip.php">Quản trị Video Clip</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
                 	<?php

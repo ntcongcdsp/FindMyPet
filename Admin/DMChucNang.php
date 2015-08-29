@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li style="margin-left: 80px; border-radius:20px;">
-                        <a href="#">
+                        <a href="QLVideoClip.php">
                             <span class="ca-icon">&#77;</span>
                             <div class="ca-content">
                                 <h2 class="ca-main">Quản trị Video Clip</h2>

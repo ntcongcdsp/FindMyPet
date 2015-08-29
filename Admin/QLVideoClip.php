@@ -37,27 +37,26 @@
     ?>
 <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
 	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
-    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Quản trị Ảnh vui thú cưng</b> </p>
+    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Quản trị Video Clip</b> </p>
     </div>
     <div class="row">
     	<!-- Chèn giao diện để quản lý User -->	
         <div class="col-md-3">
-        	<p><a href="AnhVui_Upload.php"><input type="button" value="Upload ảnh vui thú cưng"/></a> </p>
+        	<p><a href="Video_Tao.php"><input type="button" value="Chèn Video Clip"/></a> </p>
         </div>        
 	</div>
 	<div class="row" align="center">
         <table class="table table-condensed" width="50%">
         <tr>
             <th class="info">ID</th>
-            <th class="info">Ảnh</th>
-            <th class="info">Tên File</th>
+            <th class="info">Link</th>
             <th class="info">Tác vụ</th>
         </tr>
         <?php
             require_once("../PHP/ConnectDB.php");
             $conn = ConnectDB::connect();
 						
-            $sql = "SELECT * FROM Slider ORDER BY ID ASC";
+            $sql = "SELECT * FROM Video ORDER BY ID DESC";
 			
 			//Code phan trang
 			$row_per_page=10; // Số dòng trên mỗi trang
@@ -86,10 +85,9 @@
                 {
                     echo "<tr>";
                         echo "<th>". $row['ID'] ."</th>";
-                        echo "<td><img class='imgSlide' src='../img/AnhVui/". $row['TenFile'] ."'></td>";
-						echo "<td>". $row['TenFile'] ."</td>";
+                        echo "<td>". $row['Link'] ."</td>";
                         echo "<td> 
-                            <a href='AnhVui_Xoa.php?ID=".$row['ID']."&TenFile=".$row['TenFile']."'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
+                            <a href='Video_Xoa.php?ID=".$row['ID']."'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
                             </td>";
                     echo "</tr>";
                 }
@@ -104,7 +102,7 @@
 		echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
 		for($i=1;$i<=$page;$i++)
 		{
-		 if ($page_cr!=$i) echo "<a href='QLAnhVuiThuCung.php?start=".$row_per_page*($i-1)."'><button type='button' class='btn btn-success'>".$i."</button></a>";
+		 if ($page_cr!=$i) echo "<a href='QLVideoClip.php?start=".$row_per_page*($i-1)."'><button type='button' class='btn btn-success'>".$i."</button></a>";
 		 else echo "<button type='button' class='btn btn-success'>".$i."</button>";
 		
 		} 

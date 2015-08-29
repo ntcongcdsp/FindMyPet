@@ -68,10 +68,10 @@
 					while($row = $result->fetch_assoc())
 					{
 						echo "<div class='col-xs-4' align='center' style='height:300px;'>";
-							echo "<div class='row' style='height:190px;'><a href='".BASE_URL."/Khach/Lost.php?ID=".$row['ID']."'><img class='thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height:180px;width:250px;margin-top:5px;margin-left: 34px;'></a>";
+							echo "<div class='row' style='height:190px;'><a href='".BASE_URL."Khach/Lost.php?ID=".$row['ID']."'><img class='thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height:180px;width:250px;margin-top:5px;margin-left: 34px;'></a>";
 							echo "</div>";
 							echo "<div class='row' style='margin-left: 18px;width:250px;height:100px;'>";
-								echo "<a href='".BASE_URL."/Khach/Lost.php?ID=".$row['ID']."'><h3>".$row['TieuDe']."</h3></a>";
+								echo "<a href='".BASE_URL."Khach/Lost.php?ID=".$row['ID']."'><h3>".$row['TieuDe']."</h3></a>";
 								echo "<p align='justify'>".$row['TomTat']."</p>";
 							echo "</div>";
 						echo "</div>";
@@ -88,8 +88,8 @@
         echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
         for($i=1;$i<=$page;$i++)
         {
-            if ($page_cr!=$i) echo "<a href='IndexLost.php?start=".$row_per_page*($i-1)."'><span>".$i."&nbsp;</span></a>";
-            else echo "<span>".$i."&nbsp;</span>";
+            if ($page_cr!=$i) echo "<a href='IndexLost.php?start=".$row_per_page*($i-1)."'><button type='button' class='btn btn-success'>".$i."</button></a>";
+		 else echo "<button type='button' class='btn btn-success'>".$i."</button>";
         
         } 
     ?>
@@ -114,7 +114,7 @@
 								{
 									while($row = $result->fetch_assoc())
 									{
-										echo "<li class='findlost'><a href='".BASE_URL."/Khach/Find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
+										echo "<li class='findlost'><a href='".BASE_URL."Khach/Find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
 									}
 								}
 								ConnectDB::disconnect();

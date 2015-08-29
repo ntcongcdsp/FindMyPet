@@ -70,9 +70,28 @@
 				 <?php
 				require_once(BASE_PATH . "/PHP/ConnectDB.php");
 				$conn = ConnectDB::connect();
-				$sql = "SELECT ID,TieuDe, TomTat,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 5";
+				$sql = "SELECT ID,TieuDe, TomTat,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC";
 				if(array_key_exists('Loai',$_GET))
-					$sql = "SELECT ID,TieuDe, TomTat,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." AND Loai = '".$_GET['Loai']."' ORDER BY ID DESC LIMIT 5";
+					$sql = "SELECT ID,TieuDe, TomTat,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." AND Loai = '".$_GET['Loai']."' ORDER BY ID DESC";
+					
+				//Code phan trang
+				$row_per_page=5; // Số dòng trên mỗi trang
+							
+				$resultAll = mysqli_query($conn, $sql);
+				
+				$rows = $resultAll->num_rows;//Số dòng cần hiển thị
+				//Tính số trang cần hiển thị
+				if ($rows>$row_per_page) $page=ceil($rows/$row_per_page); 
+				else $page=1; //nếu số dòng trong CSDL nhỏ hơn hoặc bằng số dòng trên 1 trang thì chỉ có 1 trang để hiển thị
+				//Tính số dòng để lấy từ CSDL
+				if(array_key_exists('start',$_GET))
+				{
+					$start = $_GET['start'];
+				}
+				else
+					$start = 0;
+					
+				$sql .= " LIMIT ".$start.",".$row_per_page;
 		
 				$result = mysqli_query($conn, $sql);
 						
@@ -82,10 +101,10 @@
 					{
 						echo '<div class="row" style="height:145px;">';
 							echo '<div class="col-xs-4" style="height:145px;">';
-								echo "<a href='".BASE_URL."/Khach/knowledgepage.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 140px;width:200px;'></a>";
+								echo "<a href='".BASE_URL."Khach/knowledgepage.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 140px;width:200px;'></a>";
 							echo '</div>';
 							echo '<div class="col-xs-8" style="height:145px;fon">';
-								echo "<a href='".BASE_URL."/Khach/knowledgepage.php?ID=".$row['ID']."'><h3>".$row['TieuDe']."</h3></a>";
+								echo "<a href='".BASE_URL."Khach/knowledgepage.php?ID=".$row['ID']."'><h3>".$row['TieuDe']."</h3></a>";
 								echo "<p align='justify'>".$row['TomTat']."</p>";
 							echo '</div>';
 						echo "</div>";
@@ -97,8 +116,19 @@
 			?>
 			<nav style="margin-top: 15px;">
             	<ul class="pager">
-					<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>Tin mới hơn</a></li>
-                    <li class="next"><a href="#">Tin cũ hơn <span aria-hidden="true">&rarr;</span></a></li>
+                <?php
+					//bắt đầu phân trang
+					$page_cr=($start/$row_per_page)+1;
+					echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
+					for($i=1;$i<=$page;$i++)
+					{
+						if ($page_cr!=$i) echo "<a href='Knowledge.php?start=".$row_per_page*($i-1)."'><button type='button' class='btn btn-success'>".$i."</button></a>";
+					 else echo "<button type='button' class='btn btn-success'>".$i."</button>";
+					
+					} 
+				?>
+					<!--<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span>Tin mới hơn</a></li>
+                    <li class="next"><a href="#">Tin cũ hơn <span aria-hidden="true">&rarr;</span></a></li>-->
 				</ul>
 			</nav>
         </div>
@@ -119,9 +149,9 @@
 					while($row = $result->fetch_assoc())
 					{
 						echo '<div class="row" style="height:145px;">';
-								echo "<a href='".BASE_URL."/Khach/find.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px; margin-top:10px;'></a>";
+								echo "<a href='".BASE_URL."Khach/find.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px; margin-top:10px;'></a>";
 							echo '</div>';
-								echo "<a href='".BASE_URL."/Khach/find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
+								echo "<a href='".BASE_URL."Khach/find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
 						
 					}
 				}
@@ -148,9 +178,9 @@
 					while($row = $result->fetch_assoc())
 					{
 						echo '<div class="row" style="height:145px;">';
-								echo "<a href='".BASE_URL."/Khach/lost.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px; margin-top:10px;'></a>";
+								echo "<a href='".BASE_URL."Khach/lost.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px; margin-top:10px;'></a>";
 							echo '</div>';
-								echo "<a href='".BASE_URL."/Khach/lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
+								echo "<a href='".BASE_URL."Khach/lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
 						
 					}
 				}

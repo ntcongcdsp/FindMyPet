@@ -102,6 +102,21 @@
 		//$sql = "SELECT ID,TieuDe FROM BaiViet WHERE IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 3";
 		$sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Loai like '%".$row['Loai']."%' OR Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND IDDanhMuc = ".TIN_MAT." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC";
 
+		/*if(trim($row['Loai']))
+		{
+			$sqlLQ .= "( Loai like '%".$row['Loai']."%' " ;
+		}
+		if(trim($row['Giong'])) 
+		{
+			$sqlLQ .= " OR Giong like '%".$row['Giong']."%' " ;
+		}
+		if(trim($row['DacDiemNhanDang'])) 
+		{
+			$sqlLQ .= " OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') " ;
+		}
+		$sqlLQ .= " AND IDDanhMuc = ".TIN_MAT." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC";
+
+		die($sqlLQ);*/
 		$resultLQ = mysqli_query($conn, $sqlLQ);
 				
 		if($resultLQ->num_rows > 0)
@@ -135,7 +150,7 @@
 								{
 									while($row = $result->fetch_assoc())
 									{
-										echo "<li class='findlost'><a href='".BASE_URL."/Khach/Lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
+										echo "<li class='findlost'><a href='".BASE_URL."Khach/Lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
 									}
 								}
 								ConnectDB::disconnect();

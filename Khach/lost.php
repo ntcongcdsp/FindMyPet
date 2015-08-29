@@ -108,7 +108,7 @@
 		{
 			while($rowLQ= $resultLQ->fetch_assoc())
 			{
-				echo "<a href='".BASE_URL."/Khach/Find.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li> &nbsp;";
+				echo "<a href='".BASE_URL."Khach/Find.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li> &nbsp;";
 			}
 		}
 		ConnectDB::disconnect();
@@ -135,7 +135,7 @@
 								{
 									while($row = $result->fetch_assoc())
 									{
-										echo "<li class='findlost'><a href='".BASE_URL."/Khach/Find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
+										echo "<li class='findlost'><a href='".BASE_URL."Khach/Find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
 									}
 								}
 								ConnectDB::disconnect();

@@ -66,8 +66,7 @@ Enter your Image: <input type="text" name="txtnum" value="1" size="10"/>
 			if(isset($_POST['ok_upload']))
 			{
 				$num=$_GET['file'];
-				echo "<h3>Demo Images Script - Copyright by QHOnline.Info</h3>";
-		
+				
 				//mysql_select_db("slider",$conn);
 				for($i=0; $i< $num; $i++)
 				{
@@ -80,7 +79,7 @@ Enter your Image: <input type="text" name="txtnum" value="1" size="10"/>
 					{
 						echo "Upload Thanh cong file <b>$name</b><br />";
 						echo "<img src='$url' width='120' /><br />";
-						echo "Images URL: <input type='text' name='link' value='$url/$name' size='35' /><br />";
+						echo "Images URL: <input type='text' name='link' value='$url' size='35' /><br />";
 					}
 					else
 					{

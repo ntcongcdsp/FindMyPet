@@ -151,8 +151,8 @@
 			echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
 			for($i=1;$i<=$page;$i++)
 			{
-				if ($page_cr!=$i) echo "<a href='QLBinhLuan.php?start=".$row_per_page*($i-1)."'><span>".$i."&nbsp;</span></a>";
-			 	else echo "<span>".$i."&nbsp;</span>";
+				if ($page_cr!=$i) echo "<a href='QLBinhLuan.php?start=".$row_per_page*($i-1)."'><button type='button' class='btn btn-success'>".$i."</button></a>";
+		 else echo "<button type='button' class='btn btn-success'>".$i."</button>";
 			
 			} 
 		?>

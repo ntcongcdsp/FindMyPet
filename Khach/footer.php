@@ -63,15 +63,47 @@
 			?>
             <!--<img class="img-thumbnail" src="../img/bannervui2.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
-        <div class="row" style="height:255px;width:480px;margin-left:-10px;">
-            chèn clip vui
+        <div class="row" style="height:255px;width:480px;margin-left:10px;">
+            <!-- Chèn clip vui -->
+             <?php
+                    require_once(BASE_PATH . "/PHP/ConnectDB.php");
+                    $conn = ConnectDB::connect();
+                    //$sqlV = "SELECT * FROM Video ORDER BY ID DESC LIMIT 1";                    
+					
+					$sql = "SELECT * FROM Video ORDER BY ID DESC";
+			
+					//Dem so mau tin de sinh ID ngau nhien
+					$resultAll = mysqli_query($conn, $sql);
+					$IDVideo = rand(1, $resultAll->num_rows - 1);				
+					$sqlV = "SELECT * FROM Video WHERE ID = ".$IDVideo;
+						
+                    $resultV = mysqli_query($conn, $sqlV);
+                    
+					//Truong hop ID khong ton tai
+					while($resultV->num_rows == 0)
+					{
+						$IDVideo = rand(1, $resultAll->num_rows - 1);				
+						$sqlV = "SELECT * FROM Video WHERE ID = ".$IDVideo;
+                    	$resultV = mysqli_query($conn, $sqlV);
+					}
+					
+                    if($resultV->num_rows > 0)
+                    {
+                        while($rowV = $resultV->fetch_assoc())
+                        {
+							echo "<iframe height='255' width='480' src='".$rowV['Link']."' frameborder='0' allowfullscreen></iframe>";
+                        }
+                    }
+                    ConnectDB::disconnect();
+                ?>
         </div>
-        <div class="btn-group" role="group" aria-label="..." style="margin-top: 5px;margin-left:320px;">
-            <button type="button" class="btn btn-success">1</button>
+        <div class="btn-group" role="group" aria-label="..." style="margin-top: 5px;" align="center">
+        	<!-- Hiện số nút = số video -->
+            <!--<button type="button" class="btn btn-success">1</button>
             <button type="button" class="btn btn-success">2</button>
             <button type="button" class="btn btn-success">3</button>
             <button type="button" class="btn btn-success">4</button>
-            <button type="button" class="btn btn-success">5</button>
+            <button type="button" class="btn btn-success">5</button>-->
         </div>
     </div>
 </div>      
