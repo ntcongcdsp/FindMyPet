@@ -103,11 +103,11 @@
 	<div class="col-xs-3">
 		<h3>FindMyPet</h3>
 		<ul style="list-style-type:none;">
-					<li><a href="Index.php">Trang chủ</a></li>
-					<li><a href="Khach/IndexLost.php">Tin mất thú</a></li>
-					<li ><a href="Khach/IndexFind.php">Tin tìm chủ</a></li>
-					<li><a href="Khach/Knowledge.php">Kiến thức cơ bản</a></li>
-					<li><a href="Khach/News.php">Tin mới</a></li>
+					<li><a href="<?php echo BASE_URL . "Index.php"; ?>">Trang chủ</a></li>
+					<li><a href="<?php echo BASE_URL . "Khach/IndexLost.php"; ?>">Tin mất thú</a></li>
+					<li ><a href="<?php echo BASE_URL . "Khach/IndexFind.php"; ?>">Tin tìm chủ</a></li>
+					<li><a href="<?php echo BASE_URL . "Khach/Knowledge.php"; ?>">Kiến thức cơ bản</a></li>
+					<li><a href="<?php echo BASE_URL . "Khach/News.php"; ?>">Tin mới</a></li>
 		</ul>
 	</div>    
 </div>
