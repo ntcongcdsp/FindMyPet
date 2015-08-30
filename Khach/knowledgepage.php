@@ -29,37 +29,40 @@
 			<div class="row">
             	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Kiến thức về thú cưng</b> </p>
             </div>
-			<div class="row" style="height:75px;">
-            	<div class="col-xs-3">
-                	<img src="../img/logo.gif" style="height:70px;width:130px; margin-left:5px;margin-top:3px;">
-				</div>
-				<div class="col-xs-9">  
-					<div style="margin-top:25px;">
-                    	<p> thông tin người viết bài </p>
-                    </div>
-				</div>
-			</div>
-            <hr>
-			<div class="row">
-				<div style="margin-left: 15px;">
-                	<h2>Tiêu đề bài viết</h2>
-					<p style="font-size:16px;"><b>Tóm tắt về bài viết ( chứa cả ngày tháng năm đăng bài viết )</b></p>
-				</div>
-			</div>
-        	<div class="row">
-				<img class="thumbnail" src="../img/Animals___Birds_Bird_Hummingbird_041609_.jpg" style="width:400px;height:300px;margin-left: 160px;">
-            </div>
-            <hr>
-            <div class="row">
-            	<div style="margin-left: 15px;">
-                	<p style="font-size:16px;">Nội dung chính của bài viết</p>
-				</div>
-			</div>
-            <hr>
-			<div class="row" style="border: 2px solid green; border-radius:5px;margin-top:15px;">
-            	<div style="text-align:left;font-size: 14px;margin-top:5px;margin-left:15px;">
-                    	Bình luận
-				</div>
+			<div class="row" style="padding-left:5px">
+				<?php
+				require_once(BASE_PATH . "/PHP/ConnectDB.php");
+				$conn = ConnectDB::connect();
+				
+				$sql = "SELECT ID,TieuDe,TenDN,TomTat,NgayDang, NoiDung, HinhAnh FROM BaiViet WHERE ID= " .$_GET['ID'];
+		
+				$result = mysqli_query($conn, $sql);
+						
+				if($result->num_rows > 0)
+				{
+					while($row = $result->fetch_assoc())
+					{
+						echo '<div class="row">';
+							echo '<div class="col-xs-3">';
+							echo "<img src='../img/logo.gif' style='height:70px;width:130px; margin-left:5px;margin-top:3px;'>";
+							echo '</div>';
+							echo '<div class="col-xs-9">';
+								echo "<p align='justify'> <h4>Được đăng bởi: ".$row['TenDN']." </h4></p>";
+								echo "<p align='justify'> <h4>Đăng ngày: ".$row['NgayDang']." <h4></p>";
+								echo '</div>';
+						echo '</div>';
+						echo "<hr>";
+						echo " <h3> <p align='center'>".$row['TieuDe']." </h3></p>";
+						echo "<p align='justify'>".$row['TomTat']."</p>";
+						
+						
+						echo "<img class='img-thumbnail' id='anhtrong' src='".BASE_URL."img/".$row['HinhAnh']."' align='center'>";
+						echo "<p align='right'>".$row['NoiDung']."</p>";
+
+						}
+				}
+				ConnectDB::disconnect();
+			?>
 			</div>
             <div class="row" style="border:1px solid blueviolet;border-radius:4px;margin-top:15px;"> 
 				<h4 style="margin-left:30px;"> >>> Bài viết có liên quan <<< </h4>
@@ -87,55 +90,65 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN TÌM CHỦ MỚI</b></div>
 				<div class="panel-body" style="height:430px; margin-left:10px;">
-        			<div class="row" style="width:210px;">
-					<div class="row" style="height:140px;">
-                    	<a href="#"><img class="img-thumbnail" src="../img/dogs1.jpg" style="height: 135px;width:205px;margin-left: 17px;margin-top: 3px;"></a>
-                    </div>
-                <div class="row" style="height:50px;">
-                	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
-				</div>
-			</div>
-            <div class="row" style="width:210px;">
-                <div class="row" style="height:140px;">
-                	<a href="#"><img class="img-thumbnail" src="../img/Guide-Dogs_025-11.jpg" style="height: 135px;width:205px;margin-left: 17px;margin-top: 3px;"></a>
-                </div>
-                <div class="row" style="height:50px;">
-                	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
-                </div>
-			</div>
+        			<?php
+				require_once(BASE_PATH . "/PHP/ConnectDB.php");
+				$conn = ConnectDB::connect();
+				
+				$sql = "SELECT ID,TieuDe,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 2";
+		
+				$result = mysqli_query($conn, $sql);
+						
+				if($result->num_rows > 0)
+				{
+					while($row = $result->fetch_assoc())
+					{
+						echo '<div class="row" style="height:145px;">';
+								echo "<a href='".BASE_URL."/Khach/find.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px; margin-top:10px;'></a>";
+							echo '</div>';
+								echo "<a href='".BASE_URL."/Khach/find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
+						
+					}
+				}
+				ConnectDB::disconnect();
+			?>
             <div style="text-align:right;margin-top: 15px;">
                         <a class="button" href="indexfind.php">Xem thêm</a>
                     </div>
 		</div>
                         </div>
-	<div class="panel panel-primary">
+	<div class="panel panel-primary" style="margin-top: 57px;">
 		<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN MẤT CHÓ MỚI</b></div>
 		<div class="panel-body" style="height:430px;margin-left:10px;">
-        	<div class="row" style="width:210px;">
-				<div class="row" style="height:140px;">
-                	<a href="#"><img class="img-thumbnail" src="../img/dogs1.jpg" style="height: 135px;width:205px;margin-left: 17px;margin-top: 3px;"></a>
-				</div>
-                <div class="row" style="height:50px;">
-                	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
-                </div>
-            </div>
-			<div class="row" style="width:210px;">
-                <div class="row" style="height:140px;">
-					<a href="#"><img class="img-thumbnail" src="../img/Guide-Dogs_025-11.jpg" style="height: 135px;width:205px;margin-left: 17px;margin-top: 3px;"></a>
-                </div>
-                <div class="row" style="height:50px;">
-                	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
-				</div>
-			</div>
+		<?php
+				require_once(BASE_PATH . "/PHP/ConnectDB.php");
+				$conn = ConnectDB::connect();
+				
+				$sql = "SELECT ID,TieuDe,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".TIN_MAT." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 2";
+		
+				$result = mysqli_query($conn, $sql);
+						
+				if($result->num_rows > 0)
+				{
+					while($row = $result->fetch_assoc())
+					{
+						echo '<div class="row" style="height:145px;">';
+								echo "<a href='".BASE_URL."/Khach/lost.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px; margin-top:10px;'></a>";
+							echo '</div>';
+								echo "<a href='".BASE_URL."/Khach/lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
+						
+					}
+				}
+				ConnectDB::disconnect();
+			?>
             <div style="text-align:right;margin-top: 15px;">
                         <a class="button" href="indexlost.php">Xem thêm</a>
                     </div>
 		</div>
 	</div>
-</div>    
+</div>      
 </div>
 <?php
-	include("footer.php");
+include ("footer.php");
 ?>
 
 </body>
