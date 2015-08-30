@@ -34,7 +34,7 @@
 				require_once(BASE_PATH . "/PHP/ConnectDB.php");
 				$conn = ConnectDB::connect();
 				
-				$sql = "SELECT ID,TieuDe,TenDN,TomTat,NgayDang, NoiDung, HinhAnh FROM BaiViet WHERE ID= " .$_GET['ID'];
+				$sql = "SELECT * FROM BaiViet WHERE ID= " .$_GET['ID'];
 		
 				$result = mysqli_query($conn, $sql);
 						
@@ -48,17 +48,26 @@
 							echo '</div>';
 							echo '<div class="col-xs-9">';
 								echo "<p align='justify'> <h4>Được đăng bởi: ".$row['TenDN']." </h4></p>";
-								echo "<p align='justify'> <h4>Đăng ngày: ".$row['NgayDang']." <h4></p>";
+								echo "<p align='justify'> <h4>Đăng ngày: ".date('d/m/Y',strtotime($row['NgayDang']))." <h4></p>";
 								echo '</div>';
 						echo '</div>';
 						echo "<hr>";
 						echo " <h3> <p align='center'>".$row['TieuDe']." </h3></p>";
-						echo "<p align='justify'>".$row['TomTat']."</p>";
+						echo "<div align='justify' style='margin-left:10px;margin-right:10px'><p>".$row['TomTat']."</p></div>";
 						
 						
 						echo "<img class='img-thumbnail' id='anhtrong' src='".BASE_URL."img/".$row['HinhAnh']."' align='center'>";
-						echo "<p align='right'>".$row['NoiDung']."</p>";
-
+						echo "<div align='justify' style='margin-left:10px;margin-right:10px'><p>".$row['NoiDung']."</p></div>";
+						if($row['DacDiem'] != "")
+							echo "<div align='justify' style='margin-left:10px;margin-right:10px'><p><h4>Đặc điểm:</h4> ".$row['DacDiem']."</p></div>";
+						if($row['TinhCach'] != "")
+							echo "<div align='justify' style='margin-left:10px;margin-right:10px'><p><h4>Tính cách:</h4> ".$row['TinhCach']."</p></div>";
+						if($row['KhaNang'] != "")
+							echo "<div align='justify' style='margin-left:10px;margin-right:10px'><p><h4>Khả năng:</h4> ".$row['KhaNang']."</p></div>";
+						if($row['NguonGoc'] != "")
+							echo "<div align='justify' style='margin-left:10px;margin-right:10px'><p><h4>Nguồn gốc:</h4> ".$row['NguonGoc']."</p></div>";
+						if($row['TieuChuan'] != "")
+							echo "<div align='justify' style='margin-left:10px;margin-right:10px'><p><h4>Tiêu chuẩn:</h4> ".$row['TieuChuan']."</p></div>";
 						}
 				}
 				ConnectDB::disconnect();
@@ -68,12 +77,12 @@
 				<h4 style="margin-left:30px;"> >>> Bài viết có liên quan <<< </h4>
                 <!-- Chen cac bai viet lien quan -->
                 <?php
-					/*require_once(BASE_PATH . "/PHP/ConnectDB.php");
+					require_once(BASE_PATH . "/PHP/ConnectDB.php");
 					$conn = ConnectDB::connect();
 				
 					$sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Loai like '%".$row['Loai']."%' OR Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC";
 			
-					/*$resultLQ = mysqli_query($conn, $sqlLQ);
+					$resultLQ = mysqli_query($conn, $sqlLQ);
 							
 					if($resultLQ->num_rows > 0)
 					{
@@ -82,7 +91,7 @@
 							echo "<a href='".BASE_URL."/Khach/Knowledgepage.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>  &nbsp;";
 						}
 					}
-					ConnectDB::disconnect();*/
+					ConnectDB::disconnect();
 				?>
 			</div>
 		</div>
