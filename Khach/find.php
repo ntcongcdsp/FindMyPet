@@ -83,10 +83,15 @@
 				</div> 
 			</div>
 			<div class="col-xs-12">
-            	<div style="border: 2px solid green; border-radius:5px;height: 200px; margin-top:15px;">
-                	<div style="text-align:left;font-size: 30px;margin-top:5px;margin-left:15px;">
-                    	Bình luận
+            	<div style="border: 2px solid green; border-radius:5px;min-height:100%; margin-top:15px;">
+					<div style="text-align:left;font-size: 30px;margin-top:5px;margin-left:15px;">
+						Bình luận
 					</div>
+                    <div>
+                    	<?php
+							include("BinhLuan.php");
+						?>
+                    </div>
 				</div> 
 			</div>
 		</div>

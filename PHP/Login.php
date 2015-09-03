@@ -5,6 +5,10 @@
 	$_SESSION['TenDN'] = "";
 	$_SESSION['MatKhau'] = "";
 	$_SESSION['MaPhanQuyen'] = "";
+	$_SESSION['Ho'] = "";
+	$_SESSION['Ten'] = "";
+	$_SESSION['Email'] = "";
+	$_SESSION['SoDienThoai'] = "";
 
 	if(isset($_POST['submit']))
 	{
@@ -22,6 +26,10 @@
 				$_SESSION['TenDN'] = $row['TenDN'];
 				$_SESSION['MatKhau'] = $row['MatKhau'];
 				$_SESSION['MaPhanQuyen'] = $row['MaPhanQuyen'];
+				$_SESSION['Ho'] = $row['Ho'];
+				$_SESSION['Ten'] = $row['Ten'];
+				$_SESSION['Email'] = $row['Email'];
+				$_SESSION['SoDienThoai'] = $row['SoDienThoai'];
 				if($row['MaPhanQuyen'] == 1)
 				{
 					ConnectDB::disconnect();

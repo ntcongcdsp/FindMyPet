@@ -1,6 +1,35 @@
 <?php 
-	session_start();
+	//session_start();
 	include_once(realpath(dirname(__DIR__))."/PHP/define.php");
+	require_once("../PHP/ConnectDB.php");
+	$conn = ConnectDB::connect();
+	$date = date('Y-m-d H:i:s',time());
+	
+	if(isset($_POST['submit']))
+	{
+		if($_POST['txtNoiDung'] !="")
+		{
+		// Insert co so du lieu
+		
+		$TenDN = array_key_exists('TenDN',$_SESSION) ? $_SESSION['TenDN'] : "";
+		$Ho = array_key_exists('Ho',$_SESSION) ? $_SESSION['Ho'] : $_POST['txtHo'];
+		$Ten = array_key_exists('Ten',$_SESSION) ? $_SESSION['Ten'] : $_POST['txtTen'];
+		$Email = array_key_exists('Email',$_SESSION) ? $_SESSION['Email'] : $_POST['txtEmail'];
+		$SoDienThoai = array_key_exists('SoDienThoai',$_SESSION) ? $_SESSION['SoDienThoai'] : $_POST['txtSoDienThoai'];
+		
+		$sqlInsert = "INSERT INTO BinhLuan(IDBinhLuan, NoiDung, TenDN, Ho, Ten, Email, SoDienThoai, KiemDuyet, NgayBinhLuan) VALUES (".$_POST['txtIDBinhLuan'].", '".$_POST['txtNoiDung']."', '".$TenDN."', '".$Ho."','".$Ten."','".$Email."', '".$SoDienThoai."', ".CHUA_KIEM_DUYET.", '".$date."')";
+		
+		if(mysqli_query($conn,$sqlInsert) === TRUE)
+			{
+			}
+			else
+			{
+				echo "Cap nhat du lieu Loi";
+			}
+		}
+		ConnectDB::disconnect();
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -20,102 +49,118 @@
 
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
     <script src="../asset/js/bootstrap.min.js"></script>
+    <!-- Chen Validation -->
+    <script src="../asset/js/jquery.validate.js"></script>
 </head>
 
 <body style="background-color: lightgrey;min-height:100%;">
-	<?php
-        include("menu_Khach.php");
-    ?>
-   <div class="container" style="background-color: whitesmoke;width:980px; border-radius: 5px;">
-	<div class="row" style="background-color: whitesmoke;padding-top: 5px;">
-    	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Bình luận</b> </p>
-    </div>
-    <div class="row">
-    	<!-- Chèn form để xem thông tin tài khoản -->
-			<?php	
-			require_once("../PHP/ConnectDB.php");
-			$conn = ConnectDB::connect();
-			$sql = "SELECT A.ID, B.ID as IDBaiViet, B.TieuDe, A.NoiDung, A.TenDN, A.Ho, A.Ten, A.Email, A.SoDienThoai, A.KiemDuyet, A.NgayBinhLuan FROM BinhLuan AS A INNER JOIN BaiViet AS B ON A.IDBinhLuan = B.ID WHERE A.ID = ".$_GET['ID'];
-
-			$resut = mysqli_query($conn, $sql);
-			if($resut->num_rows>0)
+<div>  
+	<!-- Load cac Binh luan -->
+	<div>
+    <?php	
+		require_once("../PHP/ConnectDB.php");
+		$conn = ConnectDB::connect();
+		
+		$sqlBL = "SELECT Ho, Ten, NgayBinhLuan, NoiDung FROM BinhLuan WHERE KiemDuyet = ".DA_KIEM_DUYET." AND IDBinhLuan = ".$_GET['ID'];
+	
+		$resultBL = mysqli_query($conn, $sqlBL);
+		
+		if($resultBL->num_rows > 0)
+		{
+			while($rowBL = $resultBL->fetch_assoc())
 			{
-				$row = $resut->fetch_assoc();
+				echo "<p style='margin-left:15px'><strong>".$rowBL['Ho']." ".$rowBL['Ten']."</strong>(".date('d/m/Y',strtotime($rowBL['NgayBinhLuan']))."): <br> ".$rowBL['NoiDung']."</p>";
 			}
-			ConnectDB::disconnect();
+		}
+		ConnectDB::disconnect();
+	?>
+    </div>
+    <div hidden="true" id="ThongTinUser">
+		
+    	<?php
+			if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+				echo "<input type='text' id='txtTenDN' name='txtTenDN' value='".$_SESSION['TenDN']."'>";
+			else
+				echo "<input type='text' id='txtTenDN' name='txtTenDN'>";
 		?>
-        <div class="row">
-        	<div class="col-md-2 control-label" align="right">
-            	<label>- Nội dung:</label>
+    </div>
+	<div>
+    <!-- Load form de Binh luan -->
+    <form class="form-horizontal" name="frmBinhLuan" method="post">
+    	<input type="hidden" class="form-control" name="txtIDBinhLuan" value="<?php echo $_GET['ID']?>">
+    	<div class="form-group" id="HoTen">
+            <label for="txtHo" class="col-sm-2 control-label">Họ tên: </label>
+            <div class="col-sm-3">
+            <?php
+				if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+					echo "<input type='text' class='form-control' name='txtHo' placeholder='Họ lót' value='".$_SESSION['Ho']."'>";
+				else
+					echo "<input type='text' class='form-control' name='txtHo' placeholder='Họ lót' required>";
+			?>
+                <!--<input type="text" class="form-control" name="txtHo" placeholder="Họ lót" required>-->
             </div>
-            <div class="col-md-9" align="left">
-            	<p align="justify"><?php echo $row['NoiDung']; ?></p>
-            </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-2 control-label" align="right">
-            	<label>- Người đăng:</label>
-            </div>
-            <div class="col-md-9" align="left">
-            	<p align="justify"><?php echo $row['TenDN']; ?></p>
-            </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-2 control-label" align="right">
-            	<label>- Họ:</label>
-            </div>
-            <div class="col-md-9" align="left">
-            	<p align="justify"><?php echo $row['Ho']; ?></p>
-            </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-2 control-label" align="right">
-            	<label>- Tên:</label>
-            </div>
-            <div class="col-md-9" align="left">
-            	<p align="justify"><?php echo $row['Ten']; ?></p>
+            <div class="col-sm-2">
+            <?php
+				if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+					echo "<input type='text' class='form-control' name='txtTen' placeholder='Tên' value='".$_SESSION['Ten']."'>";
+				else
+					echo "<input type='text' class='form-control' name='txtTen' placeholder='Tên' required>";
+			?>
+               <!-- <input type="text" class="form-control" name="txtTen" placeholder="Tên" required>-->
             </div>
         </div>
-        <div class="row">
-        	<div class="col-md-2 control-label" align="right">
-            	<label>- Email:</label>
-            </div>
-            <div class="col-md-9" align="left">
-            	<p align="justify"><?php echo $row['Email']; ?></p>
-            </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-2 control-label" align="right">
-            	<label>- Số điện thoại:</label>
-            </div>
-            <div class="col-md-9" align="left">
-            	<p align="justify"><?php echo $row['SoDienThoai']; ?></p>
+		<div class="form-group" id="Email">
+        	<label for="txtEmail" class="col-sm-2 control-label">Email: </label>
+            <div class="col-sm-5">
+            <?php
+				if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+					echo "<input type='text' class='form-control' name='txtEmail' placeholder='Địa chỉ Email' value='".$_SESSION['Email']."'>";
+				else
+					echo "<input type='text' class='form-control' name='txtEmail' placeholder='Địa chỉ Email' required>";
+			?>
+                <!--<input type="email" class="form-control" name="txtEmail" placeholder="Địa chỉ Email" required>-->
             </div>
         </div>
-        <div class="row">
-        	<div class="col-md-2 control-label" align="right">
-            	<label>- Kiểm duyệt:</label>
-            </div>
-            <div class="col-md-9" align="left">
-            	<p align="justify"><?php if($row['KiemDuyet']==DA_KIEM_DUYET) echo "Đã kiểm duyệt"; else echo "Chưa kiểm duyệt";?></p>
-            </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-2 control-label" align="right">
-            	<label>- Ngày bình luận:</label>
-            </div>
-            <div class="col-md-9" align="left">
-            	<p align="justify"><?php echo $row['NgayBinhLuan']; ?></p>
+        <div class="form-group" id="SoDienThoai">
+        	<label for="txtSoDienThoai" class="col-sm-2 control-label">Số điện thoại: </label>
+            <div class="col-sm-5">
+            <?php
+				if(array_key_exists('TenDN',$_SESSION) && array_key_exists('MaPhanQuyen',$_SESSION))
+					echo "<input type='text' class='form-control' name='txtSoDienThoai' placeholder='Số điện thoại' value='".$_SESSION['SoDienThoai']."'>";
+				else
+					echo "<input type='text' class='form-control' name='txtSoDienThoai' placeholder='Số điện thoại' required>";
+			?>
+<!--                <input type="text" class="form-control" name="txtSoDienThoai" placeholder="Số điện thoại" required>-->
             </div>
         </div>
-        
-        <div class="row" align="center">
-        	<a href='../Admin/BinhLuan_Duyet.php?ID=<?php echo $row['ID']?>'><input type='button' value='Duyệt bình luận' class='btn btn-success'/></a>
-        	<a href='../Admin/BinhLuan_Sua.php?ID=<?php echo $row['ID']?>'><input type='button' value='Sửa' class='btn btn-warning'/></a>
-			<a href='../Admin/BinhLuan_Xoa.php?ID=<?php echo $row['ID']?>'> <input type='button' value='Xóa' class='btn btn-danger'/> </a>
-            <a href="../Admin/QLBinhLuan.php"><button type="button" class="btn btn-default">Trở về</button></a>
+        <div class="form-group">
+        	<label for="txtNoiDung" class="col-sm-2 control-label">Nội dung: </label>
+            <div class="col-sm-5">
+            	<textarea class="form-control" id="txtNoiDung" name="txtNoiDung" placeholder="Nội dung" required></textarea>
+            </div>
         </div>
-	</div>
-	</div> <!-- /container -->
+        <div class="form-group" align="center">
+			<div class="col-sm-offset-2 col-sm-3">
+				<button type="submit" class="btn btn-success" name="submit">Bình luận</button>
+            	<button type="reset" class="btn btn-default" name="reset">Xóa</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div> <!-- /container -->
+<script type="text/javascript">
+$(document).ready(function(){
+		if($("#txtTenDN").val() != ""){
+			$("#HoTen").hide();
+			$("#Email").hide();
+			$("#SoDienThoai").hide();
+		}
+		else {
+			$("#HoTen").show();
+			$("#Email").show();
+			$("#SoDienThoai").show();
+		}
+});
+</script>
 </body>
 </html>
