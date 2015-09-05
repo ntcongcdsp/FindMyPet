@@ -73,11 +73,9 @@
 				ConnectDB::disconnect();
 			?>
 			</div>
-                    <hr>
-            <div class="row" style="margin-top:15px;"> 
+            <div class="row" style="border:1px solid blueviolet;border-radius:4px;margin-top:15px;"> 
 				<h4 style="margin-left:30px;"> >>> Bài viết có liên quan <<< </h4>
                 <!-- Chen cac bai viet lien quan -->
-<<<<<<< HEAD
                 <div style="margin-left:10px">
                 	<ul>
 					<?php
@@ -99,25 +97,6 @@
                     ?>
                     </ul>
                 </div>
-=======
-                <?php
-					require_once(BASE_PATH . "/PHP/ConnectDB.php");
-					$conn = ConnectDB::connect();
-				
-					$sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Loai like '%".$row['Loai']."%' OR Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 5";
-			
-					$resultLQ = mysqli_query($conn, $sqlLQ);
-							
-					if($resultLQ->num_rows > 0)
-					{
-						while($rowLQ= $resultLQ->fetch_assoc())
-						{
-							echo "<li class='milo'><a href='".BASE_URL."/Khach/Knowledgepage.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>  &nbsp;";
-						}
-					}
-					ConnectDB::disconnect();
-				?>
->>>>>>> origin/master
 			</div>
 		</div>
 <div class="col-xs-3" style="width:260px;height:1015px; margin-top:5px;">

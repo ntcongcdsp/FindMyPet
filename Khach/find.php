@@ -97,10 +97,9 @@
 		</div>
 	</div>
 </div>
-<div> 
+<div class="col-xs-12" style="border:1px solid blueviolet;border-radius:4px;margin-top:10px;margin-bottom:10px"> 
 	<h4 style="margin-left:30px;"> >>> Bài viết có liên quan <<< </h4>
     <!--- Chen tieu de cac tin mat thu co the lien quan -->
-<<<<<<< HEAD
     <div style="margin-left:10px">
 		<ul>
 			<?php
@@ -122,41 +121,6 @@
             ?>
         </ul>
     </div>
-=======
-    <?php
-		require_once(BASE_PATH . "/PHP/ConnectDB.php");
-		$conn = ConnectDB::connect();
-		
-		//$sql = "SELECT ID,TieuDe FROM BaiViet WHERE IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 3";
-		$sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Loai like '%".$row['Loai']."%' OR Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND IDDanhMuc = ".TIN_MAT." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC";
-
-		/*if(trim($row['Loai']))
-		{
-			$sqlLQ .= "( Loai like '%".$row['Loai']."%' " ;
-		}
-		if(trim($row['Giong'])) 
-		{
-			$sqlLQ .= " OR Giong like '%".$row['Giong']."%' " ;
-		}
-		if(trim($row['DacDiemNhanDang'])) 
-		{
-			$sqlLQ .= " OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') " ;
-		}
-		$sqlLQ .= " AND IDDanhMuc = ".TIN_MAT." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC";
-
-		die($sqlLQ);*/
-		$resultLQ = mysqli_query($conn, $sqlLQ);
-				
-		if($resultLQ->num_rows > 0)
-		{
-			while($rowLQ= $resultLQ->fetch_assoc())
-			{
-				echo "<li class='milo'><a href='".BASE_URL."/Khach/Lost.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>  &nbsp;";
-			}
-		}
-		ConnectDB::disconnect();
-	?>
->>>>>>> origin/master
 </div>
 <hr>
 <div class="row">
