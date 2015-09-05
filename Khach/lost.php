@@ -56,7 +56,7 @@
                     <!--<img class="thumbnail" src="../img/Dog3.jpeg" style="width:500px;height:350px;margin-top: 15px; margin-left: 30px;">-->
                 </div>
                 <div class="col-xs-5">
-                    <div style="border: 2px solid blueviolet; border-radius:5px;width:380px;height: 350px; margin-top:15px;">
+                    <div style="border: 1px solid blueviolet; border-radius:5px;width:380px;height: 350px; margin-top:15px;">
                         <div style="text-align: center;font-size: 30px;margin-top:5px;">
                             Đặc điểm thú cưng
                         </div>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12">
-                	<div style="border: 2px solid gray; border-radius:5px;height: 200px; margin-top:15px;">
+                	<div style="border: 1px solid gray; border-radius:5px;height: 200px; margin-top:15px;">
                     <div style="text-align: center;font-size: 30px;margin-top:5px;">
                     	Mô tả thêm về thú cưng
 					</div>
@@ -83,7 +83,7 @@
 				</div> 
 			</div>
 			<div class="col-xs-12">
-            	<div style="border: 2px solid green; border-radius:5px;min-height:100%; margin-top:15px;">
+            	<div style="border: 1px solid green; border-radius:5px;margin-top:15px;">
 					<div style="text-align:left;font-size: 30px;margin-top:5px;margin-left:15px;">
 						Bình luận
 					</div>
@@ -97,9 +97,10 @@
 		</div>
 	</div>
 </div>
-<div style="border:1px solid blueviolet;border-radius:4px;"> 
+<div> 
 	<h4 style="margin-left:30px;"> >>> Bài viết có liên quan <<< </h4>
     <!--- Chen tieu de cac tin tim co the lien quan -->
+<<<<<<< HEAD
     <div style="margin-left:10px">
 		<ul>
 			<?php
@@ -122,6 +123,26 @@
             ?>
     	</ul>
     </div>
+=======
+    <?php
+		require_once(BASE_PATH . "/PHP/ConnectDB.php");
+		$conn = ConnectDB::connect();
+		
+		//$sql = "SELECT ID,TieuDe FROM BaiViet WHERE IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 3";
+		$sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Loai like '%".$row['Loai']."%' OR Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 5";
+
+		$resultLQ = mysqli_query($conn, $sqlLQ);
+				
+		if($resultLQ->num_rows > 0)
+		{
+			while($rowLQ= $resultLQ->fetch_assoc())
+			{
+				echo "<li class='milo'><a href='".BASE_URL."Khach/Find.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li> &nbsp;";
+			}
+		}
+		ConnectDB::disconnect();
+	?>
+>>>>>>> origin/master
 </div>
 <hr>
 <div class="row">
@@ -158,9 +179,9 @@
 				</div>
 			</div>
 		</div>
-<div class="col-xs-8"  style=" height:175px;width:684px; border:1px solid bluelight;border-radius:4px; margin-left:-15px;">
+<div class="col-xs-8"  style=" height:175px;width:684px; border:1px solid bluelight; margin-left:-15px;">
 
-	<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:684px;">
+	<div class="col-xs-8"  style="background-color:lightblue; height: 180px;width:684px;border-radius:5px;">
         <!-- chèn slide ảnh tìm chủ-->
         <?php
 			include("slidefind.php");

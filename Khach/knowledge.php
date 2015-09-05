@@ -136,37 +136,46 @@
         <div class="col-xs-3" style="width:260px;height:1015px; margin-top:5px;">
 			<div class="panel panel-primary">
 				<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN TÌM CHỦ MỚI</b></div>
-				<div class="panel-body" style="height:430px; margin-left:10px;">
-        		<?php
-				require_once(BASE_PATH . "/PHP/ConnectDB.php");
-				$conn = ConnectDB::connect();
 				
-				$sql = "SELECT ID,TieuDe,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 2";
-		
-				$result = mysqli_query($conn, $sql);
-						
-				if($result->num_rows > 0)
-				{
-					while($row = $result->fetch_assoc())
-					{
-						echo '<div class="row" style="height:145px;">';
-								echo "<a href='".BASE_URL."Khach/find.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px; margin-top:10px;'></a>";
-							echo '</div>';
-								echo "<a href='".BASE_URL."Khach/find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
-						
-					}
-				}
-				ConnectDB::disconnect();
-			?>
+                <div class="panel-body" style="height:430px; margin-left:10px;">
+        		<!-- chèn tin tìm chủ -->
+					<?php
+                        require_once(BASE_PATH . "/PHP/ConnectDB.php");
+                        $conn = ConnectDB::connect();
+                        
+                        $sql = "SELECT ID,TieuDe,HinhAnh FROM BaiViet WHERE IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 2";
+                
+                        $result = mysqli_query($conn, $sql);
+                                
+                        if($result->num_rows > 0)
+                        {
+                            while($row = $result->fetch_assoc())
+                            {
+                                //echo "<li class='findlost'><a href='".BASE_URL."/Khach/Find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
+								echo '<div class="row" style="width:210px;">';
+									echo '<div class="row" style="height:140px;">';
+										echo "<a href='".BASE_URL."/Khach/Find.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px;margin-left: 17px;margin-top: 3px;'></a>";
+									echo "</div>";
+									echo '<div class="row" style="height:50px;">';
+										echo "<h5 style='margin-left: 20px;'><a href='".BASE_URL."/Khach/Find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></h5>";
+									echo "</div>";
+								echo "</div>";
+                            }
+                        }
+                        ConnectDB::disconnect();
+                    
+                    ?>
+                
             <div style="text-align:right;margin-top: 15px;">
-                        <a class="button" href="indexfind.php">Xem thêm</a>
-                    </div>
+				<a class="button" href="indexfind.php">Xem thêm</a>
+			</div>
 		</div>
-                        </div>
-	<div class="panel panel-primary" style="margin-top: 57px;">
-		<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN MẤT CHÓ MỚI</b></div>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading" style="text-align: center; font-family: time new roman; font-size:17px;"><b>TIN MẤT THÚ MỚI</b></div>
 		<div class="panel-body" style="height:430px;margin-left:10px;">
-		<?php
+        	<!-- chèn tin mất thú -->
+			<?php
 				require_once(BASE_PATH . "/PHP/ConnectDB.php");
 				$conn = ConnectDB::connect();
 				
@@ -178,15 +187,21 @@
 				{
 					while($row = $result->fetch_assoc())
 					{
-						echo '<div class="row" style="height:145px;">';
-								echo "<a href='".BASE_URL."Khach/lost.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px; margin-top:10px;'></a>";
-							echo '</div>';
-								echo "<a href='".BASE_URL."Khach/lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a>";
-						
+						//echo "<li class='findlost'><a href='".BASE_URL."/Khach/Find.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></li>";
+						echo '<div class="row" style="width:210px;">';
+							echo '<div class="row" style="height:140px;">';
+								echo "<a href='".BASE_URL."/Khach/Lost.php?ID=".$row['ID']."'><img class='img-thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='height: 135px;width:205px;margin-left: 17px;margin-top: 3px;'></a>";
+							echo "</div>";
+							echo '<div class="row" style="height:50px;">';
+								echo "<h5 style='margin-left: 20px;'><a href='".BASE_URL."/Khach/Lost.php?ID=".$row['ID']."'>".$row['TieuDe']."</a></h5>";
+							echo "</div>";
+						echo "</div>";
 					}
 				}
 				ConnectDB::disconnect();
+			
 			?>
+                
             <div style="text-align:right;margin-top: 15px;">
                         <a class="button" href="indexlost.php">Xem thêm</a>
                     </div>
