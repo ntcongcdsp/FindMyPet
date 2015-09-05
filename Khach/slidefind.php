@@ -22,10 +22,12 @@
 	<script type="text/javascript" src="../asset/js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="../asset/slick/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="../asset/slick/slick.min.js"></script>
+    
 </head>
 <body>
 <!-- chèn slide ảnh tìm chủ-->
-<div id="SlideFindOwner" align="center" style="margin-top:30px">
+<div style="color:#F00 ;margin-top:5px; text-align:center"><b class="panel panel-primary">HÌNH ẢNH THÚ CƯNG TÌM CHỦ</b></div>
+<div id="SlideFindOwner" align="center" style="margin-top:20px">
 	<?php
 		include_once(realpath(dirname(__DIR__))."/PHP/define.php");
 		/*echo "<div><img src='".BASE_URL."img/9.jpg' class='imgSlide'></div>";

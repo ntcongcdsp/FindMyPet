@@ -104,7 +104,7 @@
 		</form>
     </div>
     
-	<div class="row" align="center">
+	<div class="row" align="center" style="margin-bottom:10px">
         <table class="table table-condensed">
         <tr>
             <th class="info" >Tên đăng nhập</th>
@@ -191,11 +191,11 @@
 		
 		//bắt đầu phân trang
 		$page_cr=($start/$row_per_page)+1;
-		echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
+		//echo "<h4><span class='bg-primary'>". $page_cr."</span></h4>";
 		for($i=1;$i<=$page;$i++)
 		{
 		 if ($page_cr!=$i) echo "<a href='QLTaiKhoan.php?start=".$row_per_page*($i-1)."'><button type='button' class='btn btn-success'>".$i."</button></a>";
-		 else echo "<button type='button' class='btn btn-success'>".$i."</button>";
+		 else echo "<button type='button' class='btn btn-warning'>".$i."</button>";
 		
 		} 
 		?>
