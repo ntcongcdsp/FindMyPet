@@ -56,7 +56,7 @@
                     <!--<img class="thumbnail" src="../img/3.jpg" style="width:500px;height:350px;margin-top: 15px; margin-left: 30px;">-->
                 </div>
 			<div class="col-xs-5">
-            	<div style="border: 2px solid blueviolet; border-radius:5px;width:380px;height: 350px; margin-top:15px;">
+            	<div style="border: 1px solid blueviolet; border-radius:5px;width:380px;height: 350px; margin-top:15px;">
                 	<div style="text-align: center;font-size: 30px;margin-top:5px;">
 						Đặc điểm thú cưng
 					</div>
@@ -72,7 +72,7 @@
 				</div>
 			</div>
 			<div class="col-xs-12">
-				<div style="border: 2px solid gray; border-radius:5px;height: 200px; margin-top:15px;">
+				<div style="border: 1px solid gray; border-radius:5px;height: 200px; margin-top:15px;">
 					<div style="text-align: center;font-size: 30px;margin-top:5px;">
                     	Mô tả về thú cưng
 					</div>
@@ -83,7 +83,7 @@
 				</div> 
 			</div>
 			<div class="col-xs-12">
-            	<div style="border: 2px solid green; border-radius:5px;min-height:100%; margin-top:15px;">
+            	<div style="border: 1px solid green; border-radius:5px; margin-top:15px;">
 					<div style="text-align:left;font-size: 30px;margin-top:5px;margin-left:15px;">
 						Bình luận
 					</div>
@@ -97,7 +97,7 @@
 		</div>
 	</div>
 </div>
-<div style="border:1px solid blueviolet;border-radius:4px;"> 
+<div> 
 	<h4 style="margin-left:30px;"> >>> Bài viết có liên quan <<< </h4>
     <!--- Chen tieu de cac tin mat thu co the lien quan -->
     <?php
@@ -128,7 +128,7 @@
 		{
 			while($rowLQ= $resultLQ->fetch_assoc())
 			{
-				echo "<a href='".BASE_URL."/Khach/Lost.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>  &nbsp;";
+				echo "<li class='milo'><a href='".BASE_URL."/Khach/Lost.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>  &nbsp;";
 			}
 		}
 		ConnectDB::disconnect();

@@ -32,7 +32,7 @@
 	<img class="img-thumbnail" src="../img/chobannerlost.jpg" alt="banner" style="width:100%; height: 270px;margin-top: 10px;margin-bottom:5px;">  
 	<br>
         <div class="row">
-        <div class="col-xs-12" style="background-color: whitesmoke;padding-top: 5px; min-height:100$">
+        <div class="col-xs-12" style="background-color: whitesmoke;padding-top: 5px; min-height:100%">
 			<div class="row">
             	<p class="bg-primary" style="margin-right: 5px;margin-left: 5px;font-size: 30px;color:white;font-family: tahoma;text-align: center;border-radius:5px;padding-bottom: 5px;"> <b>Tin mất thú cưng</b> </p>
             </div>
@@ -94,6 +94,7 @@
         } 
     ?>
 </div>
+        <br>
 <div class="row">
 	<div class="col-xs-4">
 			<div class="panel panel-primary">
@@ -129,7 +130,7 @@
 			</div>
 		</div>
 	
-	<div class="col-xs-8" style="background-color:lightblue; height: 180px;width:684px;">
+	<div class="col-xs-8" style="background-color:lightblue; height: 180px;width:684px;border-radius:5px;">
 		<!-- chèn slide ảnh tìm chủ-->
         <?php
 			include("slidefind.php");

@@ -151,22 +151,7 @@
                         ConnectDB::disconnect();
                     
                     ?>
-                <!--	<div class="row" style="width:210px;">
-					<div class="row" style="height:140px;">
-                    	<a href="#"><img class="img-thumbnail" src="../img/dogs1.jpg" style="height: 135px;width:205px;margin-left: 17px;margin-top: 3px;"></a>
-                    </div>
-                <div class="row" style="height:50px;">
-                	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
-				</div>
-			</div>
-            <div class="row" style="width:210px;">
-                <div class="row" style="height:140px;">
-                	<a href="#"><img class="img-thumbnail" src="../img/Guide-Dogs_025-11.jpg" style="height: 135px;width:205px;margin-left: 17px;margin-top: 3px;"></a>
-                </div>
-                <div class="row" style="height:50px;">
-                	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
-                </div>
-			</div>-->
+                
             <div style="text-align:right;margin-top: 15px;">
 				<a class="button" href="indexfind.php">Xem thêm</a>
 			</div>
@@ -202,22 +187,7 @@
 				ConnectDB::disconnect();
 			
 			?>
-            <!--<div class="row" style="width:210px;">
-				<div class="row" style="height:140px;">
-                	<a href="#"><img class="img-thumbnail" src="../img/dogs1.jpg" style="height: 135px;width:205px;margin-left: 17px;margin-top: 3px;"></a>
-				</div>
-                <div class="row" style="height:50px;">
-                	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
-                </div>
-            </div>
-			<div class="row" style="width:210px;">
-                <div class="row" style="height:140px;">
-					<a href="#"><img class="img-thumbnail" src="../img/Guide-Dogs_025-11.jpg" style="height: 135px;width:205px;margin-left: 17px;margin-top: 3px;"></a>
-                </div>
-                <div class="row" style="height:50px;">
-                	<h5 style="margin-left: 20px;"><a href="#">Tiêu đề Xumali</a></h5>
-				</div>
-			</div>-->
+                
             <div style="text-align:right;margin-top: 15px;">
                         <a class="button" href="indexlost.php">Xem thêm</a>
                     </div>

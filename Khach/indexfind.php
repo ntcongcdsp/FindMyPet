@@ -96,7 +96,7 @@
 			
 			} 
 		?>
-	</div>
+    </div><br>
 	<div class="row">
 		<div class="col-xs-4">
             <div class="panel panel-primary">
@@ -131,7 +131,7 @@
                 </div>
         	</div>
     	</div>
-	<div class="col-xs-8" style="background-color:lightblue; height: 180px;width:684px;">
+	<div class="col-xs-8" style="background-color:lightblue; height: 180px;width:684px;border-radius:5px;">
 		<!-- chèn slide ảnh tìm chủ-->
         <?php
 			include("slidelost.php");

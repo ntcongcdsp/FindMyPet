@@ -63,7 +63,7 @@
 			?>
             <!--<img class="img-thumbnail" src="../img/bannervui2.jpg" style="width:480px;height:55px;margin-left:5px;">-->
         </div>
-        <div class="row" style="height:255px;width:480px;margin-left:10px;">
+        <div class="row" style="height:255px;width:480px;margin-left:10px;margin-top:17px;">
             <!-- Chèn clip vui -->
              <?php
                     require_once(BASE_PATH . "/PHP/ConnectDB.php");
@@ -108,7 +108,7 @@
     </div>
 </div>      
 <hr>	
-<div class="row" style="width:880px;margin:30px 0px 0px 70px; padding-bottom:20px; border: 2px solid grey;border-radius:5px;">
+<div class="row" style="width:880px;margin-left:70px;padding-bottom:20px; border: 2px solid grey;border-radius:5px;margin-bottom:-100px;">
 	<div class="col-xs-2">
     	<?php
 			echo "<img class='img-thumbnail' src='".BASE_URL."img/logo.gif' style='width:130px;height:70; margin-top: 50px;'>";
