@@ -35,9 +35,10 @@
 				$conn = ConnectDB::connect();
 				
 				$sql = "SELECT * FROM BaiViet WHERE ID = " .$_GET['ID'];
-		
+
+				
 				$result = mysqli_query($conn, $sql);
-						
+						$row="";
 				if($result->num_rows > 0)
 				{
 					while($row = $result->fetch_assoc())
@@ -68,9 +69,9 @@
 							echo "<div align='justify' style='margin-left:10px;margin-right:10px'><p><h4>Nguồn gốc:</h4> ".$row['NguonGoc']."</p></div>";
 						if($row['TieuChuan'] != "")
 							echo "<div align='justify' style='margin-left:10px;margin-right:10px'><p><h4>Tiêu chuẩn:</h4> ".$row['TieuChuan']."</p></div>";
-						}
-				}
-				ConnectDB::disconnect();
+						//}
+				//}
+				//ConnectDB::disconnect();
 			?>
 			</div>
             <div class="row" style="border:1px solid blueviolet;border-radius:4px;margin-top:15px;"> 
@@ -82,18 +83,20 @@
                         require_once(BASE_PATH . "/PHP/ConnectDB.php");
                         $conn = ConnectDB::connect();
                     
-                        $sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Loai like '%".$row['Loai']."%' OR Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND ID <> ".$_GET['ID']." AND IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 5";
-                
+                        $sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND Loai like '".$row['Loai']."%' AND ID <> ".$_GET['ID']." AND IDDanhMuc = ".BAI_VIET." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 5";
+						
                         $resultLQ = mysqli_query($conn, $sqlLQ);
                                 
                         if($resultLQ->num_rows > 0)
                         {
                             while($rowLQ= $resultLQ->fetch_assoc())
                             {
-                                echo "<li><a href='".BASE_URL."/Khach/Knowledgepage.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>";
+                                echo "<li class='milo'><a href='".BASE_URL."/Khach/Knowledgepage.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>";
                             }
                         }
                         ConnectDB::disconnect();
+						}
+						}
                     ?>
                     </ul>
                 </div>
