@@ -40,6 +40,7 @@
 				require_once("../PHP/ConnectDB.php");
 				$conn = ConnectDB::connect();
 				$sql = "SELECT * FROM BaiViet WHERE ID = ".$_GET['ID'];
+<<<<<<< HEAD
 	
 				$resut = mysqli_query($conn, $sql);
 				if($resut->num_rows>0)
@@ -47,11 +48,24 @@
 					$row = $resut->fetch_assoc();
 				}
 				ConnectDB::disconnect();
+=======
+				$rowTin = "";		
+				$resut = mysqli_query($conn, $sql);
+				if($resut->num_rows>0)
+				{
+					$rowTin = $resut->fetch_assoc();
+				//}
+				//ConnectDB::disconnect();
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948
 			?>
             <div class="row">
                 <div class="col-xs-7">
                     <?php
+<<<<<<< HEAD
 						echo "<img class='thumbnail' src='".BASE_URL."img/".$row['HinhAnh']."' style='width:500px;height:350px;margin-top: 15px; margin-left: 30px;'>";
+=======
+						echo "<img class='thumbnail' src='".BASE_URL."img/".$rowTin['HinhAnh']."' style='width:500px;height:350px;margin-top: 15px; margin-left: 30px;'>";
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948
 					?>
                     <!--<img class="thumbnail" src="../img/3.jpg" style="width:500px;height:350px;margin-top: 15px; margin-left: 30px;">-->
                 </div>
@@ -61,12 +75,21 @@
 						Đặc điểm thú cưng
 					</div>
                     <?php
+<<<<<<< HEAD
 						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Loài: ".$row['Loai']."</p>";
 						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Giống: ".$row['Giong']."</p>";
 						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Tên: ".$row['Ten']."</p>";
 						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Màu: ".$row['Mau']."</p>";
 						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Tuổi: ".$row['Tuoi']."</p>";	
 						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Đặc điểm nhận dạng: ".$row['DacDiemNhanDang']."</p>";
+=======
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Loài: ".$rowTin['Loai']."</p>";
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Giống: ".$rowTin['Giong']."</p>";
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Tên: ".$rowTin['Ten']."</p>";
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Màu: ".$rowTin['Mau']."</p>";
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Tuổi: ".$rowTin['Tuoi']."</p>";	
+						echo "<p style='text-align: left;font-size: 20px;margin-left:10px;'>Đặc điểm nhận dạng: ".$rowTin['DacDiemNhanDang']."</p>";
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948
 					?>
                     <!-- Loai, Giong, Ten, Mau, Tuoi, DacdiemNhanDang-->
 				</div>
@@ -77,7 +100,11 @@
                     	Mô tả về thú cưng
 					</div>
                     <?php
+<<<<<<< HEAD
 						echo "<div style='text-align: left;font-size: 20px;margin-left:10px;'>".$row['NoiDung']."</div>";
+=======
+						echo "<div style='text-align: left;font-size: 20px;margin-left:10px;'>".$rowTin['NoiDung']."</div>";
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948
 					?>
                     <!-- Noi dung -->
 				</div> 
@@ -106,18 +133,32 @@
                 require_once(BASE_PATH . "/PHP/ConnectDB.php");
                 $conn = ConnectDB::connect();
                 
+<<<<<<< HEAD
                 $sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Loai like '%".$row['Loai']."%' OR Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND IDDanhMuc = ".TIN_MAT." AND KiemDuyet = ".DA_KIEM_DUYET." LIMIT 5";
        
+=======
+                $sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Giong like '%".$rowTin['Giong']."%' OR Mau like '%".$rowTin['Mau']."%' OR DacDiemNhanDang like '%".$rowTin['DacDiemNhanDang']."%') AND Loai like '".$rowTin['Loai']."' AND IDDanhMuc = ".TIN_MAT." AND KiemDuyet = ".DA_KIEM_DUYET." LIMIT 5";
+
+					
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948
                 $resultLQ = mysqli_query($conn, $sqlLQ);
                         
                 if($resultLQ->num_rows > 0)
                 {
                     while($rowLQ= $resultLQ->fetch_assoc())
                     {
+<<<<<<< HEAD
                         echo "<li><a href='".BASE_URL."/Khach/Lost.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>";
                     }
                 }
                 ConnectDB::disconnect();
+=======
+                        echo "<li class='milo'><a href='".BASE_URL."/Khach/Lost.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>";
+                    }
+                }
+                ConnectDB::disconnect();
+				}
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948
             ?>
         </ul>
     </div>

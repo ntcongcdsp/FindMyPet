@@ -107,7 +107,11 @@
                 $conn = ConnectDB::connect();
                 
                 //$sql = "SELECT ID,TieuDe FROM BaiViet WHERE IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." ORDER BY ID DESC LIMIT 3";
+<<<<<<< HEAD
                 $sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Loai like '%".$row['Loai']."%' OR Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." LIMIT 5";
+=======
+                $sqlLQ = "SELECT ID, TieuDe FROM Baiviet WHERE (Giong like '%".$row['Giong']."%' OR Mau like '%".$row['Mau']."%' OR DacDiemNhanDang like '%".$row['DacDiemNhanDang']."%') AND Loai like '".$row['Loai']."' AND IDDanhMuc = ".TIN_TIM." AND KiemDuyet = ".DA_KIEM_DUYET." LIMIT 5";
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948
         
                 $resultLQ = mysqli_query($conn, $sqlLQ);
                         
@@ -115,7 +119,11 @@
                 {
                     while($rowLQ= $resultLQ->fetch_assoc())
                     {
+<<<<<<< HEAD
                         echo "<li><a href='".BASE_URL."Khach/Find.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>";
+=======
+                        echo "<li class='milo'><a href='".BASE_URL."Khach/Find.php?ID=".$rowLQ['ID']."'>".$rowLQ['TieuDe']."</a></li>";
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948
                     }
                 }
                 ConnectDB::disconnect();

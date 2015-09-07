@@ -74,8 +74,19 @@ width: 600px;
 
 }
 .milo {
+<<<<<<< HEAD
     margin-left:20px;
 }
 img {
 	width:100%;
 }
+=======
+	list-style:none;
+}
+img {
+	width:100%;
+}
+#moli {
+padding:2px;
+	}
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948

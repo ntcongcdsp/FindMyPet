@@ -25,7 +25,11 @@
 </head>
 <body>
 <!-- chèn slide ảnh chó bị mất-->
+<<<<<<< HEAD
 <div style="color:#F00 ;margin-top:5px; text-align:center"><b class="panel panel-primary">HÌNH ẢNH THÚ CƯNG BỊ MẤT</b></div>
+=======
+<div style="color:#F00 ;margin-top:5px; text-align:center"><b class="panel panel-primary" id="moli">HÌNH ẢNH THÚ CƯNG BỊ MẤT</b></div>
+>>>>>>> 778b6e23430df324ac710163b3b12918a3376948
 <div id="SlideLostPet" align="center" style="margin-top:20px">
 	<?php
 		include_once(realpath(dirname(__DIR__))."/PHP/define.php");
